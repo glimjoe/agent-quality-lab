@@ -1,0 +1,15 @@
+# Local credentials and machine configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Raw local experiments; reviewed public evidence is stored separately
+.local/
+runs/raw/
+
+# Common temporary files
+*.log
+.DS_Store
+Thumbs.db
