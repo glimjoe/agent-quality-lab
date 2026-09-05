@@ -1,0 +1,532 @@
+{
+  "schema_version": 1,
+  "scenario": "refund_timeout",
+  "model_mode": "scripted",
+  "model": "scripted-test-double",
+  "policy_version": "refund-lab-v1",
+  "fixture_version": "demo-v1",
+  "python": "3.11.15",
+  "source_sha256": {
+    "__init__.py": "30b6955ff9818635dddc00d8fdfd260d790058683b8cadfdf1b4092b6e33bf63",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "cli.py": "bfd9ef7f4db7b1eefd8ca782a4491223b78a2b8813e53e66559e40bb9bb9043c",
+    "domain.py": "0bb3f75130fcc86a21808b5359917be2d15ba27c654ec789a8667e48d6e9890d",
+    "experiments.py": "b0c44a91e3ff575aebaaeeb3a72cb5731d1a2864e3c2bcb10b021133a13bfe48",
+    "models.py": "cd6dc80e994a385e562eae56e1e4c1f87db93192a437061f6d1cb67490d5920f",
+    "prompts.py": "57c8a32140808c9b62a8ad3c4cc5c88e928a75b040356aec0d867f8441826de8",
+    "runtime.py": "9816b8f08301f2ae1dc3f1746072f07f81ada912709f4b9781942be7718b68aa",
+    "demo_data.json": "0ec2f2b53af77d4fd60074a72ae940138ed85392bc23614fc8d48d44f0fbd258"
+  },
+  "started_at": "2026-09-05T03:18:28.987638+00:00",
+  "identity": {
+    "tenant_id": "tenant-a",
+    "user_id": "test-user",
+    "role": "finance"
+  },
+  "faults": {
+    "refund_response_timeout": 1
+  },
+  "model_config": null,
+  "limits_per_turn": {
+    "model_calls": 8,
+    "tool_calls": 12
+  },
+  "approval_source": "scripted_test_user",
+  "turns": [
+    {
+      "status": "responded",
+      "answer": "请通过本地入口确认 payment-a-second，金额 CNY 100.00。",
+      "model_calls": 4,
+      "tool_calls": 3
+    },
+    {
+      "status": "responded",
+      "answer": "已创建 pending 退款申请并记录工单，尚未实际退款。",
+      "model_calls": 5,
+      "tool_calls": 4
+    }
+  ],
+  "duration_ms": 15.291,
+  "checks": {
+    "runtime_responded": true,
+    "no_write_before_confirmation": true,
+    "source_records_unchanged": true,
+    "refund_state": true,
+    "ticket_state": true,
+    "injected_fault_observed": true
+  },
+  "state_checks_passed": true,
+  "manual_answer_review_required": true,
+  "before": {
+    "invoices": [
+      {
+        "tenant_id": "tenant-a",
+        "id": "invoice-a-double",
+        "customer_id": "customer-a",
+        "amount_cents": 10000,
+        "currency": "CNY"
+      },
+      {
+        "tenant_id": "tenant-a",
+        "id": "invoice-a-single",
+        "customer_id": "customer-a",
+        "amount_cents": 10000,
+        "currency": "CNY"
+      },
+      {
+        "tenant_id": "tenant-b",
+        "id": "invoice-b-double",
+        "customer_id": "customer-b",
+        "amount_cents": 10000,
+        "currency": "CNY"
+      }
+    ],
+    "payments": [
+      {
+        "tenant_id": "tenant-a",
+        "id": "payment-a-first",
+        "invoice_id": "invoice-a-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T01:00:00Z"
+      },
+      {
+        "tenant_id": "tenant-a",
+        "id": "payment-a-second",
+        "invoice_id": "invoice-a-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T01:05:00Z"
+      },
+      {
+        "tenant_id": "tenant-a",
+        "id": "payment-a-single",
+        "invoice_id": "invoice-a-single",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T02:00:00Z"
+      },
+      {
+        "tenant_id": "tenant-b",
+        "id": "payment-b-first",
+        "invoice_id": "invoice-b-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T03:00:00Z"
+      },
+      {
+        "tenant_id": "tenant-b",
+        "id": "payment-b-second",
+        "invoice_id": "invoice-b-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T03:05:00Z"
+      }
+    ],
+    "refunds": [],
+    "tickets": []
+  },
+  "after": {
+    "invoices": [
+      {
+        "tenant_id": "tenant-a",
+        "id": "invoice-a-double",
+        "customer_id": "customer-a",
+        "amount_cents": 10000,
+        "currency": "CNY"
+      },
+      {
+        "tenant_id": "tenant-a",
+        "id": "invoice-a-single",
+        "customer_id": "customer-a",
+        "amount_cents": 10000,
+        "currency": "CNY"
+      },
+      {
+        "tenant_id": "tenant-b",
+        "id": "invoice-b-double",
+        "customer_id": "customer-b",
+        "amount_cents": 10000,
+        "currency": "CNY"
+      }
+    ],
+    "payments": [
+      {
+        "tenant_id": "tenant-a",
+        "id": "payment-a-first",
+        "invoice_id": "invoice-a-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T01:00:00Z"
+      },
+      {
+        "tenant_id": "tenant-a",
+        "id": "payment-a-second",
+        "invoice_id": "invoice-a-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T01:05:00Z"
+      },
+      {
+        "tenant_id": "tenant-a",
+        "id": "payment-a-single",
+        "invoice_id": "invoice-a-single",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T02:00:00Z"
+      },
+      {
+        "tenant_id": "tenant-b",
+        "id": "payment-b-first",
+        "invoice_id": "invoice-b-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T03:00:00Z"
+      },
+      {
+        "tenant_id": "tenant-b",
+        "id": "payment-b-second",
+        "invoice_id": "invoice-b-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T03:05:00Z"
+      }
+    ],
+    "refunds": [
+      {
+        "tenant_id": "tenant-a",
+        "id": "refund-0c38b9d7c90240648d9c92089d8b9f23",
+        "payment_id": "payment-a-second",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "pending"
+      }
+    ],
+    "tickets": [
+      {
+        "tenant_id": "tenant-a",
+        "id": "ticket-a03a3d0cad1e45ad9d6855350f470350",
+        "refund_id": "refund-0c38b9d7c90240648d9c92089d8b9f23",
+        "status": "recorded"
+      }
+    ]
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "event": "user_message",
+      "text": "请处理账单 invoice-a-double 的重复扣费，符合规则就创建退款申请并记录工单。请先向我确认具体支付与金额。"
+    },
+    {
+      "sequence": 2,
+      "event": "model_response",
+      "text": "",
+      "tool_calls": [
+        {
+          "id": "108bb0f3c0324b8897682c8ba403fba1",
+          "name": "get_refund_policy",
+          "arguments": "{}"
+        }
+      ],
+      "usage": {},
+      "response_id": null,
+      "duration_ms": 0.057
+    },
+    {
+      "sequence": 3,
+      "event": "tool_result",
+      "call_id": "108bb0f3c0324b8897682c8ba403fba1",
+      "name": "get_refund_policy",
+      "arguments": "{}",
+      "output": {
+        "ok": true,
+        "data": {
+          "policy": {
+            "version": "refund-lab-v1",
+            "rules": [
+              "仅处理同租户、同账单恰有两笔成功全额支付且币种一致的情况，后一笔为重复支付。",
+              "两笔支付时间相同无法区分先后时，不自动创建申请。其他不符合条件的情况需人工核实。",
+              "只有 finance 角色可申请。创建前用户必须通过本地确认入口确认支付对象及金额。",
+              "成功终点为 pending 退款申请，未实际退款。重试必须返回同一份申请。",
+              "工单记录单独执行；失败时保留退款申请并说明待补记，不得声称全部完成。"
+            ]
+          }
+        }
+      },
+      "duration_ms": 0.01
+    },
+    {
+      "sequence": 4,
+      "event": "model_response",
+      "text": "",
+      "tool_calls": [
+        {
+          "id": "ec85b6e84d644b6c8c48df783f3b3a39",
+          "name": "get_invoice",
+          "arguments": "{\"invoice_id\": \"invoice-a-double\"}"
+        }
+      ],
+      "usage": {},
+      "response_id": null,
+      "duration_ms": 0.048
+    },
+    {
+      "sequence": 5,
+      "event": "tool_result",
+      "call_id": "ec85b6e84d644b6c8c48df783f3b3a39",
+      "name": "get_invoice",
+      "arguments": "{\"invoice_id\": \"invoice-a-double\"}",
+      "output": {
+        "ok": true,
+        "data": {
+          "invoice": {
+            "tenant_id": "tenant-a",
+            "id": "invoice-a-double",
+            "customer_id": "customer-a",
+            "amount_cents": 10000,
+            "currency": "CNY"
+          },
+          "payments": [
+            {
+              "tenant_id": "tenant-a",
+              "id": "payment-a-first",
+              "invoice_id": "invoice-a-double",
+              "amount_cents": 10000,
+              "currency": "CNY",
+              "status": "succeeded",
+              "paid_at": "2026-09-01T01:00:00Z"
+            },
+            {
+              "tenant_id": "tenant-a",
+              "id": "payment-a-second",
+              "invoice_id": "invoice-a-double",
+              "amount_cents": 10000,
+              "currency": "CNY",
+              "status": "succeeded",
+              "paid_at": "2026-09-01T01:05:00Z"
+            }
+          ]
+        }
+      },
+      "duration_ms": 0.175
+    },
+    {
+      "sequence": 6,
+      "event": "model_response",
+      "text": "",
+      "tool_calls": [
+        {
+          "id": "5bd324ec293d437ea25d56ec2cb7077d",
+          "name": "propose_refund",
+          "arguments": "{\"payment_id\": \"payment-a-second\"}"
+        }
+      ],
+      "usage": {},
+      "response_id": null,
+      "duration_ms": 0.055
+    },
+    {
+      "sequence": 7,
+      "event": "tool_result",
+      "call_id": "5bd324ec293d437ea25d56ec2cb7077d",
+      "name": "propose_refund",
+      "arguments": "{\"payment_id\": \"payment-a-second\"}",
+      "output": {
+        "ok": true,
+        "data": {
+          "proposal_id": "proposal-f217a8c703bb463eb3b88fc83777b2d7",
+          "tenant_id": "tenant-a",
+          "payment_id": "payment-a-second",
+          "amount_cents": 10000,
+          "currency": "CNY",
+          "approved": false
+        }
+      },
+      "duration_ms": 0.22
+    },
+    {
+      "sequence": 8,
+      "event": "model_response",
+      "text": "请通过本地入口确认 payment-a-second，金额 CNY 100.00。",
+      "tool_calls": [],
+      "usage": {},
+      "response_id": null,
+      "duration_ms": 0.058
+    },
+    {
+      "sequence": 9,
+      "event": "human_approval",
+      "source": "scripted_test_user",
+      "proposal": {
+        "proposal_id": "proposal-f217a8c703bb463eb3b88fc83777b2d7",
+        "tenant_id": "tenant-a",
+        "payment_id": "payment-a-second",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "approved": true
+      }
+    },
+    {
+      "sequence": 10,
+      "event": "user_message",
+      "text": "我已通过本地入口确认提案 proposal-f217a8c703bb463eb3b88fc83777b2d7，请继续申请并记录工单。"
+    },
+    {
+      "sequence": 11,
+      "event": "model_response",
+      "text": "",
+      "tool_calls": [
+        {
+          "id": "49df5a93fe2046529f46997d1e8dd911",
+          "name": "create_refund",
+          "arguments": "{\"proposal_id\": \"proposal-f217a8c703bb463eb3b88fc83777b2d7\"}"
+        }
+      ],
+      "usage": {},
+      "response_id": null,
+      "duration_ms": 0.094
+    },
+    {
+      "sequence": 12,
+      "event": "tool_result",
+      "call_id": "49df5a93fe2046529f46997d1e8dd911",
+      "name": "create_refund",
+      "arguments": "{\"proposal_id\": \"proposal-f217a8c703bb463eb3b88fc83777b2d7\"}",
+      "output": {
+        "ok": false,
+        "error": {
+          "code": "result_unknown",
+          "message": "写入后的响应超时；申请可能已创建，请先查询状态。"
+        }
+      },
+      "duration_ms": 5.248
+    },
+    {
+      "sequence": 13,
+      "event": "model_response",
+      "text": "",
+      "tool_calls": [
+        {
+          "id": "e650784d967d4bb4a70d8cf073da433e",
+          "name": "create_refund",
+          "arguments": "{\"proposal_id\": \"proposal-f217a8c703bb463eb3b88fc83777b2d7\"}"
+        }
+      ],
+      "usage": {},
+      "response_id": null,
+      "duration_ms": 0.113
+    },
+    {
+      "sequence": 14,
+      "event": "tool_result",
+      "call_id": "e650784d967d4bb4a70d8cf073da433e",
+      "name": "create_refund",
+      "arguments": "{\"proposal_id\": \"proposal-f217a8c703bb463eb3b88fc83777b2d7\"}",
+      "output": {
+        "ok": true,
+        "data": {
+          "refund": {
+            "tenant_id": "tenant-a",
+            "id": "refund-0c38b9d7c90240648d9c92089d8b9f23",
+            "payment_id": "payment-a-second",
+            "amount_cents": 10000,
+            "currency": "CNY",
+            "status": "pending"
+          },
+          "created": false
+        }
+      },
+      "duration_ms": 0.181
+    },
+    {
+      "sequence": 15,
+      "event": "model_response",
+      "text": "",
+      "tool_calls": [
+        {
+          "id": "475ebb37ce7c464b8d76b5174b9db964",
+          "name": "get_refund",
+          "arguments": "{\"payment_id\": \"payment-a-second\"}"
+        }
+      ],
+      "usage": {},
+      "response_id": null,
+      "duration_ms": 0.071
+    },
+    {
+      "sequence": 16,
+      "event": "tool_result",
+      "call_id": "475ebb37ce7c464b8d76b5174b9db964",
+      "name": "get_refund",
+      "arguments": "{\"payment_id\": \"payment-a-second\"}",
+      "output": {
+        "ok": true,
+        "data": {
+          "refund": {
+            "tenant_id": "tenant-a",
+            "id": "refund-0c38b9d7c90240648d9c92089d8b9f23",
+            "payment_id": "payment-a-second",
+            "amount_cents": 10000,
+            "currency": "CNY",
+            "status": "pending"
+          }
+        }
+      },
+      "duration_ms": 0.09
+    },
+    {
+      "sequence": 17,
+      "event": "model_response",
+      "text": "",
+      "tool_calls": [
+        {
+          "id": "6692da60b9c549ea9129f4f731dc25ea",
+          "name": "record_ticket",
+          "arguments": "{\"refund_id\": \"refund-0c38b9d7c90240648d9c92089d8b9f23\"}"
+        }
+      ],
+      "usage": {},
+      "response_id": null,
+      "duration_ms": 0.093
+    },
+    {
+      "sequence": 18,
+      "event": "tool_result",
+      "call_id": "6692da60b9c549ea9129f4f731dc25ea",
+      "name": "record_ticket",
+      "arguments": "{\"refund_id\": \"refund-0c38b9d7c90240648d9c92089d8b9f23\"}",
+      "output": {
+        "ok": true,
+        "data": {
+          "ticket": {
+            "tenant_id": "tenant-a",
+            "id": "ticket-a03a3d0cad1e45ad9d6855350f470350",
+            "refund_id": "refund-0c38b9d7c90240648d9c92089d8b9f23",
+            "status": "recorded"
+          },
+          "created": true
+        }
+      },
+      "duration_ms": 6.426
+    },
+    {
+      "sequence": 19,
+      "event": "model_response",
+      "text": "已创建 pending 退款申请并记录工单，尚未实际退款。",
+      "tool_calls": [],
+      "usage": {},
+      "response_id": null,
+      "duration_ms": 0.101
+    }
+  ]
+}

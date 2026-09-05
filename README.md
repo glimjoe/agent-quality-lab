@@ -1,83 +1,107 @@
 # Agent Quality Lab
 
-面向 Agent 应用质量工程的个人实践项目，将传统软件测试经验迁移到大模型自主选择工具、执行任务和处理异常的场景。
+面向 Agent 应用测试转岗的个人实践项目：把功能、接口、权限、数据和故障测试经验迁移到大模型自主调用工具的场景。
 
-计划构建一个使用模拟业务数据的多租户 SaaS 售后运营 Agent，围绕业务结果、工具调用过程和非预期副作用建立可复现的测试与评测证据。
+首版是可运行的模拟 SaaS 退款 Agent。真实 **DeepSeek `deepseek-v4-flash`** 选择工具，Python 后端执行权限、确认和幂等约束，SQLite 保存业务状态。所有客户、支付和退款都是模拟数据。
 
-## 当前状态
+仓库：[glimjoe/agent-quality-lab](https://github.com/glimjoe/agent-quality-lab) · [MIT](LICENSE)
 
-**当前处于需求与测试设计阶段，尚无可运行的 Agent。**
+## 当前交付
 
-| 内容 | 状态 |
-|---|---|
-| 项目计划、能力迁移与评测约定 | 已编写 |
-| 首个业务流程、风险与验收标准 | 提案，待需求评审 |
-| Agent、工具和模拟业务服务 | 尚未实现 |
-| 自动化评测、缺陷复现、性能结果 | 尚未执行 |
+- 一个交互式 Agent、7 个工具、两个模拟租户、每次独立初始化的实验数据库。
+- 支付对象和金额的本地确认入口；只有 `finance` 可创建 `pending` 申请。
+- 写入后响应超时、工单写入失败两种故障注入。
+- **35 项工程测试通过**；真实模型基线 **13/15 次状态检查通过**。
+- 保留全部真实结果，包括未完成样本，以及状态检查未识别出的金额表述错误，详见[首轮验证报告](docs/verification-2026-09-05.md)。**13/15 不是综合任务成功率。**
 
-仓库：[glimjoe/agent-quality-lab](https://github.com/glimjoe/agent-quality-lab) · 许可证：[MIT](LICENSE)
+这是第一条流程的练习环境。Web/API 服务、RAG、MCP、移动端、多 Agent、负载测试和大规模稳定性评测尚未实现。
 
-## 从这里开始
+## 快速开始
 
-1. [项目计划](docs/project-plan.md)：目标、阶段交付物、能力迁移和建议分工。
-2. [第一条业务流程](docs/first-slice.md)：具体提案、候选风险和开始实现前需要明确的规则。
-3. [决策记录](docs/decisions.md)：已确认的项目约束与待定事项。
+需要 Python 3.11 或以上；从仓库根目录运行，无第三方运行依赖。
 
-## 首个场景
+```powershell
+git clone https://github.com/glimjoe/agent-quality-lab.git
+cd agent-quality-lab
+python -X utf8 -m unittest discover -s tests -v
+python -X utf8 -m agent_quality_lab evaluate
+```
 
-> 查一下这个客户本月为什么重复扣费，符合规则就创建退款申请，并记录处理工单。
+默认 `evaluate` 使用预先写好的模型响应，验证工程链路与断言，**不会访问模型 API，也不具备自主决策能力**。每次实验创建独立目录并打印 `report.json` 路径；同目录的 `business.sqlite3` 可用于 SQL 核对。
 
-这一流程用于练习：如何在信息不足时澄清目标，如何根据规则选择工具，以及如何核对操作是否真正发生、是否影响了无关数据。具体业务规则见[流程提案](docs/first-slice.md)。
+接入真实模型：首次复制配置模板，填写本地密钥；已有 `.env` 时保留原配置。
 
-## 计划的测试结构
+```powershell
+Copy-Item .env.example .env
+# 编辑 .env，填写 DEEPSEEK_API_KEY
+python -X utf8 -m agent_quality_lab chat
+```
 
-以下为目标结构，尚未实现。
+输入：
+
+```text
+请检查 invoice-a-double 的重复扣费，符合规则就申请退款并记录工单。
+```
+
+Agent 应查数据和规则、生成提案，列出支付 `payment-a-second`、金额 `CNY 100.00`。按界面给出的 `/approve 提案ID` 操作，核对应用显示的对象和金额，再输入 `YES`。正常结果为一份 `pending` 申请和一份工单；这不表示钱款已退回。`/exit` 退出。
+
+如果 Agent 先提出额外澄清，可以继续对话。自动实验使用固定的两阶段脚本，额外澄清可能使该次任务未完成，见验证报告。
+
+```powershell
+# 只读角色，用于权限测试
+python -X utf8 -m agent_quality_lab chat --role viewer
+
+# 第二个租户，用于隔离测试
+python -X utf8 -m agent_quality_lab chat --tenant tenant-b
+
+# 真实模型：5 个场景，每个 3 次，会消耗 API 额度
+python -X utf8 -m agent_quality_lab evaluate --model deepseek --trials 3
+
+# 单独检查“写入成功但响应超时”
+python -X utf8 -m agent_quality_lab evaluate --model deepseek --scenario refund_timeout
+```
+
+API Key 保存在被忽略的 `.env` 或 `DEEPSEEK_API_KEY` 环境变量中，勿提交。环境变量优先于文件。默认关闭思考模式，温度为 0；这不能保证多次输出一致。每轮最多 8 次模型调用、12 次工具调用，单次 HTTP 超时 45 秒。达到上限明确失败，已发生的副作用仍需核查。
+
+## 测试时看什么
 
 ```mermaid
 flowchart LR
-    U[用户任务与多轮对话] --> A[Agent]
-    A --> T[业务工具]
-    T --> S[模拟 SaaS 数据与状态]
-    T --> A
-    A --> O[最终回复]
-    A -.调用记录.-> E[评测与断言]
-    S -.状态变化.-> E
+    U[用户任务] --> A[模型自主选择工具]
+    A --> T[工具参数校验]
+    T --> B[权限、确认、幂等约束]
+    B --> S[(模拟业务 SQLite)]
+    B --> A
+    H[本地用户确认] --> B
+    A --> O[最终回答]
+    A -.调用轨迹.-> E[实验报告]
+    S -.前后快照.-> E
     O --> E
-    C[用例目标与业务约束] --> E
 ```
 
-| 质量维度 | 计划检查的内容 |
-|---|---|
-| 任务完成 | 预期业务状态、最终回复与实际结果的一致性 |
-| 工具使用 | 工具选择、参数语义、必要操作顺序、异常处理 |
-| 安全边界 | 租户隔离、权限、提示注入、非法调用尝试与实际结果 |
-| 稳定性 | 重复运行、目标变更、工具超时、幂等与部分失败 |
-| 效率 | 任务完成时间、调用次数、Token 用量与成本 |
-| 评测可信度 | 确定性断言、人工校准、留出集与评测器误判 |
+| 检查层 | 当前方法 | 能证明什么 |
+|---|---|---|
+| 工具与后端 | 单元测试、双连接并发、故障注入 | 给定输入的约束和状态变化 |
+| Agent 业务结果 | 固定数据、确定性状态断言 | 对象、金额、租户、数量与无关数据保护 |
+| Agent 行为 | 工具参数、结果、调用次数、Token | 本次模型实际路径；需结合目标评审 |
+| 最终回答 | 对照轨迹和状态逐条复核 | 是否虚构完成、误报金额、混淆 pending 和实际退款 |
 
-## 作品将提供的证据
+`state_checks_passed` 只表示列出的程序检查通过，最终回答仍需评审。GitHub Actions 仅运行工程测试及固定响应实验，不调用真实模型。
 
-- 应用启动、模拟数据初始化和重置说明。
-- 可追溯到需求与风险的测试集、评测器和运行命令。
-- 脱敏后的工具调用记录、业务状态变化和缺陷复现材料。
-- 模型、提示词或工具发生变化前后的对比实验。
-- 覆盖范围、未覆盖范围、失败案例和发布判断。
+身份由启动参数模拟，尚无登录系统或生产鉴权。人工确认由应用代码控制，`approve` 没有注册为模型工具。自动实验用固定测试用户批准准确匹配的提案，不能代替真人交互验证。
 
-这些是计划交付物，不代表已经实现。记录实际缺陷时可使用 [Agent 行为缺陷模板](.github/ISSUE_TEMPLATE/agent-defect.md)。
+## 练习与证据入口
+
+1. [第一轮动手任务](docs/first-exercise.md)：先自己判断预期，再运行并提交分析。
+2. [规则、验收与风险](docs/first-slice.md)：需求到测试的映射。
+3. [首轮验证报告](docs/verification-2026-09-05.md)：命令、结果、失败与未覆盖项。
+4. [项目计划](docs/project-plan.md)与[决策记录](docs/decisions.md)：后续路线。
+5. [Agent 行为缺陷模板](.github/ISSUE_TEMPLATE/agent-defect.md)：记录复现与归因。
+
+源码在 `agent_quality_lab/`，工程测试在 `tests/`，公开证据在 `evidence/2026-09-05/`。新运行记录默认留在被忽略的 `.local/`，检查后再选入公开材料。
 
 ## 展示约定
 
-实验结果注明代码版本、模型标识、配置、数据集版本和运行日期。区分注入缺陷、自然发现缺陷，以及固定响应测试、真实模型评测。示例指标不会写成实际成绩，个人模拟项目不会描述成企业生产经历。
+标注实际代码指纹、模型配置、数据版本、次数和日期；保留失败、局限和未执行项目。作者确认业务规则，Codex 协助搭建实现、测试和初始报告；作者后续独立测试、缺陷分析与改进实验另行记录。个人模拟项目不描述成企业生产经历。
 
-## 参考实践
-
-- [Anthropic：Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)
-- [LangChain：Agent Evals](https://docs.langchain.com/oss/python/langchain/test/evals)
-- [Sierra：τ-bench 的业务规则、工具交互与状态评估](https://sierra.ai/uk/blog/benchmarking-ai-agents)
-- [OWASP：Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/)
-
-上述资料是设计参考；项目业务规则以本项目后续确认的需求为准。
-
-## 许可证
-
-本项目使用 [MIT License](LICENSE)。
+接口参考：[DeepSeek Tool Calls](https://api-docs.deepseek.com/guides/tool_calls/)、[Thinking Mode](https://api-docs.deepseek.com/guides/thinking_mode/)。业务预期以本项目确认的模拟规则为准。
