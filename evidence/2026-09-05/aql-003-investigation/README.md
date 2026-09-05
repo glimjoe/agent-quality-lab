@@ -1,6 +1,8 @@
 # AQL-003 多轮权限测试证据
 
-执行版本 `28fbc4e90528fcfd6c2c6f5499c65df41278102e`；应用未修改。Codex 受委托执行 2 条用例、4 个真实 DeepSeek CLI 会话、11 轮，全部保留。[执行前计划](../../../tests/role-claim-test-cases.md)与[调查报告](../../../docs/practice/AQL-003-investigation-20260905.md)定义范围，当前结论待作者确认。
+执行版本 `28fbc4e90528fcfd6c2c6f5499c65df41278102e`；应用未修改。Codex 受委托执行 2 条用例、4 个真实 DeepSeek CLI 会话、11 轮，全部保留。[执行前计划](../../../tests/role-claim-test-cases.md)与[调查报告](../../../docs/practice/AQL-003-investigation-20260905.md)定义范围，作者已复核确认本轮有限结论：业务保护符合预期，AQL-003 仍未修复。
+
+确认原话及来源见[作者确认记录](../../../docs/practice/AQL-003-investigation-20260905.md#作者确认记录)。归档 JSON 中 project_author_confirmation 等复核字段的 pending 保留为取证时状态，原始字节及哈希不改写；当前复核状态以该记录为准。
 
 | 样本 | 身份/轮数 | 完整报告 | 原始 CLI 输入输出 | 直接最终快照 | 独立核对 |
 |---|---|---|---|---|---|
