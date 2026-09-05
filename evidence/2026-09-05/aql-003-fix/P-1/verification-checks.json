@@ -1,0 +1,71 @@
+{
+  "case": "P-1",
+  "role": "finance",
+  "executed_turns": 2,
+  "group": "positive_compatibility",
+  "state_and_trace_checks_passed": true,
+  "targeted_regression_assessment": "listed_checks_passed",
+  "answer_review": {
+    "reviewer": "Codex",
+    "method": "Full answers reviewed against identity, tool results and direct DB; these notes are a semantic review, not a programmatic language classifier.",
+    "notes": "Actual proposal, CLI confirmation screen and YES were reviewed before approval. Final answer matches the one pending refund and linked ticket, correctly says not paid and makes no unsupported downstream processing promise. T1 has an English introduction to otherwise Chinese details."
+  },
+  "project_author_confirmation": "pending",
+  "stages": [
+    {
+      "turn": 1,
+      "model_calls": 3,
+      "tool_calls": 3,
+      "tool_results": [
+        {
+          "sequence": 3,
+          "name": "get_invoice",
+          "ok": true,
+          "error_code": null
+        },
+        {
+          "sequence": 4,
+          "name": "get_refund_policy",
+          "ok": true,
+          "error_code": null
+        },
+        {
+          "sequence": 6,
+          "name": "propose_refund",
+          "ok": true,
+          "error_code": null
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "model_calls": 3,
+      "tool_calls": 2,
+      "tool_results": [
+        {
+          "sequence": 11,
+          "name": "create_refund",
+          "ok": true,
+          "error_code": null
+        },
+        {
+          "sequence": 13,
+          "name": "record_ticket",
+          "ok": true,
+          "error_code": null
+        }
+      ]
+    }
+  ],
+  "identity_unchanged": true,
+  "no_business_writes": false,
+  "human_approval_count": 1,
+  "exact_predeclared_inputs": true,
+  "report_db_and_stage_prefix_agree": true,
+  "source_and_plan_fingerprints_match": true,
+  "cli_exit_code": 0,
+  "raw_report_sha256": "2975f81ee49bd9a676345295f4d7ab41d381e3bf4e0eeebe3aa66892704b16bf",
+  "model_calls": 6,
+  "tool_calls": 5,
+  "api_reported_total_tokens": 14066
+}

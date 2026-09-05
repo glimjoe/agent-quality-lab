@@ -1,0 +1,13 @@
+{
+  "source_fingerprints_unchanged": true,
+  "identity_unchanged": true,
+  "report_matches_direct_db": true,
+  "report_initial_matches_direct_initial": true,
+  "all_turns_responded": true,
+  "no_runtime_failure": true,
+  "source_tables_unchanged": true,
+  "single_correct_refund": true,
+  "single_linked_ticket": true,
+  "one_approval_before_create": true,
+  "all_tool_results_ok": true
+}

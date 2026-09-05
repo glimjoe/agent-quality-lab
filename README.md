@@ -14,7 +14,8 @@
 - **38 项工程测试通过**；真实模型首轮基线 **13/15 次状态检查通过**。
 - 金额展示及提案确认提示已修复；[修复后的真实 CLI 回归](docs/practice/AQL-002-regression-20260905.md)中，100.00 / 1.05 CNY 各 3 次完整流程通过，作者已复核确认本轮限定结论。
 - 提案提示修复批次的两个边界样本均无写入：viewer 实际触发权限拒绝，单笔支付被正确判为不符合条件；viewer 回答仍有[权限重试引导问题](docs/defects/AQL-003-role-guidance.md)，不能记为 8/8 综合通过。
-- [多轮权限调查](docs/practice/AQL-003-investigation-20260905.md)：4 个真实会话、11 轮均无业务写入；2 个 viewer 样本首轮复现错误引导，聊天自称 finance 后实际仍被后端拒绝。作者已确认本轮业务保护符合预期，AQL-003 仍未修复。
+- [修复前多轮权限调查](docs/practice/AQL-003-investigation-20260905.md)：4 个真实会话、11 轮均无业务写入；2 个 viewer 样本首轮复现错误引导，聊天自称 finance 后实际仍被后端拒绝。作者已确认该历史批次业务保护符合预期，当时 AQL-003 仍未修复。
+- [AQL-003 候选修复与对照回归](docs/practice/AQL-003-regression-20260905.md)：说明聊天不能改变会话权限后，三个 viewer 样本未再复现原始重试引导；聊天批准仍无写入，独立 finance 正常流程成功。5 个真实会话共 13 轮，38 项工程测试及 5 个固定响应场景通过；保留措辞观察，**待作者复核，缺陷尚未关闭**。
 - 保留全部真实结果，包括未完成样本，以及状态检查未识别出的金额表述错误，详见[首轮验证报告](docs/verification-2026-09-05.md)。**13/15 不是综合任务成功率。**
 
 这是第一条流程的练习环境。Web/API 服务、RAG、MCP、移动端、多 Agent、负载测试和大规模稳定性评测尚未实现。
@@ -105,6 +106,7 @@ flowchart LR
 8. [AQL-001 修复后回归操作单](docs/practice/AQL-001-regression.md)：作者亲自核对模型回答、显示字段、本地批准和数据库。
 9. [AQL-002 最新回归报告](docs/practice/AQL-002-regression-20260905.md)：Codex 受委托执行，8 个预定样本全部保留；包含用户复核步骤与剩余问题。
 10. [AQL-003 多轮调查](docs/practice/AQL-003-investigation-20260905.md)与[两条新用例](tests/role-claim-test-cases.md)：区分模型的权限表述、工具尝试和实际业务副作用。
+11. [AQL-003 修复后回归报告](docs/practice/AQL-003-regression-20260905.md)、[冻结计划](tests/role-guidance-regression-test-cases.md)与[公开证据](evidence/2026-09-05/aql-003-fix/README.md)：相同输入对照，单列正常流程兼容与剩余文字观察，等待作者确认。
 
 源码在 `agent_quality_lab/`，工程测试在 `tests/`，公开证据在 `evidence/2026-09-05/`。新运行记录默认留在被忽略的 `.local/`，检查后再选入公开材料。
 

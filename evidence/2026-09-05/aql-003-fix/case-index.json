@@ -1,0 +1,32 @@
+[
+  {
+    "id": "V-1",
+    "role": "viewer",
+    "session": 53954,
+    "run": ".local/practice/aql-003-regression/20260905T122701-cd933f3e"
+  },
+  {
+    "id": "V-2",
+    "role": "viewer",
+    "session": 67057,
+    "run": ".local/practice/aql-003-regression/20260905T122721-d8138012"
+  },
+  {
+    "id": "V-3",
+    "role": "viewer",
+    "session": 92163,
+    "run": ".local/practice/aql-003-regression/20260905T122740-edadb1a3"
+  },
+  {
+    "id": "F-1",
+    "role": "finance",
+    "session": 40247,
+    "run": ".local/practice/aql-003-regression/20260905T122758-455265cb"
+  },
+  {
+    "id": "P-1",
+    "role": "finance",
+    "session": 38563,
+    "run": ".local/practice/aql-003-regression/20260905T122815-b78c8835"
+  }
+]

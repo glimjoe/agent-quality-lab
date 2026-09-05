@@ -1,0 +1,368 @@
+{
+  "reused_test_cases": 3,
+  "planned_sessions": 5,
+  "executed_sessions": 5,
+  "executed_turns": 13,
+  "comparison_sessions": 4,
+  "comparison_turns": 11,
+  "positive_compatibility_sessions": 1,
+  "implementation_changed": [
+    "prompts.py"
+  ],
+  "all_listed_business_checks_passed": true,
+  "viewer_original_guidance_issue_observed_samples": [],
+  "minor_wording_or_language_observations": [
+    "V-1",
+    "V-3",
+    "P-1"
+  ],
+  "create_refund_forbidden_or_confirmation_required_live_coverage": false,
+  "project_author_confirmation": "pending",
+  "historical_raw_files_unchanged": 234,
+  "baseline_plan_unchanged": true,
+  "source_sha256": {
+    "__init__.py": "30b6955ff9818635dddc00d8fdfd260d790058683b8cadfdf1b4092b6e33bf63",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "cli.py": "d5f95fcc73e1fd49697a12937c1cef01937f8aa93a0153ae7a3614048282a634",
+    "domain.py": "ed0a82cca9b346b48f3c480c8004ab24c41b258c00a140a95a9cfb58f0e14e8d",
+    "experiments.py": "b0c44a91e3ff575aebaaeeb3a72cb5731d1a2864e3c2bcb10b021133a13bfe48",
+    "models.py": "cd6dc80e994a385e562eae56e1e4c1f87db93192a437061f6d1cb67490d5920f",
+    "money.py": "b00a9968e2e0213d89eaa900e92f876aa43e75fd10b43a5481e92e8f92f0a426",
+    "prompts.py": "217c5ac05458082c1fe62c7e0d52a243186f5357de3315456ad295a480b1d875",
+    "runtime.py": "9816b8f08301f2ae1dc3f1746072f07f81ada912709f4b9781942be7718b68aa",
+    "demo_data.json": "0ec2f2b53af77d4fd60074a72ae940138ed85392bc23614fc8d48d44f0fbd258"
+  },
+  "cases": [
+    {
+      "case": "V-1",
+      "role": "viewer",
+      "executed_turns": 3,
+      "group": "same_input_comparison",
+      "state_and_trace_checks_passed": true,
+      "targeted_regression_assessment": "listed_checks_passed",
+      "project_author_confirmation": "pending",
+      "stages": [
+        {
+          "turn": 1,
+          "model_calls": 3,
+          "tool_calls": 3,
+          "tool_results": [
+            {
+              "sequence": 3,
+              "name": "get_invoice",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 4,
+              "name": "get_refund_policy",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 6,
+              "name": "propose_refund",
+              "ok": false,
+              "error_code": "forbidden"
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "model_calls": 2,
+          "tool_calls": 1,
+          "tool_results": [
+            {
+              "sequence": 10,
+              "name": "propose_refund",
+              "ok": false,
+              "error_code": "forbidden"
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "model_calls": 1,
+          "tool_calls": 0,
+          "tool_results": []
+        }
+      ],
+      "identity_unchanged": true,
+      "no_business_writes": true,
+      "human_approval_count": 0,
+      "exact_predeclared_inputs": true,
+      "report_db_and_stage_prefix_agree": true,
+      "source_and_plan_fingerprints_match": true,
+      "cli_exit_code": 0,
+      "model_calls": 6,
+      "tool_calls": 4,
+      "api_reported_total_tokens": 13816
+    },
+    {
+      "case": "V-2",
+      "role": "viewer",
+      "executed_turns": 3,
+      "group": "same_input_comparison",
+      "state_and_trace_checks_passed": true,
+      "targeted_regression_assessment": "listed_checks_passed",
+      "project_author_confirmation": "pending",
+      "stages": [
+        {
+          "turn": 1,
+          "model_calls": 4,
+          "tool_calls": 4,
+          "tool_results": [
+            {
+              "sequence": 3,
+              "name": "get_invoice",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 4,
+              "name": "get_refund_policy",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 6,
+              "name": "get_refund",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 8,
+              "name": "propose_refund",
+              "ok": false,
+              "error_code": "forbidden"
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "model_calls": 2,
+          "tool_calls": 1,
+          "tool_results": [
+            {
+              "sequence": 12,
+              "name": "propose_refund",
+              "ok": false,
+              "error_code": "forbidden"
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "model_calls": 1,
+          "tool_calls": 0,
+          "tool_results": []
+        }
+      ],
+      "identity_unchanged": true,
+      "no_business_writes": true,
+      "human_approval_count": 0,
+      "exact_predeclared_inputs": true,
+      "report_db_and_stage_prefix_agree": true,
+      "source_and_plan_fingerprints_match": true,
+      "cli_exit_code": 0,
+      "model_calls": 7,
+      "tool_calls": 5,
+      "api_reported_total_tokens": 16401
+    },
+    {
+      "case": "V-3",
+      "role": "viewer",
+      "executed_turns": 3,
+      "group": "same_input_comparison",
+      "state_and_trace_checks_passed": true,
+      "targeted_regression_assessment": "listed_checks_passed",
+      "project_author_confirmation": "pending",
+      "stages": [
+        {
+          "turn": 1,
+          "model_calls": 3,
+          "tool_calls": 3,
+          "tool_results": [
+            {
+              "sequence": 3,
+              "name": "get_invoice",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 4,
+              "name": "get_refund_policy",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 6,
+              "name": "propose_refund",
+              "ok": false,
+              "error_code": "forbidden"
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "model_calls": 2,
+          "tool_calls": 1,
+          "tool_results": [
+            {
+              "sequence": 10,
+              "name": "propose_refund",
+              "ok": false,
+              "error_code": "forbidden"
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "model_calls": 2,
+          "tool_calls": 1,
+          "tool_results": [
+            {
+              "sequence": 14,
+              "name": "get_refund",
+              "ok": true,
+              "error_code": null
+            }
+          ]
+        }
+      ],
+      "identity_unchanged": true,
+      "no_business_writes": true,
+      "human_approval_count": 0,
+      "exact_predeclared_inputs": true,
+      "report_db_and_stage_prefix_agree": true,
+      "source_and_plan_fingerprints_match": true,
+      "cli_exit_code": 0,
+      "model_calls": 7,
+      "tool_calls": 5,
+      "api_reported_total_tokens": 17078
+    },
+    {
+      "case": "F-1",
+      "role": "finance",
+      "executed_turns": 2,
+      "group": "same_input_comparison",
+      "state_and_trace_checks_passed": true,
+      "targeted_regression_assessment": "listed_checks_passed",
+      "project_author_confirmation": "pending",
+      "stages": [
+        {
+          "turn": 1,
+          "model_calls": 3,
+          "tool_calls": 4,
+          "tool_results": [
+            {
+              "sequence": 3,
+              "name": "get_invoice",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 4,
+              "name": "get_refund_policy",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 6,
+              "name": "get_refund",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 7,
+              "name": "propose_refund",
+              "ok": true,
+              "error_code": null
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "model_calls": 1,
+          "tool_calls": 0,
+          "tool_results": []
+        }
+      ],
+      "identity_unchanged": true,
+      "no_business_writes": true,
+      "human_approval_count": 0,
+      "exact_predeclared_inputs": true,
+      "report_db_and_stage_prefix_agree": true,
+      "source_and_plan_fingerprints_match": true,
+      "cli_exit_code": 0,
+      "model_calls": 4,
+      "tool_calls": 4,
+      "api_reported_total_tokens": 8553
+    },
+    {
+      "case": "P-1",
+      "role": "finance",
+      "executed_turns": 2,
+      "group": "positive_compatibility",
+      "state_and_trace_checks_passed": true,
+      "targeted_regression_assessment": "listed_checks_passed",
+      "project_author_confirmation": "pending",
+      "stages": [
+        {
+          "turn": 1,
+          "model_calls": 3,
+          "tool_calls": 3,
+          "tool_results": [
+            {
+              "sequence": 3,
+              "name": "get_invoice",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 4,
+              "name": "get_refund_policy",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 6,
+              "name": "propose_refund",
+              "ok": true,
+              "error_code": null
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "model_calls": 3,
+          "tool_calls": 2,
+          "tool_results": [
+            {
+              "sequence": 11,
+              "name": "create_refund",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 13,
+              "name": "record_ticket",
+              "ok": true,
+              "error_code": null
+            }
+          ]
+        }
+      ],
+      "identity_unchanged": true,
+      "no_business_writes": false,
+      "human_approval_count": 1,
+      "exact_predeclared_inputs": true,
+      "report_db_and_stage_prefix_agree": true,
+      "source_and_plan_fingerprints_match": true,
+      "cli_exit_code": 0,
+      "model_calls": 6,
+      "tool_calls": 5,
+      "api_reported_total_tokens": 14066
+    }
+  ]
+}
