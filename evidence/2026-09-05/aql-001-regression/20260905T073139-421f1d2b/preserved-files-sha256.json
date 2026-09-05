@@ -1,0 +1,20 @@
+{
+  "docs\\practice\\AQL-001-regression.md": "0b423749bb5de5fcb21180d1981f1cc10f2138db7c5366878171a21398b7bcdd",
+  "docs\\practice\\refund-record-template.md": "e6dfbcd63d200310effb312d6e4f4301455797b50a414827940f67e8ffafc03d",
+  "docs\\practice\\TC-F-001-20260905-7da2d0df-commands.md": "d656d62504cf12154ad50bdbc92778b5907268b19394bfd473cf35ae4677bde7",
+  "docs\\practice\\TC-F-001-20260905-7da2d0df-conclusion.md": "22399d141606d5f82807543dcdfdcfd2b12e316fb427bf5eb161338ab6ec4d83",
+  "docs\\practice\\TC-F-001-20260905-7da2d0df.md": "4fb6fb715f02e03142f511c45cdd27edb72a7d15625114596181bccde7b3a928",
+  "docs\\practice\\TC-RG-001-A-1-20260905-232226d3-conclusion.md": "d63106b60e892aa957a9d71aea7bd09579fdf9b6f778735760d96285b20d41e3",
+  "tests\\refund-amount-regression-test-cases.md": "bc180b494ab1d02a1930cdc5cf61bece0d1b48d77641bc44893eae9507b77a44",
+  "tests\\refund-first-round-test-cases.md": "bb80a4b6a7384ddcd05bdb22e655eea350440b6cf4b210cab0a04b7bae032aab",
+  "docs\\defects\\AQL-001-amount-unit.md": "7564bf6b3d5b91e92799c51e3bd9316d483fda2cf0ff97f130cd72424bedf3ad",
+  ".local\\practice\\aql-001-regression\\20260905T062231-232226d3\\business.sqlite3": "5e597d4f49a69592ec294214cfd3917603579ce0710e88ab77dcf25ff3ca240f",
+  ".local\\practice\\aql-001-regression\\20260905T062231-232226d3\\db-after.json": "8f19b75fb5c9357fa96c56f143011304f47bf8e2c5758bfa2e26cc0ddcc673ab",
+  ".local\\practice\\aql-001-regression\\20260905T062231-232226d3\\db-before.json": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+  ".local\\practice\\aql-001-regression\\20260905T062231-232226d3\\db-initial.json": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+  ".local\\practice\\aql-001-regression\\20260905T062231-232226d3\\execution-version.json": "f10ee35a790d61eeb65c23c7901bb16009289a9012830688a9893615748cdb51",
+  ".local\\practice\\aql-001-regression\\20260905T062231-232226d3\\report-after-approval.json": "55ad9c45fd573876481da74f1d48a2173ce3a39d0e7700330318afaab7400537",
+  ".local\\practice\\aql-001-regression\\20260905T062231-232226d3\\report-before-approval.json": "4641ecf57e91453cc45ac96fc661238270115bef5cbeaabed65e5a4808bb7356",
+  ".local\\practice\\aql-001-regression\\20260905T062231-232226d3\\report.json": "55ad9c45fd573876481da74f1d48a2173ce3a39d0e7700330318afaab7400537",
+  ".local\\practice\\aql-001-regression\\terminal-20260905-142231.txt": "e860efab6577617b6219c5495cd909dc8aa85f8e2baa4033a5c26a5a5f2f1fab"
+}

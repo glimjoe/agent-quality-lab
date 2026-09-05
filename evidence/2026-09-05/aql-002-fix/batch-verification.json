@@ -1,0 +1,97 @@
+{
+  "planned_samples": 8,
+  "executed_samples": 8,
+  "positive_flows_completed": 6,
+  "viewer_backend_refusal": true,
+  "single_payment_rejection": true,
+  "remaining_answer_issue": "viewer finance-role retry guidance",
+  "historical_files_checked": 54,
+  "historical_files_changed": [],
+  "source_sha256": {
+    "__init__.py": "30b6955ff9818635dddc00d8fdfd260d790058683b8cadfdf1b4092b6e33bf63",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "cli.py": "d5f95fcc73e1fd49697a12937c1cef01937f8aa93a0153ae7a3614048282a634",
+    "domain.py": "ed0a82cca9b346b48f3c480c8004ab24c41b258c00a140a95a9cfb58f0e14e8d",
+    "experiments.py": "b0c44a91e3ff575aebaaeeb3a72cb5731d1a2864e3c2bcb10b021133a13bfe48",
+    "models.py": "cd6dc80e994a385e562eae56e1e4c1f87db93192a437061f6d1cb67490d5920f",
+    "money.py": "b00a9968e2e0213d89eaa900e92f876aa43e75fd10b43a5481e92e8f92f0a426",
+    "prompts.py": "f9d2956a7104eb2c220118a6956a0c0e4decea8da400f59f6b33d3b37c2360a1",
+    "runtime.py": "9816b8f08301f2ae1dc3f1746072f07f81ada912709f4b9781942be7718b68aa",
+    "demo_data.json": "0ec2f2b53af77d4fd60074a72ae940138ed85392bc23614fc8d48d44f0fbd258"
+  },
+  "cases": [
+    {
+      "case": "C100-1",
+      "run": ".local\\practice\\aql-002-regression\\20260905T084241-0f10793e",
+      "amount_cents": 10000,
+      "assessment": "core_and_answer_checks_passed_pending_user_confirmation",
+      "model_calls": 6,
+      "tool_calls": 5,
+      "api_reported_total_tokens": 13464
+    },
+    {
+      "case": "C105-1",
+      "run": ".local\\practice\\aql-002-regression\\20260905T084257-17be435f",
+      "amount_cents": 105,
+      "assessment": "core_and_answer_checks_passed_pending_user_confirmation",
+      "model_calls": 6,
+      "tool_calls": 5,
+      "api_reported_total_tokens": 13563
+    },
+    {
+      "case": "C100-2",
+      "run": ".local\\practice\\aql-002-regression\\20260905T084841-6abf136f",
+      "amount_cents": 10000,
+      "assessment": "core_and_answer_checks_passed_pending_user_confirmation",
+      "model_calls": 6,
+      "tool_calls": 5,
+      "api_reported_total_tokens": 13247
+    },
+    {
+      "case": "C105-2",
+      "run": ".local\\practice\\aql-002-regression\\20260905T084834-a6c18f37",
+      "amount_cents": 105,
+      "assessment": "core_and_answer_checks_passed_pending_user_confirmation",
+      "model_calls": 6,
+      "tool_calls": 5,
+      "api_reported_total_tokens": 13363
+    },
+    {
+      "case": "C100-3",
+      "run": ".local\\practice\\aql-002-regression\\20260905T084834-3373a2b1",
+      "amount_cents": 10000,
+      "assessment": "core_and_answer_checks_passed_pending_user_confirmation",
+      "model_calls": 6,
+      "tool_calls": 5,
+      "api_reported_total_tokens": 13516
+    },
+    {
+      "case": "C105-3",
+      "run": ".local\\practice\\aql-002-regression\\20260905T084834-97d54ffa",
+      "amount_cents": 105,
+      "assessment": "core_and_answer_checks_passed_pending_user_confirmation",
+      "model_calls": 6,
+      "tool_calls": 5,
+      "api_reported_total_tokens": 13244
+    },
+    {
+      "case": "D-viewer-1",
+      "run": ".local\\practice\\aql-002-regression\\20260905T085253-07057791",
+      "amount_cents": 10000,
+      "assessment": "backend_denial_passed_answer_guidance_issue_pending_user_review",
+      "model_calls": 3,
+      "tool_calls": 4,
+      "api_reported_total_tokens": 5629
+    },
+    {
+      "case": "N-single-1",
+      "run": ".local\\practice\\aql-002-regression\\20260905T085250-198cb581",
+      "amount_cents": 10000,
+      "assessment": "ineligible_business_result_passed_pending_user_confirmation",
+      "model_calls": 2,
+      "tool_calls": 2,
+      "api_reported_total_tokens": 3100
+    }
+  ],
+  "user_confirmation": "pending"
+}

@@ -1,0 +1,402 @@
+{
+  "publication_date": "2026-09-05",
+  "publication_transforms": [
+    "credential redaction if found",
+    "local path/account/host/SID placeholders",
+    "UTF-8 without BOM; LF newlines; physical trailing whitespace trimmed; NUL removal from partial terminal recording",
+    "document body links mapped to public evidence; historical quoted output preserved"
+  ],
+  "credential_categories_detected": [],
+  "hash_semantics": "source_sha256 is original local bytes; published_sha256 is published UTF-8 LF bytes. Embedded historical hashes were not rewritten.",
+  "files": [
+    {
+      "file": "20260905T062231-232226d3/db-after.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T062231-232226d3/db-after.json",
+      "source_sha256": "8f19b75fb5c9357fa96c56f143011304f47bf8e2c5758bfa2e26cc0ddcc673ab",
+      "published_sha256": "8f19b75fb5c9357fa96c56f143011304f47bf8e2c5758bfa2e26cc0ddcc673ab",
+      "source_bytes": 2173,
+      "published_bytes": 2173
+    },
+    {
+      "file": "20260905T062231-232226d3/db-before.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T062231-232226d3/db-before.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "source_bytes": 1762,
+      "published_bytes": 1762
+    },
+    {
+      "file": "20260905T062231-232226d3/db-initial.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T062231-232226d3/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "source_bytes": 1762,
+      "published_bytes": 1762
+    },
+    {
+      "file": "20260905T062231-232226d3/execution-version.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T062231-232226d3/execution-version.json",
+      "source_sha256": "f10ee35a790d61eeb65c23c7901bb16009289a9012830688a9893615748cdb51",
+      "published_sha256": "cd84dd1b9fb6d837a2b6d07c972e5067bec5f2bf9bfbd38c9011004c992c9903",
+      "source_bytes": 1045,
+      "published_bytes": 1030
+    },
+    {
+      "file": "20260905T062231-232226d3/report-after-approval.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T062231-232226d3/report-after-approval.json",
+      "source_sha256": "55ad9c45fd573876481da74f1d48a2173ce3a39d0e7700330318afaab7400537",
+      "published_sha256": "d316e5828c8b6d82ac9eeb73a92ac0ca3daea91f3895c38ab0aad66bbce720ce",
+      "source_bytes": 19131,
+      "published_bytes": 18624
+    },
+    {
+      "file": "20260905T062231-232226d3/report-before-approval.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T062231-232226d3/report-before-approval.json",
+      "source_sha256": "4641ecf57e91453cc45ac96fc661238270115bef5cbeaabed65e5a4808bb7356",
+      "published_sha256": "80301c049f9854f4cedd6a93f37d059cf85ee191e6bb0ce19992297a830c17e1",
+      "source_bytes": 12012,
+      "published_bytes": 11683
+    },
+    {
+      "file": "20260905T062231-232226d3/report.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T062231-232226d3/report.json",
+      "source_sha256": "55ad9c45fd573876481da74f1d48a2173ce3a39d0e7700330318afaab7400537",
+      "published_sha256": "d316e5828c8b6d82ac9eeb73a92ac0ca3daea91f3895c38ab0aad66bbce720ce",
+      "source_bytes": 19131,
+      "published_bytes": 18624
+    },
+    {
+      "file": "20260905T073139-421f1d2b/artifact-verification.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T073139-421f1d2b/artifact-verification.json",
+      "source_sha256": "d52745f1c7669bcc471573e5efd8404bff3940995bb31568789be2265565f65a",
+      "published_sha256": "0f28536737d0de391f9cd2694762dd5ebfba161d91c64f27a410ba9a95f07dec",
+      "source_bytes": 19461,
+      "published_bytes": 18207
+    },
+    {
+      "file": "20260905T073139-421f1d2b/command-log.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T073139-421f1d2b/command-log.json",
+      "source_sha256": "97587c9b1ebb745ab74c91e515aba080cf7717f69e42cd359bc4f2531f405618",
+      "published_sha256": "0972ccc9e8d65317b5f5f8760c35b5a13cc81c38da3c9ff944150d677a916da0",
+      "source_bytes": 64449,
+      "published_bytes": 63882
+    },
+    {
+      "file": "20260905T073139-421f1d2b/db-before.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T073139-421f1d2b/db-before.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "source_bytes": 1762,
+      "published_bytes": 1762
+    },
+    {
+      "file": "20260905T073139-421f1d2b/db-initial.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T073139-421f1d2b/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "source_bytes": 1762,
+      "published_bytes": 1762
+    },
+    {
+      "file": "20260905T073139-421f1d2b/db-stopped.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T073139-421f1d2b/db-stopped.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "source_bytes": 1762,
+      "published_bytes": 1762
+    },
+    {
+      "file": "20260905T073139-421f1d2b/execution-version.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T073139-421f1d2b/execution-version.json",
+      "source_sha256": "22f1e93c219d0a0bd4ee8bd99fc76c0ade450dac41e43b000856e25cb75ddc5b",
+      "published_sha256": "853f14dca1d08b9e062b94ec13ef90c5bb24cd8020c86b90e02a511e28338cc1",
+      "source_bytes": 1155,
+      "published_bytes": 1138
+    },
+    {
+      "file": "20260905T073139-421f1d2b/preserved-files-sha256.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T073139-421f1d2b/preserved-files-sha256.json",
+      "source_sha256": "051317ebd1f442c4146cbe8735c9ebd70e84ad3a3efc8c9265096006a1e1a263",
+      "published_sha256": "9c8c412f7311451f354b5b81b624e3aa8902a39e05dccad27ea4e7d4dbcc63c7",
+      "source_bytes": 2490,
+      "published_bytes": 2471
+    },
+    {
+      "file": "20260905T073139-421f1d2b/report-before-approval.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T073139-421f1d2b/report-before-approval.json",
+      "source_sha256": "e043198a4952140a58ec6397bcb102b53a03b62419c1802f16207673daafff2e",
+      "published_sha256": "df1ec7fe01c9d80167d14491dbc8afffd0eb5a769ad380ca636ff81063aaad84",
+      "source_bytes": 10558,
+      "published_bytes": 10273
+    },
+    {
+      "file": "20260905T073139-421f1d2b/report-stopped.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T073139-421f1d2b/report-stopped.json",
+      "source_sha256": "e043198a4952140a58ec6397bcb102b53a03b62419c1802f16207673daafff2e",
+      "published_sha256": "df1ec7fe01c9d80167d14491dbc8afffd0eb5a769ad380ca636ff81063aaad84",
+      "source_bytes": 10558,
+      "published_bytes": 10273
+    },
+    {
+      "file": "20260905T073139-421f1d2b/report.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T073139-421f1d2b/report.json",
+      "source_sha256": "e043198a4952140a58ec6397bcb102b53a03b62419c1802f16207673daafff2e",
+      "published_sha256": "df1ec7fe01c9d80167d14491dbc8afffd0eb5a769ad380ca636ff81063aaad84",
+      "source_bytes": 10558,
+      "published_bytes": 10273
+    },
+    {
+      "file": "20260905T073139-421f1d2b/verification-checks.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T073139-421f1d2b/verification-checks.json",
+      "source_sha256": "7957204384c84612253c4ca13b0897b4d517440ba691d6c36a4cf806465d5a48",
+      "published_sha256": "7957204384c84612253c4ca13b0897b4d517440ba691d6c36a4cf806465d5a48",
+      "source_bytes": 2350,
+      "published_bytes": 2350
+    },
+    {
+      "file": "20260905T075829-31bec90c/artifact-verification.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T075829-31bec90c/artifact-verification.json",
+      "source_sha256": "bebbbfa0344a25c735596ad7c0f3acd11b1a6bcb063b96a7acb095e89f88ed61",
+      "published_sha256": "80c3742f4624cf86b4f17cc6957dad66a9f9cbcae954ff27fc79228e959a85bd",
+      "source_bytes": 9811,
+      "published_bytes": 9184
+    },
+    {
+      "file": "20260905T075829-31bec90c/command-log.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T075829-31bec90c/command-log.json",
+      "source_sha256": "2ee93f0477d5037fadc31646d8976cd4ccf36d9a47f16f4fd03949cb42bc6465",
+      "published_sha256": "52b6f4d2fc984cfcd8a32ddfb8ae83c7c239f9f3a7cba93ee56f81c278fe3719",
+      "source_bytes": 102616,
+      "published_bytes": 102092
+    },
+    {
+      "file": "20260905T075829-31bec90c/db-after.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T075829-31bec90c/db-after.json",
+      "source_sha256": "7a628ab17ba7db88d98f32c1464652eba6006edf8f86ec3bebbe7271d38159ee",
+      "published_sha256": "7a628ab17ba7db88d98f32c1464652eba6006edf8f86ec3bebbe7271d38159ee",
+      "source_bytes": 2173,
+      "published_bytes": 2173
+    },
+    {
+      "file": "20260905T075829-31bec90c/db-before.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T075829-31bec90c/db-before.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "source_bytes": 1762,
+      "published_bytes": 1762
+    },
+    {
+      "file": "20260905T075829-31bec90c/db-initial.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T075829-31bec90c/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "source_bytes": 1762,
+      "published_bytes": 1762
+    },
+    {
+      "file": "20260905T075829-31bec90c/execution-version.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T075829-31bec90c/execution-version.json",
+      "source_sha256": "9a321144404935f9294126dc77f051949ba2d175adc8314deb8175fa9709cfcf",
+      "published_sha256": "3baf366b47544cf83b15ec149c532c62129e6644e494d4f03d2c8fd26fde7717",
+      "source_bytes": 1155,
+      "published_bytes": 1138
+    },
+    {
+      "file": "20260905T075829-31bec90c/preserved-files-sha256.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T075829-31bec90c/preserved-files-sha256.json",
+      "source_sha256": "e824982f85b0d8f01b45e620b7d96a022a823e3bc90d9befba1bf4862a1d90dd",
+      "published_sha256": "6dd25a5cca4ade194098d8b35b18fa5c57c4812f0d81ca69cf29b7f6fdd2306e",
+      "source_bytes": 6220,
+      "published_bytes": 6177
+    },
+    {
+      "file": "20260905T075829-31bec90c/report-after-approval.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T075829-31bec90c/report-after-approval.json",
+      "source_sha256": "5bb53bb3dc0a2ff2aa80008396ff5519a8746a4687389ea88d67e62fb67d43df",
+      "published_sha256": "4b0b754e830f6fae7062775bf4fcd44d9f52f6f3816c36d0e56448175b514735",
+      "source_bytes": 17740,
+      "published_bytes": 17262
+    },
+    {
+      "file": "20260905T075829-31bec90c/report-before-approval.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T075829-31bec90c/report-before-approval.json",
+      "source_sha256": "40739e3b519dd6042b810a018fb8e78bdd2b6dc1547ca5f162c1961ec0c49859",
+      "published_sha256": "f25be80087698dc6b7f188e60777e9a31a0566761b6fd4d1f1ae090b11b291d3",
+      "source_bytes": 11824,
+      "published_bytes": 11495
+    },
+    {
+      "file": "20260905T075829-31bec90c/report.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T075829-31bec90c/report.json",
+      "source_sha256": "5bb53bb3dc0a2ff2aa80008396ff5519a8746a4687389ea88d67e62fb67d43df",
+      "published_sha256": "4b0b754e830f6fae7062775bf4fcd44d9f52f6f3816c36d0e56448175b514735",
+      "source_bytes": 17740,
+      "published_bytes": 17262
+    },
+    {
+      "file": "20260905T075829-31bec90c/verification-checks.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T075829-31bec90c/verification-checks.json",
+      "source_sha256": "0ab6ceae5b553c86dfbdf1119805b4d5824d3eb95c37f3acdcbe7239a96dd79e",
+      "published_sha256": "0ab6ceae5b553c86dfbdf1119805b4d5824d3eb95c37f3acdcbe7239a96dd79e",
+      "source_bytes": 3747,
+      "published_bytes": 3747
+    },
+    {
+      "file": "20260905T081125-04c9e44e/artifact-verification.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T081125-04c9e44e/artifact-verification.json",
+      "source_sha256": "3d948e1c126376997b939183ec1389f98f2d9f87f7e6fde6889ce58e9636b262",
+      "published_sha256": "2dfc498be4d4a8065e35eeee533a59f93633f065269daec0925a875360e242bc",
+      "source_bytes": 11090,
+      "published_bytes": 10377
+    },
+    {
+      "file": "20260905T081125-04c9e44e/command-log.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T081125-04c9e44e/command-log.json",
+      "source_sha256": "ada892c96d825caaa6fc8cef0f174521779a0eb8e9370aa8884070e51fad9d69",
+      "published_sha256": "148efb96cb5ff00283aed8d97f8647fdbd7066c2e45eee73318596bdd0151347",
+      "source_bytes": 63927,
+      "published_bytes": 63376
+    },
+    {
+      "file": "20260905T081125-04c9e44e/db-before-fixture.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T081125-04c9e44e/db-before-fixture.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "source_bytes": 1762,
+      "published_bytes": 1762
+    },
+    {
+      "file": "20260905T081125-04c9e44e/db-before.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T081125-04c9e44e/db-before.json",
+      "source_sha256": "e796f3ce8d22ecca36dd231e2c7941a8286f9bd879a6d9292be9519084360e9b",
+      "published_sha256": "e796f3ce8d22ecca36dd231e2c7941a8286f9bd879a6d9292be9519084360e9b",
+      "source_bytes": 1756,
+      "published_bytes": 1756
+    },
+    {
+      "file": "20260905T081125-04c9e44e/db-initial.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T081125-04c9e44e/db-initial.json",
+      "source_sha256": "e796f3ce8d22ecca36dd231e2c7941a8286f9bd879a6d9292be9519084360e9b",
+      "published_sha256": "e796f3ce8d22ecca36dd231e2c7941a8286f9bd879a6d9292be9519084360e9b",
+      "source_bytes": 1756,
+      "published_bytes": 1756
+    },
+    {
+      "file": "20260905T081125-04c9e44e/db-stopped.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T081125-04c9e44e/db-stopped.json",
+      "source_sha256": "e796f3ce8d22ecca36dd231e2c7941a8286f9bd879a6d9292be9519084360e9b",
+      "published_sha256": "e796f3ce8d22ecca36dd231e2c7941a8286f9bd879a6d9292be9519084360e9b",
+      "source_bytes": 1756,
+      "published_bytes": 1756
+    },
+    {
+      "file": "20260905T081125-04c9e44e/execution-version.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T081125-04c9e44e/execution-version.json",
+      "source_sha256": "f31772d657ab64cd13186101aed80c2183dc2d32edba9f0dd938477af88ea7b4",
+      "published_sha256": "0527c53096974f186d7a5424a7208cbe7c33accc1ad8d8a56c557764cfd27e39",
+      "source_bytes": 1155,
+      "published_bytes": 1138
+    },
+    {
+      "file": "20260905T081125-04c9e44e/fixture-override.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T081125-04c9e44e/fixture-override.json",
+      "source_sha256": "d2b2e06a855dd33204b53bd6831c867ceefd63a6077443ddf6e61966751aced4",
+      "published_sha256": "d2b2e06a855dd33204b53bd6831c867ceefd63a6077443ddf6e61966751aced4",
+      "source_bytes": 524,
+      "published_bytes": 524
+    },
+    {
+      "file": "20260905T081125-04c9e44e/preserved-files-sha256.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T081125-04c9e44e/preserved-files-sha256.json",
+      "source_sha256": "870f74fd47bcc3d3bca8f799c578d61c63c4839895a0d8b6556f6f555643f4db",
+      "published_sha256": "45aa4128c36657fc17195dd611973b717e36894bc2546a28b44be8fc0bf05035",
+      "source_bytes": 8395,
+      "published_bytes": 8338
+    },
+    {
+      "file": "20260905T081125-04c9e44e/report-before-approval.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T081125-04c9e44e/report-before-approval.json",
+      "source_sha256": "3c76a8ae4c6d5c1186ec09b8a15133680dd98f30107d0bba944e72040fc3fd7e",
+      "published_sha256": "48ee9fd6962965f6c473d03a786af3dda0638db95df46e154f8114de9f025764",
+      "source_bytes": 10706,
+      "published_bytes": 10421
+    },
+    {
+      "file": "20260905T081125-04c9e44e/report-stopped.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T081125-04c9e44e/report-stopped.json",
+      "source_sha256": "3c76a8ae4c6d5c1186ec09b8a15133680dd98f30107d0bba944e72040fc3fd7e",
+      "published_sha256": "48ee9fd6962965f6c473d03a786af3dda0638db95df46e154f8114de9f025764",
+      "source_bytes": 10706,
+      "published_bytes": 10421
+    },
+    {
+      "file": "20260905T081125-04c9e44e/report.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T081125-04c9e44e/report.json",
+      "source_sha256": "3c76a8ae4c6d5c1186ec09b8a15133680dd98f30107d0bba944e72040fc3fd7e",
+      "published_sha256": "48ee9fd6962965f6c473d03a786af3dda0638db95df46e154f8114de9f025764",
+      "source_bytes": 10706,
+      "published_bytes": 10421
+    },
+    {
+      "file": "20260905T081125-04c9e44e/verification-checks.json",
+      "source_file": ".local/practice/aql-001-regression/20260905T081125-04c9e44e/verification-checks.json",
+      "source_sha256": "f949bd67b6544d3091044cc31aa5250b277813fbf5462823fc6375a9019c2309",
+      "published_sha256": "f949bd67b6544d3091044cc31aa5250b277813fbf5462823fc6375a9019c2309",
+      "source_bytes": 2970,
+      "published_bytes": 2970
+    },
+    {
+      "file": "terminal-20260905-142231.txt",
+      "source_file": ".local/practice/aql-001-regression/terminal-20260905-142231.txt",
+      "source_sha256": "e860efab6577617b6219c5495cd909dc8aa85f8e2baa4033a5c26a5a5f2f1fab",
+      "published_sha256": "4b5baf076539c7d2d1c3d7fb97b859766740668fd94ab470fe22d20b6e1b8881",
+      "source_bytes": 2707,
+      "published_bytes": 2363
+    }
+  ],
+  "tested_commit": "a5576d387d2afca2e7e3b9fb121bdcdeaabec4e4",
+  "documents": [
+    {
+      "file": "docs/practice/TC-RG-001-A-1-20260905-232226d3-conclusion.md",
+      "source_sha256": "d63106b60e892aa957a9d71aea7bd09579fdf9b6f778735760d96285b20d41e3",
+      "published_sha256": "50b13c2b2e7f7a14bd86e05ead44eef302fab67d78d97ae5cf579180b2df660b"
+    },
+    {
+      "file": "docs/practice/TC-RG-001-A-2-20260905-421f1d2b-commands.md",
+      "source_sha256": "ace06c0ee3f05f6fe7f5bf37ab73140cac64fbc4d8e7b3892484611138466f50",
+      "published_sha256": "d07b7d4b7ee204b4d7e0b62e08a19cb852123fad6ceefa4eb2dc0103cba9e515"
+    },
+    {
+      "file": "docs/practice/TC-RG-001-A-2-20260905-421f1d2b-conclusion.md",
+      "source_sha256": "b0478b501b37338616b240375bfe43f3783dd7f7c47fa720aa2a405a09775b50",
+      "published_sha256": "b3dbcb42d97b7e6efad86929636f4e3b79506576b6edd76170a09f00bb2085a4"
+    },
+    {
+      "file": "docs/practice/TC-RG-001-A-3-20260905-31bec90c-commands.md",
+      "source_sha256": "3c02dacbc5694d2dae8cbf3bd25544cf813fc9b3d97ce464f5a109e0d89a0fa0",
+      "published_sha256": "ae027c37daa28775cbec039f74c2e3923a64be4465910cc188b52b00bdac175a"
+    },
+    {
+      "file": "docs/practice/TC-RG-001-A-3-20260905-31bec90c-conclusion.md",
+      "source_sha256": "f1cff9cce2524dfebbf5506ef18fdd271c135cad8fd07e0888901ca29d7c1079",
+      "published_sha256": "e6e6a4cbc6e2f6c5bf1216acd52db1d07e0207a6961fa0287c0046ba298a6447"
+    },
+    {
+      "file": "docs/practice/TC-RG-001-B-1-20260905-04c9e44e-commands.md",
+      "source_sha256": "a914858ed3abf86078f754b1117486ebfced2d9f7123a653171168d78e230e5d",
+      "published_sha256": "51e9aaf64fa58c7536bc154bfa2a97250a532f476bd408fb21d9b78d3be32c61"
+    },
+    {
+      "file": "docs/practice/TC-RG-001-B-1-20260905-04c9e44e-conclusion.md",
+      "source_sha256": "6ed16dbfd9fb401dd5a05b6d37ece8065f4d3b41f627e1c2c2b36d1b24d5da22",
+      "published_sha256": "5fbe61b9e24c1e0d389967efc661a286351fc9f9eaf6c168659fd64652e13423"
+    }
+  ],
+  "original_files_preserved": 54,
+  "preservation_note": "47 raw evidence files unchanged; 7 original document backups match pre-fix hashes.",
+  "terminal_extension": {
+    "source_bytes": 2707,
+    "original_observed_prefix_bytes": 2534,
+    "original_observed_prefix_sha256": "8c1fc61b5777c3d320589fc0f028eccd4890154587a2ed081ed4ee20cd0f8d0b"
+  }
+}

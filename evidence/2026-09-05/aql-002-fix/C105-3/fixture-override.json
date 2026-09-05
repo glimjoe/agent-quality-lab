@@ -1,0 +1,8 @@
+{
+  "base": "demo-v1",
+  "case": "C105-3",
+  "amount_cents": 105,
+  "changed_invoice_count": 1,
+  "changed_payment_count": 2,
+  "scope": "tenant-a invoice-a-double and both payments; before business task"
+}

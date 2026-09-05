@@ -12,7 +12,8 @@
 - 支付对象和金额的本地确认入口；只有 `finance` 可创建 `pending` 申请。
 - 写入后响应超时、工单写入失败两种故障注入。
 - **38 项工程测试通过**；真实模型首轮基线 **13/15 次状态检查通过**。
-- 金额展示已有候选修复，新增 3 项工程测试；[作者真实模型回归待执行](docs/practice/AQL-001-regression.md)，缺陷尚未关闭。
+- 金额展示及提案确认提示已修复；[最新真实 CLI 回归](docs/practice/AQL-002-regression-20260905.md)中，100.00 / 1.05 CNY 各 3 次完整流程通过初核，待作者确认，缺陷尚未自动关闭。
+- 最新两个边界样本均无写入：viewer 实际触发权限拒绝，单笔支付被正确判为不符合条件；viewer 回答仍有[权限重试引导问题](docs/defects/AQL-003-role-guidance.md)，不能记为 8/8 综合通过。
 - 保留全部真实结果，包括未完成样本，以及状态检查未识别出的金额表述错误，详见[首轮验证报告](docs/verification-2026-09-05.md)。**13/15 不是综合任务成功率。**
 
 这是第一条流程的练习环境。Web/API 服务、RAG、MCP、移动端、多 Agent、负载测试和大规模稳定性评测尚未实现。
@@ -46,7 +47,7 @@ python -X utf8 -m agent_quality_lab chat
 
 Agent 应查数据和规则、生成提案，列出支付 `payment-a-second`、金额 `CNY 100.00`。按界面给出的 `/approve 提案ID` 操作，核对应用显示的对象和金额，再输入 `YES`。正常结果为一份 `pending` 申请和一份工单；这不表示钱款已退回。`/exit` 退出。
 
-如果 Agent 先提出额外澄清，可以继续对话。自动实验使用固定的两阶段脚本，额外澄清可能使该次任务未完成，见验证报告。
+信息充分时应先生成真实提案，再等待本地批准。日常体验可以继续澄清；按回归用例执行时，若没有提案，应保留该次未完成记录，不追加引导后覆盖原结果，见 [AQL-002](docs/defects/AQL-002-proposal-confirmation.md)。
 
 ```powershell
 # 只读角色，用于权限测试
@@ -101,6 +102,7 @@ flowchart LR
 6. [Agent 行为缺陷模板](.github/ISSUE_TEMPLATE/agent-defect.md)：记录复现与归因。
 7. [TC-F-001 实际执行结论](docs/practice/TC-F-001-20260905-7da2d0df-conclusion.md)与[公开证据](evidence/2026-09-05/tc-f-001-7da2d0df/README.md)：正常 chat 中复现金额错误，批准后步骤未执行。
 8. [AQL-001 修复后回归操作单](docs/practice/AQL-001-regression.md)：作者亲自核对模型回答、显示字段、本地批准和数据库。
+9. [AQL-002 最新回归报告](docs/practice/AQL-002-regression-20260905.md)：Codex 受委托执行，8 个预定样本全部保留；包含用户复核步骤与剩余问题。
 
 源码在 `agent_quality_lab/`，工程测试在 `tests/`，公开证据在 `evidence/2026-09-05/`。新运行记录默认留在被忽略的 `.local/`，检查后再选入公开材料。
 

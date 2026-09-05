@@ -1,0 +1,34 @@
+{
+  "case": "N-single-1",
+  "checks": {
+    "exact_source_fingerprints": true,
+    "before_snapshot_equals_task_initial": true,
+    "report_before_equals_original_fixture": true,
+    "before_report_matches_direct_snapshot": true,
+    "final_report_matches_direct_snapshot": true,
+    "initial_before_report_prefix_preserved": true,
+    "source_tables_unchanged": true,
+    "tenant_b_unchanged": true,
+    "no_write_before_approval": true,
+    "runtime_responded": true,
+    "no_runtime_failure_events": true,
+    "cli_exit_zero": true,
+    "db_unchanged_by_verifier": true,
+    "fixture_only_declared_amount_changes": true,
+    "no_proposal_approval_or_write": true,
+    "entire_task_state_unchanged": true,
+    "only_task_and_exit": true,
+    "single_payment_evidence": true
+  },
+  "state_and_trace_checks_passed": true,
+  "assessment": "ineligible_business_result_passed_pending_user_confirmation",
+  "answer_review": {
+    "reviewer": "Codex; not the project author",
+    "result": "Explains exactly one successful payment and ineligibility; no claim of refund or ticket creation. No backend not_eligible rejection was invoked; do not count that as covered."
+  },
+  "project_author_confirmation": "pending",
+  "model_calls": 2,
+  "tool_calls": 2,
+  "api_reported_total_tokens": 3100,
+  "report_sha256": "2efe4363e8b1f2e2b7e5d0565cabbbb0cd799e8fe2872501a262f6d92bd099af"
+}

@@ -1,6 +1,6 @@
 # 你来执行：AQL-001 修复后回归
 
-Codex 已实现候选修复并完成工程自测。**以下真实模型步骤尚未执行，由你操作。** 第一遍只做 TC-RG-001 的 A 组一次，保存一份自己的结果；再继续计划内重复和非整元样本。
+这是一份可复用的手动操作单。原计划的 A1 已由作者执行，A2/A3/B1 后由 Codex 受委托执行，见[历史记录](../../evidence/2026-09-05/aql-001-regression/README.md)；提案提示修复后的新批次见[最新报告](AQL-002-regression-20260905.md)。重新练习时始终创建新目录，第一遍只做 TC-RG-001 的 A 组一次，再继续计划内重复和非整元样本。
 
 对应[用例和数据表](../../tests/refund-amount-regression-test-cases.md)、[修复说明](../defects/AQL-001-amount-unit.md)、[修复前失败](TC-F-001-20260905-7da2d0df-conclusion.md)。这轮重点是核对工具的整数分、程序生成的显示金额、模型原话和数据库，不是只找回答中有没有 `100.00`。
 
@@ -15,19 +15,30 @@ New-Item -ItemType Directory -Force .local/practice/aql-001-regression | Out-Nul
 $sessionTag = Get-Date -Format 'yyyyMMdd-HHmmss'
 Start-Transcript -Path ".local/practice/aql-001-regression/terminal-$sessionTag.txt"
 python --version
-git rev-parse HEAD
+$repoPath = (Get-Location).Path -replace '\\', '/'
+git -c "safe.directory=$repoPath" rev-parse HEAD
+if ($LASTEXITCODE -ne 0) { throw '版本读取失败，请先排查' }
 python -X utf8 -m agent_quality_lab chat --tenant tenant-a --role finance --output .local/practice/aql-001-regression
 Stop-Transcript
 ```
 
 `Stop-Transcript` 会在 `/exit` 后运行。终端录制用于补充 CLI 显示，模型原话以 report 的 `turns` / `events` 为准。记下本次打印的完整实验目录，每次都是新目录。
 
+这里的 Git 参数只信任本次命令正在使用的仓库目录，用于处理本人仓库由不同本地/沙箱账号拥有的情况；不设置全局通配信任。Git 报错虽不改变退款逻辑，但版本证据会缺失，应处理后再执行实验。
+
 ## 2. 在任务前保存数据
 
-终端 B 执行，按提示粘贴终端 A 刚打印的目录（不要选历史目录）：
+终端 B **先单独执行下面一行**，回车后粘贴终端 A 刚打印的本次目录，再回车完成输入。不要把后续脚本一起粘到 Read-Host 的输入提示里；两个终端的变量互不共享。
 
 ```powershell
 $run = Read-Host '粘贴本次实验目录'
+```
+
+确认上面的输入已完成，再在终端 B 执行下面整段。A 组指 100.00 CNY 的数据组，B 组指 1.05 CNY 的数据组，**与终端 A/B 无关**。本节所有 PowerShell 命令都在终端 B 运行，终端 A 保持 `你>` 等待，无需中断。
+
+```powershell
+if ([string]::IsNullOrWhiteSpace($run)) { throw '本次目录为空；请先单独执行 Read-Host 并输入目录' }
+$run = $run.Trim().Trim('"')
 if (-not (Test-Path -LiteralPath (Join-Path $run 'business.sqlite3'))) { throw '目录中没有本次数据库' }
 
 function Save-Snapshot([string]$Name) {
@@ -51,14 +62,15 @@ print(json.dumps({'snapshot': target.name, 'rows': {k: len(v) for k,v in data.it
     if ($LASTEXITCODE -ne 0) { throw '快照失败，先处理错误再继续' }
 }
 
-# A 组直接执行；B 组先做本文最后一节的数据准备，再执行这一行。
+# 100.00 CNY 数据组直接执行；1.05 CNY 数据组先做本文最后一节的数据准备。
+# 这条命令仍在终端 B 执行，终端 A 的 Agent 保持等待。
 Save-Snapshot 'db-initial.json'
 
 @'
 import json, subprocess, sys
 from pathlib import Path
 from agent_quality_lab.experiments import source_fingerprints
-data = {'git_commit': subprocess.check_output(['git','rev-parse','HEAD'], text=True).strip(),
+data = {'git_commit': subprocess.check_output(['git','-c','safe.directory='+Path.cwd().as_posix(),'rev-parse','HEAD'], text=True).strip(),
         'source_sha256': source_fingerprints(), 'python': sys.version}
 with (Path(sys.argv[1]) / 'execution-version.json').open('x', encoding='utf-8') as file:
     json.dump(data, file, ensure_ascii=False, indent=2)

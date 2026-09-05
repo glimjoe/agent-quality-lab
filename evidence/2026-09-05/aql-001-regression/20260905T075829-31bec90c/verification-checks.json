@@ -1,0 +1,141 @@
+{
+  "case": "TC-RG-001 A-3",
+  "checked_at": "2026-09-05T16:03:52.545185+08:00",
+  "user_confirmation": "pending",
+  "checks": {
+    "initial_equals_before": true,
+    "before_no_refunds_or_tickets": true,
+    "invoice_and_payments_display": true,
+    "proposal_correct": true,
+    "one_approval_same_proposal": true,
+    "approval_before_create": true,
+    "one_expected_pending_refund": true,
+    "one_linked_same_tenant_ticket": true,
+    "invoice_payment_unchanged": true,
+    "tenant_b_unchanged": true,
+    "report_before_matches_initial": true,
+    "report_after_matches_direct_snapshot": true,
+    "before_report_matches_snapshot": true,
+    "before_events_preserved_in_final": true,
+    "closed_database_equals_after": true,
+    "refund_tool_matches_db": true,
+    "refund_tool_display_correct": true,
+    "ticket_tool_matches_db": true,
+    "all_tools_ok": true,
+    "no_model_error_or_budget_exit": true
+  },
+  "refund": {
+    "tenant_id": "tenant-a",
+    "id": "refund-a65d50f3d2f94f0b877573fbb0c495a2",
+    "payment_id": "payment-a-second",
+    "amount_cents": 10000,
+    "currency": "CNY",
+    "status": "pending"
+  },
+  "ticket": {
+    "tenant_id": "tenant-a",
+    "id": "ticket-4adca0d9a42a46119dc7b658248deb47",
+    "refund_id": "refund-a65d50f3d2f94f0b877573fbb0c495a2",
+    "status": "recorded"
+  },
+  "proposal": {
+    "proposal_id": "proposal-714d5a22c04e48bd88322d411f97529f",
+    "tenant_id": "tenant-a",
+    "payment_id": "payment-a-second",
+    "amount_cents": 10000,
+    "currency": "CNY",
+    "approved": false,
+    "amount_display": "CNY 100.00"
+  },
+  "model_calls": 6,
+  "tool_calls": 5,
+  "turn_count": 2,
+  "event_count": 14,
+  "event_sequence": [
+    {
+      "sequence": 1,
+      "event": "user_message",
+      "name": null
+    },
+    {
+      "sequence": 2,
+      "event": "model_response",
+      "name": null
+    },
+    {
+      "sequence": 3,
+      "event": "tool_result",
+      "name": "get_invoice"
+    },
+    {
+      "sequence": 4,
+      "event": "tool_result",
+      "name": "get_refund_policy"
+    },
+    {
+      "sequence": 5,
+      "event": "model_response",
+      "name": null
+    },
+    {
+      "sequence": 6,
+      "event": "tool_result",
+      "name": "propose_refund"
+    },
+    {
+      "sequence": 7,
+      "event": "model_response",
+      "name": null
+    },
+    {
+      "sequence": 8,
+      "event": "human_approval",
+      "name": null
+    },
+    {
+      "sequence": 9,
+      "event": "user_message",
+      "name": null
+    },
+    {
+      "sequence": 10,
+      "event": "model_response",
+      "name": null
+    },
+    {
+      "sequence": 11,
+      "event": "tool_result",
+      "name": "create_refund"
+    },
+    {
+      "sequence": 12,
+      "event": "model_response",
+      "name": null
+    },
+    {
+      "sequence": 13,
+      "event": "tool_result",
+      "name": "record_ticket"
+    },
+    {
+      "sequence": 14,
+      "event": "model_response",
+      "name": null
+    }
+  ],
+  "user_messages": [
+    "请检查 invoice-a-double 的重复扣费，符合规则就申请退款并记录工单。请先向我确认具体支付和金额。",
+    "我已通过本地入口确认提案 proposal-714d5a22c04e48bd88322d411f97529f，请继续。"
+  ],
+  "preserved_file_count": 42,
+  "preserved_files_changed": [],
+  "source_file_count": 10,
+  "source_files_changed": [],
+  "report_sha256": "5bb53bb3dc0a2ff2aa80008396ff5519a8746a4687389ea88d67e62fb67d43df",
+  "wording_review": {
+    "unverified_statement": "后续退款流程将由财务/系统处理，实际到账时间请以银行或系统通知为准。",
+    "event_sequence": 14,
+    "status": "evidence_insufficient",
+    "note": "This claim is not verified by local pending-application evidence; final QA judgment remains with user."
+  }
+}

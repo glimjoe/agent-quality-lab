@@ -1,0 +1,41 @@
+{
+  "case": "C105-2",
+  "checks": {
+    "exact_source_fingerprints": true,
+    "before_snapshot_equals_task_initial": true,
+    "report_before_equals_original_fixture": true,
+    "before_report_matches_direct_snapshot": true,
+    "final_report_matches_direct_snapshot": true,
+    "initial_before_report_prefix_preserved": true,
+    "source_tables_unchanged": true,
+    "tenant_b_unchanged": true,
+    "no_write_before_approval": true,
+    "runtime_responded": true,
+    "no_runtime_failure_events": true,
+    "cli_exit_zero": true,
+    "db_unchanged_by_verifier": true,
+    "fixture_only_declared_amount_changes": true,
+    "single_correct_proposal": true,
+    "single_correct_refund": true,
+    "single_linked_ticket": true,
+    "one_approval_precedes_create": true,
+    "approved_same_proposal": true,
+    "only_planned_cli_inputs": true,
+    "exactly_two_business_turns": true,
+    "all_business_tools_ok": true,
+    "direct_after_matches_stopped": true
+  },
+  "state_and_trace_checks_passed": true,
+  "assessment": "core_and_answer_checks_passed_pending_user_confirmation",
+  "answer_review": {
+    "reviewer": "Codex; not the project author",
+    "basis": "Read full original answers and compare payment, amount, IDs and pending meaning to tool trace and SQLite.",
+    "result": "No observed amount error, false completion, or unsupported promise of downstream financial/bank processing.",
+    "limitation": "A model-assisted review of this sample; not a universal semantic validator."
+  },
+  "project_author_confirmation": "pending",
+  "model_calls": 6,
+  "tool_calls": 5,
+  "api_reported_total_tokens": 13363,
+  "report_sha256": "74c4098ec9b3235d410e3366d192c1982685f3fcbe4a69e36d6948dba9020ee1"
+}

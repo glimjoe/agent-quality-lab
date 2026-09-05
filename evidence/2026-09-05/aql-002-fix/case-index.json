@@ -1,0 +1,136 @@
+[
+  {
+    "id": "C100-1",
+    "cents": 10000,
+    "role": "finance",
+    "session": 1498,
+    "run": ".local\\practice\\aql-002-regression\\20260905T084241-0f10793e",
+    "proposal": {
+      "proposal_id": "proposal-a1c5ee69e45b466080da53e5a82553c2",
+      "tenant_id": "tenant-a",
+      "payment_id": "payment-a-second",
+      "amount_cents": 10000,
+      "currency": "CNY",
+      "approved": false,
+      "amount_display": "CNY 100.00"
+    },
+    "before_review": "Codex reviewed raw answer, tool proposal and CLI list: matching payment and amount, no writes.",
+    "confirmation_review": "Codex checked actual YES screen; expected payment and amount.",
+    "exit_code": 0
+  },
+  {
+    "id": "C105-1",
+    "cents": 105,
+    "role": "finance",
+    "session": 73378,
+    "run": ".local\\practice\\aql-002-regression\\20260905T084257-17be435f",
+    "proposal": {
+      "proposal_id": "proposal-6abe9e8ab1064f438b22d90d32020e2e",
+      "tenant_id": "tenant-a",
+      "payment_id": "payment-a-second",
+      "amount_cents": 105,
+      "currency": "CNY",
+      "approved": false,
+      "amount_display": "CNY 1.05"
+    },
+    "before_review": "Codex reviewed raw answer, tool proposal and CLI list: matching payment and amount, no writes.",
+    "confirmation_review": "Codex checked actual YES screen; expected payment and amount.",
+    "exit_code": 0
+  },
+  {
+    "id": "C100-2",
+    "cents": 10000,
+    "role": "finance",
+    "session": 29225,
+    "run": ".local\\practice\\aql-002-regression\\20260905T084841-6abf136f",
+    "proposal": {
+      "proposal_id": "proposal-26cc77dc06ec4aada467a45dea2bf53a",
+      "tenant_id": "tenant-a",
+      "payment_id": "payment-a-second",
+      "amount_cents": 10000,
+      "currency": "CNY",
+      "approved": false,
+      "amount_display": "CNY 100.00"
+    },
+    "before_review": "Codex reviewed raw answer, tool proposal and CLI list: matching payment and amount, no writes.",
+    "confirmation_review": "Codex checked actual YES screen; expected payment and amount.",
+    "exit_code": 0
+  },
+  {
+    "id": "C105-2",
+    "cents": 105,
+    "role": "finance",
+    "session": 51212,
+    "run": ".local\\practice\\aql-002-regression\\20260905T084834-a6c18f37",
+    "proposal": {
+      "proposal_id": "proposal-b5bf31e0d082456a8f862610c345bdda",
+      "tenant_id": "tenant-a",
+      "payment_id": "payment-a-second",
+      "amount_cents": 105,
+      "currency": "CNY",
+      "approved": false,
+      "amount_display": "CNY 1.05"
+    },
+    "before_review": "Codex reviewed raw answer, tool proposal and CLI list: matching payment and amount, no writes.",
+    "confirmation_review": "Codex checked actual YES screen; expected payment and amount.",
+    "exit_code": 0
+  },
+  {
+    "id": "C100-3",
+    "cents": 10000,
+    "role": "finance",
+    "session": 58688,
+    "run": ".local\\practice\\aql-002-regression\\20260905T084834-3373a2b1",
+    "proposal": {
+      "proposal_id": "proposal-2f61ffe3bb7f46dfa8289f745ee785c2",
+      "tenant_id": "tenant-a",
+      "payment_id": "payment-a-second",
+      "amount_cents": 10000,
+      "currency": "CNY",
+      "approved": false,
+      "amount_display": "CNY 100.00"
+    },
+    "before_review": "Codex reviewed raw answer, tool proposal and CLI list: matching payment and amount, no writes.",
+    "confirmation_review": "Codex checked actual YES screen; expected payment and amount.",
+    "exit_code": 0
+  },
+  {
+    "id": "C105-3",
+    "cents": 105,
+    "role": "finance",
+    "session": 69436,
+    "run": ".local\\practice\\aql-002-regression\\20260905T084834-97d54ffa",
+    "proposal": {
+      "proposal_id": "proposal-48bddc44c51b4baf9d2b813bce2901da",
+      "tenant_id": "tenant-a",
+      "payment_id": "payment-a-second",
+      "amount_cents": 105,
+      "currency": "CNY",
+      "approved": false,
+      "amount_display": "CNY 1.05"
+    },
+    "before_review": "Codex reviewed raw answer, tool proposal and CLI list: matching payment and amount, no writes.",
+    "confirmation_review": "Codex checked actual YES screen; expected payment and amount.",
+    "exit_code": 0
+  },
+  {
+    "id": "D-viewer-1",
+    "cents": 10000,
+    "role": "viewer",
+    "invoice": "invoice-a-double",
+    "session": 17369,
+    "run": ".local\\practice\\aql-002-regression\\20260905T085253-07057791",
+    "before_review": "Backend refusal and no writes verified; final reply includes questionable invitation to claim finance access; preserve as answer-quality issue.",
+    "exit_code": 0
+  },
+  {
+    "id": "N-single-1",
+    "cents": 10000,
+    "role": "finance",
+    "invoice": "invoice-a-single",
+    "session": 31731,
+    "run": ".local\\practice\\aql-002-regression\\20260905T085250-198cb581",
+    "before_review": "Correctly explains single payment is ineligible; no proposal or business writes.",
+    "exit_code": 0
+  }
+]

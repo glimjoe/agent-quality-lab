@@ -1,0 +1,16 @@
+{
+  "base": "demo-v1",
+  "case": "TC-RG-001 B-1",
+  "tenant_id": "tenant-a",
+  "invoice_id": "invoice-a-double",
+  "invoice_and_both_payments_amount_cents": 105,
+  "previous_amount_cents": 10000,
+  "currency": "CNY",
+  "expected_display": "CNY 1.05",
+  "prepared_by": "Codex, delegated by user, before task and db-initial",
+  "prepared_at": "2026-09-05T16:12:44.404774+08:00",
+  "updated_invoice_rows": 1,
+  "updated_payment_rows": 2,
+  "only_expected_changes": true,
+  "captured_before_fixture": "db-before-fixture.json"
+}
