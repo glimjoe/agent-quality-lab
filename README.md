@@ -92,11 +92,12 @@ flowchart LR
 
 ## 练习与证据入口
 
-1. [第一轮动手任务](docs/first-exercise.md)：先自己判断预期，再运行并提交分析。
-2. [规则、验收与风险](docs/first-slice.md)：需求到测试的映射。
-3. [首轮验证报告](docs/verification-2026-09-05.md)：命令、结果、失败与未覆盖项。
-4. [项目计划](docs/project-plan.md)与[决策记录](docs/decisions.md)：后续路线。
-5. [Agent 行为缺陷模板](.github/ISSUE_TEMPLATE/agent-defect.md)：记录复现与归因。
+1. [第一轮逐步教程](docs/first-exercise.md)：技能如何使用、在哪里输入命令、如何确认和读取 SQLite；先完成一条用例。
+2. [第一条用例卡](tests/refund-first-round-test-cases.md)与[执行记录模板](docs/practice/refund-record-template.md)：区分预期、实际和未执行项目。
+3. [规则、验收与风险](docs/first-slice.md)：需求到测试的映射。
+4. [首轮验证报告](docs/verification-2026-09-05.md)：命令、结果、失败与未覆盖项。
+5. [项目计划](docs/project-plan.md)与[决策记录](docs/decisions.md)：后续路线。
+6. [Agent 行为缺陷模板](.github/ISSUE_TEMPLATE/agent-defect.md)：记录复现与归因。
 
 源码在 `agent_quality_lab/`，工程测试在 `tests/`，公开证据在 `evidence/2026-09-05/`。新运行记录默认留在被忽略的 `.local/`，检查后再选入公开材料。
 
