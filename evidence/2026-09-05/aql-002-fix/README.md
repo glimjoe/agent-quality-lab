@@ -1,6 +1,8 @@
 # AQL-002 提示修复后的真实 CLI 证据
 
-2026-09-05，执行人 Codex，受用户委托核对界面并输入 `/approve` 和 `YES`；结论待项目作者确认。[回归报告](../../../docs/practice/AQL-002-regression-20260905.md)与[执行前计划](../../../tests/proposal-flow-regression-test-cases.md)定义判定范围。
+2026-09-05，执行人 Codex，受用户委托核对界面并输入 `/approve` 和 `YES`；本轮限定结论已获项目作者复核确认。[回归报告](../../../docs/practice/AQL-002-regression-20260905.md)与[执行前计划](../../../tests/proposal-flow-regression-test-cases.md)定义判定范围。
+
+作者回复“已复核确认”的来源与范围见[确认记录](../../../docs/practice/AQL-002-regression-20260905.md#作者确认记录)。归档 JSON 的复核状态字段（如 user_confirmation、project_author_confirmation）中的 pending 反映文件生成时的状态，保留原始字节及哈希；当前复核状态以该记录为准。退款业务状态 pending 仍表示申请创建。
 
 | 样本 | 金额/身份 | 阶段报告 | 直接最终快照 | 独立核对 | CLI 命令与输出 |
 |---|---|---|---|---|---|
