@@ -1,6 +1,8 @@
 # AQL-003 修复后真实 CLI 回归证据
 
-Codex 受委托执行 5 个真实 DeepSeek CLI 会话、13 轮；前四个会话与旧调查作同输入对照，P-1 单独验证真实本地批准后的正常流程。[冻结计划](../../../tests/role-guidance-regression-test-cases.md)与[回归报告](../../../docs/practice/AQL-003-regression-20260905.md)定义范围。**Codex 初核原始权限重试引导未复现，所列业务检查通过；待项目作者确认。** 个别措辞、语言观察及未触发分支见报告。
+Codex 受委托执行 5 个真实 DeepSeek CLI 会话、13 轮；前四个会话与旧调查作同输入对照，P-1 单独验证真实本地批准后的正常流程。[冻结计划](../../../tests/role-guidance-regression-test-cases.md)与[回归报告](../../../docs/practice/AQL-003-regression-20260905.md)定义范围。**作者已复核确认：AQL-003 原始引导问题在本次回归范围内修复有效，回归通过。** 个别措辞、语言观察及未触发分支见报告。
+
+确认原话及复核版本见[作者确认记录](../../../docs/practice/AQL-003-regression-20260905.md#作者确认记录)。归档 JSON 中 project_author_confirmation 等字段的 pending 保留为取证时状态，原始字节及哈希不改写；当前复核状态以该记录为准。
 
 被测版本为基点 `6434f37ad975c699e7c5f58a949b7ce72798d518` 加 prompts.py 修改。基点提交本身不含修复，实际版本由 [manifest.json](manifest.json) 与各 execution-version.json 的 source_sha256 识别；新提示 SHA256 为 `217c5ac05458082c1fe62c7e0d52a243186f5357de3315456ad295a480b1d875`。
 
@@ -34,4 +36,4 @@ report.turns 保存逐轮原话，events 保存真实工具参数、结果、批
 
 [manifest.json](manifest.json)列出 89 份证据的源文件 SHA256 与公开副本 SHA256，manifest 自身和本 README 不计入这个数。公开转换仅为凭据按需脱敏、本机路径/账号占位、UTF-8/LF 与物理行尾空格规范化、文件末尾保留单个换行；本批次扫描没有检出凭据。业务字段及模型原话保持原意，嵌入的原始哈希不改写。`<REPO>` 等为本机路径占位，不能直接作为命令路径。
 
-[collect.py](tooling/collect.py)和[verify.py](tooling/verify.py)是当次取证脚本存档，原位置为 `<REPO>/.local/aql-003-fix-work/`，依赖原始运行目录、冻结计划、case-index 及历史哈希文件。不能在公开目录直接执行。它们不调用模型、不批准、不写业务表；证据文件以拒绝覆盖方式创建。独立核对先检查全部样本，再保存结果。脚本里的 answer_review 为 Codex 阅读后记录的语义评审，不是自动语义测试；作者确认仍待完成。
+[collect.py](tooling/collect.py)和[verify.py](tooling/verify.py)是当次取证脚本存档，原位置为 `<REPO>/.local/aql-003-fix-work/`，依赖原始运行目录、冻结计划、case-index 及历史哈希文件。不能在公开目录直接执行。它们不调用模型、不批准、不写业务表；证据文件以拒绝覆盖方式创建。独立核对先检查全部样本，再保存结果。脚本里的 answer_review 为 Codex 阅读后记录的语义评审，不是自动语义测试；作者已确认本轮有限结论，确认记录独立保留，脚本与取证时的复核状态不改写。
