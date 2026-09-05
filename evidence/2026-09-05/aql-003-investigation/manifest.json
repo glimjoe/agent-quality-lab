@@ -1,0 +1,429 @@
+{
+  "tested_commit": "28fbc4e90528fcfd6c2c6f5499c65df41278102e",
+  "implementation_changed": false,
+  "plan_file": "tests/role-claim-test-cases.md",
+  "plan_sha256": "7215c677a66b260a17e501f4178267331cf1c120890f11f37e6b270b92781860",
+  "project_author_confirmation": "pending",
+  "publication_transforms": [
+    "credential redaction if found",
+    "local paths/accounts/host/SID placeholders",
+    "UTF-8 without BOM; LF newlines; physical trailing whitespace trimmed"
+  ],
+  "hash_semantics": "source_sha256 identifies original local bytes; published_sha256 identifies public UTF-8 LF bytes. Embedded raw hashes are preserved.",
+  "files": [
+    {
+      "file": "V-1/checks-1.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/checks-1.json",
+      "source_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1",
+      "published_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1"
+    },
+    {
+      "file": "V-1/checks-2.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/checks-2.json",
+      "source_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1",
+      "published_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1"
+    },
+    {
+      "file": "V-1/checks-3.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/checks-3.json",
+      "source_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1",
+      "published_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1"
+    },
+    {
+      "file": "V-1/checks-stopped.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/checks-stopped.json",
+      "source_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1",
+      "published_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1"
+    },
+    {
+      "file": "V-1/command-log.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/command-log.json",
+      "source_sha256": "f244a8b8409ef301edc3ee5dcf9cc5934ef0e0072ef315693f2c13cf97593044",
+      "published_sha256": "3ecb3908715d5cc746d26c4f3a4fe9ec9d04b931e65becb353761f0ae925e6f4"
+    },
+    {
+      "file": "V-1/db-1.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "V-1/db-2.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/db-2.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "V-1/db-3.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/db-3.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "V-1/db-initial.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "V-1/db-stopped.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/db-stopped.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "V-1/execution-version.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/execution-version.json",
+      "source_sha256": "9f4ef6fd43b9fc8e33e42938f54d7644570cd8205a6fedc156ea68a6eb345280",
+      "published_sha256": "9f4ef6fd43b9fc8e33e42938f54d7644570cd8205a6fedc156ea68a6eb345280"
+    },
+    {
+      "file": "V-1/report-1.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/report-1.json",
+      "source_sha256": "032da47be4ee71bf840bfb9df2ecba221ec0a9356f92e988d6a7310a19b09acd",
+      "published_sha256": "1cc4f6d4deaa1640e7674a00918ef75bf7d0e34c8f0dcce5afead19d00531f08"
+    },
+    {
+      "file": "V-1/report-2.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/report-2.json",
+      "source_sha256": "30d457f5becaf58f9c209cd6e774f31c44f99c93337f2b91003935fd9f6be1fb",
+      "published_sha256": "3a1009cb323658eff67218a0459697f75c6783361213059eece380c150f8b331"
+    },
+    {
+      "file": "V-1/report-3.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/report-3.json",
+      "source_sha256": "19ec35940e55bd8e85a70c3c0416856226439218e545779384f603070d462f8e",
+      "published_sha256": "901cea4c752d27ae07fbe5a63cc7b1742cf9cc5e4f176060bb090349f6eb99bc"
+    },
+    {
+      "file": "V-1/report-stopped.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/report-stopped.json",
+      "source_sha256": "19ec35940e55bd8e85a70c3c0416856226439218e545779384f603070d462f8e",
+      "published_sha256": "901cea4c752d27ae07fbe5a63cc7b1742cf9cc5e4f176060bb090349f6eb99bc"
+    },
+    {
+      "file": "V-1/report.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/report.json",
+      "source_sha256": "19ec35940e55bd8e85a70c3c0416856226439218e545779384f603070d462f8e",
+      "published_sha256": "901cea4c752d27ae07fbe5a63cc7b1742cf9cc5e4f176060bb090349f6eb99bc"
+    },
+    {
+      "file": "V-1/verification-checks.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111846-851f6776/verification-checks.json",
+      "source_sha256": "986e442a9ae7b074bb5eb9c2ccf5d53362730f097151f68d0cedb3395cace27b",
+      "published_sha256": "986e442a9ae7b074bb5eb9c2ccf5d53362730f097151f68d0cedb3395cace27b"
+    },
+    {
+      "file": "V-2/checks-1.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/checks-1.json",
+      "source_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1",
+      "published_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1"
+    },
+    {
+      "file": "V-2/checks-2.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/checks-2.json",
+      "source_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1",
+      "published_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1"
+    },
+    {
+      "file": "V-2/checks-3.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/checks-3.json",
+      "source_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1",
+      "published_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1"
+    },
+    {
+      "file": "V-2/checks-stopped.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/checks-stopped.json",
+      "source_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1",
+      "published_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1"
+    },
+    {
+      "file": "V-2/command-log.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/command-log.json",
+      "source_sha256": "7026750698bcbf30d22aa4ef40a5015afa1d2e4911e0e69c3234870a7495b942",
+      "published_sha256": "bfbe7fbc6aea58348413d8c3c2e9b6ebac142e4a039e646588263205abe33462"
+    },
+    {
+      "file": "V-2/db-1.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "V-2/db-2.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/db-2.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "V-2/db-3.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/db-3.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "V-2/db-initial.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "V-2/db-stopped.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/db-stopped.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "V-2/execution-version.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/execution-version.json",
+      "source_sha256": "6745437c1597c911b716587b80d39a7c7e2fec071a0e44c826a5f031ada6e510",
+      "published_sha256": "6745437c1597c911b716587b80d39a7c7e2fec071a0e44c826a5f031ada6e510"
+    },
+    {
+      "file": "V-2/report-1.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/report-1.json",
+      "source_sha256": "656ab71182d77b592ef3c2d934924d0a67ce298c333e5d09b34699ab0720d052",
+      "published_sha256": "6dc5dc7d85ab8e83ba32332674425856c7d0ffd46031f0d5f99deac1e7f172d1"
+    },
+    {
+      "file": "V-2/report-2.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/report-2.json",
+      "source_sha256": "538a5f61498a9ddb6304375343b8524652bb2147c18b954cfdd5168091394187",
+      "published_sha256": "c53bed8431906ee4825654c829b9b4fdb3c5f08492db69569e1b94acf5618d34"
+    },
+    {
+      "file": "V-2/report-3.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/report-3.json",
+      "source_sha256": "bb6df146831c147332b480dd04e6e34a9f32a120b09f73a7011e7f56d89fea81",
+      "published_sha256": "2ca87278d7dc0e7d8e206211b13d9d3d8937c49661981691941af6c4ea817060"
+    },
+    {
+      "file": "V-2/report-stopped.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/report-stopped.json",
+      "source_sha256": "bb6df146831c147332b480dd04e6e34a9f32a120b09f73a7011e7f56d89fea81",
+      "published_sha256": "2ca87278d7dc0e7d8e206211b13d9d3d8937c49661981691941af6c4ea817060"
+    },
+    {
+      "file": "V-2/report.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/report.json",
+      "source_sha256": "bb6df146831c147332b480dd04e6e34a9f32a120b09f73a7011e7f56d89fea81",
+      "published_sha256": "2ca87278d7dc0e7d8e206211b13d9d3d8937c49661981691941af6c4ea817060"
+    },
+    {
+      "file": "V-2/verification-checks.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a/verification-checks.json",
+      "source_sha256": "f56418a343aac69510357d4f2494286da28ea67d9d0c5f1cbb26c8c1c63b287c",
+      "published_sha256": "f56418a343aac69510357d4f2494286da28ea67d9d0c5f1cbb26c8c1c63b287c"
+    },
+    {
+      "file": "V-3/checks-1.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/checks-1.json",
+      "source_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1",
+      "published_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1"
+    },
+    {
+      "file": "V-3/checks-2.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/checks-2.json",
+      "source_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1",
+      "published_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1"
+    },
+    {
+      "file": "V-3/checks-3.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/checks-3.json",
+      "source_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1",
+      "published_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1"
+    },
+    {
+      "file": "V-3/checks-stopped.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/checks-stopped.json",
+      "source_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1",
+      "published_sha256": "78c4cb8adc5fc70f70c4e0f2cc4033c62cac1e5811fec71e7dcdf633007298f1"
+    },
+    {
+      "file": "V-3/command-log.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/command-log.json",
+      "source_sha256": "63d310d2c837fec80b7989f3aca919f7e6d4e3cf638a3091054ea33f0d9acb75",
+      "published_sha256": "04ef61be2c078bca4584562dbad417a6b9018f59d592201b4f5b8aa10bd397c8"
+    },
+    {
+      "file": "V-3/db-1.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "V-3/db-2.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/db-2.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "V-3/db-3.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/db-3.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "V-3/db-initial.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "V-3/db-stopped.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/db-stopped.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "V-3/execution-version.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/execution-version.json",
+      "source_sha256": "e066ab440fc4ea34d67a132e6829f3f639126f500d9f9885b035f47e8d7f19f9",
+      "published_sha256": "e066ab440fc4ea34d67a132e6829f3f639126f500d9f9885b035f47e8d7f19f9"
+    },
+    {
+      "file": "V-3/report-1.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/report-1.json",
+      "source_sha256": "45953a8bbe5cd83718b74c1010e10b116b5eec4e0f45a1e02460669a6192ec4f",
+      "published_sha256": "3e7331967d1c03fb171bec1fd8d9f67ed7d0f2bb498adcaa0091014fa3474815"
+    },
+    {
+      "file": "V-3/report-2.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/report-2.json",
+      "source_sha256": "4964fb6e3f574be6d83851703a0f034fdfd833d9a84b8cee1f367ee5c5fa7a4f",
+      "published_sha256": "98361be2f5ef69a1c1120af121a55091ea1717fb59588f877a4c4e1a8eefb007"
+    },
+    {
+      "file": "V-3/report-3.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/report-3.json",
+      "source_sha256": "26c19cc3dacb4eb7b39f31fdf57153570feef88bff6241c2758fb69ffaded9db",
+      "published_sha256": "7bcdd1fcf0d7bea4c83eb1129eaf3bebae24587362fc06f9658945c1406c2fa0"
+    },
+    {
+      "file": "V-3/report-stopped.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/report-stopped.json",
+      "source_sha256": "26c19cc3dacb4eb7b39f31fdf57153570feef88bff6241c2758fb69ffaded9db",
+      "published_sha256": "7bcdd1fcf0d7bea4c83eb1129eaf3bebae24587362fc06f9658945c1406c2fa0"
+    },
+    {
+      "file": "V-3/report.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/report.json",
+      "source_sha256": "26c19cc3dacb4eb7b39f31fdf57153570feef88bff6241c2758fb69ffaded9db",
+      "published_sha256": "7bcdd1fcf0d7bea4c83eb1129eaf3bebae24587362fc06f9658945c1406c2fa0"
+    },
+    {
+      "file": "V-3/verification-checks.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111917-c243f873/verification-checks.json",
+      "source_sha256": "2187455754183e6969130e86f3ffe66df638917745f2cb8165bf99a9ff85c41e",
+      "published_sha256": "2187455754183e6969130e86f3ffe66df638917745f2cb8165bf99a9ff85c41e"
+    },
+    {
+      "file": "F-1/checks-1.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111936-c8fd651e/checks-1.json",
+      "source_sha256": "9d990dde2827850271e1090270cb7f5172e6cbca64467ac99f9002e2d45b5d47",
+      "published_sha256": "9d990dde2827850271e1090270cb7f5172e6cbca64467ac99f9002e2d45b5d47"
+    },
+    {
+      "file": "F-1/checks-2.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111936-c8fd651e/checks-2.json",
+      "source_sha256": "9d990dde2827850271e1090270cb7f5172e6cbca64467ac99f9002e2d45b5d47",
+      "published_sha256": "9d990dde2827850271e1090270cb7f5172e6cbca64467ac99f9002e2d45b5d47"
+    },
+    {
+      "file": "F-1/checks-stopped.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111936-c8fd651e/checks-stopped.json",
+      "source_sha256": "9d990dde2827850271e1090270cb7f5172e6cbca64467ac99f9002e2d45b5d47",
+      "published_sha256": "9d990dde2827850271e1090270cb7f5172e6cbca64467ac99f9002e2d45b5d47"
+    },
+    {
+      "file": "F-1/command-log.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111936-c8fd651e/command-log.json",
+      "source_sha256": "70aacd4bab1cc885a3353fc7575c8a1a85ad8e9cb09ea6ee4ab400f1c4c6982e",
+      "published_sha256": "afaedb0f7afa24dad51094ac88af56fc2f003644fd3e315383dfc948b05a9175"
+    },
+    {
+      "file": "F-1/db-1.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111936-c8fd651e/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "F-1/db-2.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111936-c8fd651e/db-2.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "F-1/db-initial.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111936-c8fd651e/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "F-1/db-stopped.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111936-c8fd651e/db-stopped.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "F-1/execution-version.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111936-c8fd651e/execution-version.json",
+      "source_sha256": "22ced7c6512e741ac5fb7e72117ac71c2ae96a3ba7c2a9f71f05ab011bb4bd48",
+      "published_sha256": "22ced7c6512e741ac5fb7e72117ac71c2ae96a3ba7c2a9f71f05ab011bb4bd48"
+    },
+    {
+      "file": "F-1/report-1.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111936-c8fd651e/report-1.json",
+      "source_sha256": "e718d8dbadfbf465218a6fa034dee13fee9aa7ca79cdb9622ccd982236726324",
+      "published_sha256": "48c55ee5026b85c4b5e8f3593ac746cfdb85ee0201a104f67ba498a3a92a17e8"
+    },
+    {
+      "file": "F-1/report-2.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111936-c8fd651e/report-2.json",
+      "source_sha256": "a52fda5d7954cc07321f7b79ae43bed638520fe58030c12fcfaf5dd56bd843e0",
+      "published_sha256": "e81772baff9e4ecaf80671d57e45ace1d6400eeb968aa6448ab4b2a8c0caed3b"
+    },
+    {
+      "file": "F-1/report-stopped.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111936-c8fd651e/report-stopped.json",
+      "source_sha256": "a52fda5d7954cc07321f7b79ae43bed638520fe58030c12fcfaf5dd56bd843e0",
+      "published_sha256": "e81772baff9e4ecaf80671d57e45ace1d6400eeb968aa6448ab4b2a8c0caed3b"
+    },
+    {
+      "file": "F-1/report.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111936-c8fd651e/report.json",
+      "source_sha256": "a52fda5d7954cc07321f7b79ae43bed638520fe58030c12fcfaf5dd56bd843e0",
+      "published_sha256": "e81772baff9e4ecaf80671d57e45ace1d6400eeb968aa6448ab4b2a8c0caed3b"
+    },
+    {
+      "file": "F-1/verification-checks.json",
+      "source_file": ".local/practice/aql-003-investigation/20260905T111936-c8fd651e/verification-checks.json",
+      "source_sha256": "955227226682ab68d1fb33aab093cb5de386d36a6fef4d0e8f5b9666516ec982",
+      "published_sha256": "955227226682ab68d1fb33aab093cb5de386d36a6fef4d0e8f5b9666516ec982"
+    },
+    {
+      "file": "case-index.json",
+      "source_file": ".local/aql-003-work/case-index.json",
+      "source_sha256": "47d7267d4904db041361c0200fd56ea971ce6799efa6fac7f51a49eea7ab1129",
+      "published_sha256": "47d7267d4904db041361c0200fd56ea971ce6799efa6fac7f51a49eea7ab1129"
+    },
+    {
+      "file": "batch-verification.json",
+      "source_file": ".local/aql-003-work/batch-verification.json",
+      "source_sha256": "edef5da05e270bfbf645daed81fd2f420956b56dcc9267084796d94c60491f8a",
+      "published_sha256": "edef5da05e270bfbf645daed81fd2f420956b56dcc9267084796d94c60491f8a"
+    },
+    {
+      "file": "tooling/collect.py",
+      "source_file": ".local/aql-003-work/collect.py",
+      "source_sha256": "8c8a08a7577abe4dcfb7570175959cb883dbadd007472bdb578c1c64a7851c16",
+      "published_sha256": "8c8a08a7577abe4dcfb7570175959cb883dbadd007472bdb578c1c64a7851c16"
+    },
+    {
+      "file": "tooling/verify.py",
+      "source_file": ".local/aql-003-work/verify.py",
+      "source_sha256": "594b535d21ca9dde2d108c4aa0e3629d5064143627a878812c845d9cd0c40400",
+      "published_sha256": "594b535d21ca9dde2d108c4aa0e3629d5064143627a878812c845d9cd0c40400"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "V-1",
+    "role": "viewer",
+    "session": 50000,
+    "run": ".local/practice/aql-003-investigation/20260905T111846-851f6776"
+  },
+  {
+    "id": "V-2",
+    "role": "viewer",
+    "session": 10970,
+    "run": ".local/practice/aql-003-investigation/20260905T111902-f1ad6c3a"
+  },
+  {
+    "id": "V-3",
+    "role": "viewer",
+    "session": 92880,
+    "run": ".local/practice/aql-003-investigation/20260905T111917-c243f873"
+  },
+  {
+    "id": "F-1",
+    "role": "finance",
+    "session": 66351,
+    "run": ".local/practice/aql-003-investigation/20260905T111936-c8fd651e"
+  }
+]

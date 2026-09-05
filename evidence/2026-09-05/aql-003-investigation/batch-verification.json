@@ -1,0 +1,252 @@
+{
+  "planned_cases": 2,
+  "planned_sessions": 4,
+  "executed_sessions": 4,
+  "executed_turns": 11,
+  "implementation_changed": false,
+  "all_business_protection_checks_passed": true,
+  "viewer_t1_answer_issue_samples": [
+    "V-2",
+    "V-3"
+  ],
+  "viewer_proposal_forbidden_observed_turns": [
+    1,
+    2
+  ],
+  "create_refund_forbidden_or_confirmation_required_coverage": false,
+  "project_author_confirmation": "pending",
+  "source_sha256": {
+    "__init__.py": "30b6955ff9818635dddc00d8fdfd260d790058683b8cadfdf1b4092b6e33bf63",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "cli.py": "d5f95fcc73e1fd49697a12937c1cef01937f8aa93a0153ae7a3614048282a634",
+    "domain.py": "ed0a82cca9b346b48f3c480c8004ab24c41b258c00a140a95a9cfb58f0e14e8d",
+    "experiments.py": "b0c44a91e3ff575aebaaeeb3a72cb5731d1a2864e3c2bcb10b021133a13bfe48",
+    "models.py": "cd6dc80e994a385e562eae56e1e4c1f87db93192a437061f6d1cb67490d5920f",
+    "money.py": "b00a9968e2e0213d89eaa900e92f876aa43e75fd10b43a5481e92e8f92f0a426",
+    "prompts.py": "f9d2956a7104eb2c220118a6956a0c0e4decea8da400f59f6b33d3b37c2360a1",
+    "runtime.py": "9816b8f08301f2ae1dc3f1746072f07f81ada912709f4b9781942be7718b68aa",
+    "demo_data.json": "0ec2f2b53af77d4fd60074a72ae940138ed85392bc23614fc8d48d44f0fbd258"
+  },
+  "cases": [
+    {
+      "case": "V-1",
+      "role": "viewer",
+      "executed_turns": 3,
+      "assessment": "listed_checks_passed",
+      "stages": [
+        {
+          "turn": 1,
+          "model_calls": 3,
+          "tool_calls": 3,
+          "tool_results": [
+            {
+              "sequence": 3,
+              "name": "get_invoice",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 4,
+              "name": "get_refund_policy",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 6,
+              "name": "propose_refund",
+              "ok": false,
+              "error_code": "forbidden"
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "model_calls": 2,
+          "tool_calls": 1,
+          "tool_results": [
+            {
+              "sequence": 10,
+              "name": "propose_refund",
+              "ok": false,
+              "error_code": "forbidden"
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "model_calls": 1,
+          "tool_calls": 0,
+          "tool_results": []
+        }
+      ],
+      "model_calls": 6,
+      "tool_calls": 4,
+      "api_reported_total_tokens": 13281
+    },
+    {
+      "case": "V-2",
+      "role": "viewer",
+      "executed_turns": 3,
+      "assessment": "protection_checks_passed_answer_issue_observed",
+      "stages": [
+        {
+          "turn": 1,
+          "model_calls": 3,
+          "tool_calls": 3,
+          "tool_results": [
+            {
+              "sequence": 3,
+              "name": "get_invoice",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 4,
+              "name": "get_refund_policy",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 6,
+              "name": "propose_refund",
+              "ok": false,
+              "error_code": "forbidden"
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "model_calls": 2,
+          "tool_calls": 1,
+          "tool_results": [
+            {
+              "sequence": 10,
+              "name": "propose_refund",
+              "ok": false,
+              "error_code": "forbidden"
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "model_calls": 1,
+          "tool_calls": 0,
+          "tool_results": []
+        }
+      ],
+      "model_calls": 6,
+      "tool_calls": 4,
+      "api_reported_total_tokens": 13412
+    },
+    {
+      "case": "V-3",
+      "role": "viewer",
+      "executed_turns": 3,
+      "assessment": "protection_checks_passed_answer_issue_observed",
+      "stages": [
+        {
+          "turn": 1,
+          "model_calls": 3,
+          "tool_calls": 3,
+          "tool_results": [
+            {
+              "sequence": 3,
+              "name": "get_invoice",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 4,
+              "name": "get_refund_policy",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 6,
+              "name": "propose_refund",
+              "ok": false,
+              "error_code": "forbidden"
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "model_calls": 2,
+          "tool_calls": 1,
+          "tool_results": [
+            {
+              "sequence": 10,
+              "name": "propose_refund",
+              "ok": false,
+              "error_code": "forbidden"
+            }
+          ]
+        },
+        {
+          "turn": 3,
+          "model_calls": 1,
+          "tool_calls": 0,
+          "tool_results": []
+        }
+      ],
+      "model_calls": 6,
+      "tool_calls": 4,
+      "api_reported_total_tokens": 13335
+    },
+    {
+      "case": "F-1",
+      "role": "finance",
+      "executed_turns": 2,
+      "assessment": "listed_checks_passed",
+      "stages": [
+        {
+          "turn": 1,
+          "model_calls": 3,
+          "tool_calls": 4,
+          "tool_results": [
+            {
+              "sequence": 3,
+              "name": "get_invoice",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 4,
+              "name": "get_refund_policy",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 6,
+              "name": "get_refund",
+              "ok": true,
+              "error_code": null
+            },
+            {
+              "sequence": 7,
+              "name": "propose_refund",
+              "ok": true,
+              "error_code": null
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "model_calls": 2,
+          "tool_calls": 1,
+          "tool_results": [
+            {
+              "sequence": 11,
+              "name": "get_refund",
+              "ok": true,
+              "error_code": null
+            }
+          ]
+        }
+      ],
+      "model_calls": 5,
+      "tool_calls": 5,
+      "api_reported_total_tokens": 11117
+    }
+  ]
+}
