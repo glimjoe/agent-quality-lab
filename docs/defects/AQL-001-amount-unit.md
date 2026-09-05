@@ -1,6 +1,6 @@
 # AQL-001：模型把整数分误报为 CNY 金额
 
-状态：已观察、未修复。来源：真实 DeepSeek 基线自然出现；初始优先级建议 P1，作者待评审。
+状态：候选修复已实现，工程自测通过，待作者执行真实模型回归；缺陷未关闭。来源：真实 DeepSeek 基线自然出现；初始优先级建议 P1，作者待评审。初始记录的“已观察、未修复”是修复前历史状态。
 
 ## 依据与预期
 
@@ -17,7 +17,7 @@ python -X utf8 -m agent_quality_lab evaluate --model deepseek --scenario refund_
 - [refund_timeout-01.json](../../evidence/2026-09-05/live-baseline/refund_timeout-01.json)：第一轮提案确认与第二轮最终回答都将金额写成 `10000 CNY`。实际退款仍为 10000 分，状态 pending；程序状态检查通过。
 - [denied-01.json](../../evidence/2026-09-05/live-baseline/denied-01.json)：账单、支付和待确认金额出现相同单位错误；后端拒绝写入，无退款记录。
 
-工具输出是整数分，偏差出现在自然语言呈现层。本地 CLI 的批准展示由普通代码转换为 `CNY 100.00`，因此仍能显示正确金额；模型回答与这个展示可能冲突，不能以数据库金额正确为由忽略它。
+修复前工具输出只有整数分，偏差出现在自然语言呈现层。本地 CLI 的批准展示由普通代码转换为 `CNY 100.00`，因此仍能显示正确金额；模型回答与这个展示可能冲突，不能以数据库金额正确为由忽略它。
 
 ## 影响与定位边界
 
@@ -28,3 +28,13 @@ python -X utf8 -m agent_quality_lab evaluate --model deepseek --scenario refund_
 ## 回归要求
 
 保留原始失败样本，扩展金额单位检查；检查模型回答、应用确认显示和数据库金额的一致性。若改工具返回或提示词，记录单一变更与代码指纹，用原场景和新金额样本分别复测。未执行修复实验前，保持“未修复”。
+
+## 2026-09-05：独立复现与候选修复
+
+- 新失败样本：[TC-F-001 执行结论](../practice/TC-F-001-20260905-7da2d0df-conclusion.md)。正常 chat 的首轮将 10000 分写成 10000 CNY，因此批准后步骤未执行。这份历史失败不会随修复改为通过。
+- 已确认的实现缺口：旧 `BusinessTools.registry` 给模型的金额记录缺少可直接展示的金额，旧系统提示也未定义分与展示金额的契约；`Agent.run` 原样返回模型文字。以上是代码事实，不能单独证明模型内部为何犯错。
+- 修复：在工具返回边界为账单、支付、提案、退款添加 `amount_display`，由普通代码从整数分生成；系统提示要求引用对应记录的显示值。CLI 待确认列表和 YES 确认界面共用同一整数格式化函数。金额来源、数据库字段、权限和确认入口不变。
+- 代码：[money.py](../../agent_quality_lab/money.py) 的 `format_amount` / `amount_view`；[domain.py](../../agent_quality_lab/domain.py) 的 `registry`；[prompts.py](../../agent_quality_lab/prompts.py)；[cli.py](../../agent_quality_lab/cli.py) 的 `chat`。
+- 工程证据：[38 项测试输出](../../evidence/2026-09-05/aql-001-fix/engineering-tests.txt)、[代码与证据指纹](../../evidence/2026-09-05/aql-001-fix/manifest.json)。5 个固定响应场景状态检查通过；这些响应是脚本，不是 DeepSeek 的回归结果。
+- 对照边界：本次同时调整工具显示字段、对应提示和 CLI 格式化，属于修复版本对照；没有分别测出每项变更的因果效果。真实模型仍可能忽略字段或生成错误文字，工程通过不代表缺陷已关闭。
+- 下一步：[金额缺陷回归用例](../../tests/refund-amount-regression-test-cases.md)和[作者操作单](../practice/AQL-001-regression.md)。按用户选择，Codex 修复及工程自测，作者执行真实模型回归。

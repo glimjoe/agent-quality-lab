@@ -8,6 +8,7 @@ import uuid
 from dataclasses import dataclass
 from pathlib import Path
 
+from .money import amount_view
 from .runtime import Tool, ToolError
 
 
@@ -201,14 +202,16 @@ class BusinessTools:
     def registry(self) -> list[Tool]:
         return [
             Tool("get_refund_policy", "读取退款规则及版本。", {}, lambda: {"policy": POLICY}),
-            Tool("list_invoices", "查询当前租户的客户账单。", {"customer_id": "客户 ID"}, self.list_invoices),
-            Tool("get_invoice", "查询当前租户的账单及支付记录。", {"invoice_id": "账单 ID"}, self.get_invoice),
+            Tool("list_invoices", "查询当前租户的客户账单。", {"customer_id": "客户 ID"},
+                 lambda customer_id: amount_view(self.list_invoices(customer_id))),
+            Tool("get_invoice", "查询当前租户的账单及支付记录。", {"invoice_id": "账单 ID"},
+                 lambda invoice_id: amount_view(self.get_invoice(invoice_id))),
             Tool("propose_refund", "校验重复支付并创建待用户确认的提案；不会创建退款申请。",
-                 {"payment_id": "待处理的重复支付 ID"}, self.propose_refund),
+                 {"payment_id": "待处理的重复支付 ID"}, lambda payment_id: amount_view(self.propose_refund(payment_id))),
             Tool("create_refund", "根据本会话已获用户确认的提案创建 pending 退款申请。",
-                 {"proposal_id": "已确认的提案 ID"}, self.create_refund),
+                 {"proposal_id": "已确认的提案 ID"}, lambda proposal_id: amount_view(self.create_refund(proposal_id))),
             Tool("get_refund", "查询当前租户某笔支付是否已有退款申请，用于核实超时结果。",
-                 {"payment_id": "支付 ID"}, self.get_refund),
+                 {"payment_id": "支付 ID"}, lambda payment_id: amount_view(self.get_refund(payment_id))),
             Tool("record_ticket", "记录已创建的退款申请；失败时申请仍保留，可重试补记。",
                  {"refund_id": "退款申请 ID"}, self.record_ticket),
         ]

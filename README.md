@@ -11,7 +11,8 @@
 - 一个交互式 Agent、7 个工具、两个模拟租户、每次独立初始化的实验数据库。
 - 支付对象和金额的本地确认入口；只有 `finance` 可创建 `pending` 申请。
 - 写入后响应超时、工单写入失败两种故障注入。
-- **35 项工程测试通过**；真实模型基线 **13/15 次状态检查通过**。
+- **38 项工程测试通过**；真实模型首轮基线 **13/15 次状态检查通过**。
+- 金额展示已有候选修复，新增 3 项工程测试；[作者真实模型回归待执行](docs/practice/AQL-001-regression.md)，缺陷尚未关闭。
 - 保留全部真实结果，包括未完成样本，以及状态检查未识别出的金额表述错误，详见[首轮验证报告](docs/verification-2026-09-05.md)。**13/15 不是综合任务成功率。**
 
 这是第一条流程的练习环境。Web/API 服务、RAG、MCP、移动端、多 Agent、负载测试和大规模稳定性评测尚未实现。
@@ -99,6 +100,7 @@ flowchart LR
 5. [项目计划](docs/project-plan.md)与[决策记录](docs/decisions.md)：后续路线。
 6. [Agent 行为缺陷模板](.github/ISSUE_TEMPLATE/agent-defect.md)：记录复现与归因。
 7. [TC-F-001 实际执行结论](docs/practice/TC-F-001-20260905-7da2d0df-conclusion.md)与[公开证据](evidence/2026-09-05/tc-f-001-7da2d0df/README.md)：正常 chat 中复现金额错误，批准后步骤未执行。
+8. [AQL-001 修复后回归操作单](docs/practice/AQL-001-regression.md)：作者亲自核对模型回答、显示字段、本地批准和数据库。
 
 源码在 `agent_quality_lab/`，工程测试在 `tests/`，公开证据在 `evidence/2026-09-05/`。新运行记录默认留在被忽略的 `.local/`，检查后再选入公开材料。
 

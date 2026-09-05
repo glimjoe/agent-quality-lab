@@ -1,0 +1,34 @@
+{
+  "implementation_base": "7ffc431",
+  "implementation_identity": "source_sha256 identifies uncommitted candidate fix at execution time",
+  "source_sha256": {
+    "__init__.py": "30b6955ff9818635dddc00d8fdfd260d790058683b8cadfdf1b4092b6e33bf63",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "cli.py": "d5f95fcc73e1fd49697a12937c1cef01937f8aa93a0153ae7a3614048282a634",
+    "domain.py": "ed0a82cca9b346b48f3c480c8004ab24c41b258c00a140a95a9cfb58f0e14e8d",
+    "experiments.py": "b0c44a91e3ff575aebaaeeb3a72cb5731d1a2864e3c2bcb10b021133a13bfe48",
+    "models.py": "cd6dc80e994a385e562eae56e1e4c1f87db93192a437061f6d1cb67490d5920f",
+    "money.py": "b00a9968e2e0213d89eaa900e92f876aa43e75fd10b43a5481e92e8f92f0a426",
+    "prompts.py": "0ae4c9430b9de00caee586efac037e3453d07deadea64fa6fac88e22a8ca6c9c",
+    "runtime.py": "9816b8f08301f2ae1dc3f1746072f07f81ada912709f4b9781942be7718b68aa",
+    "demo_data.json": "0ec2f2b53af77d4fd60074a72ae940138ed85392bc23614fc8d48d44f0fbd258"
+  },
+  "engineering_tests": {
+    "passed": 38,
+    "failed": 0,
+    "skipped": 0
+  },
+  "scripted_scenarios": {
+    "passed": 5,
+    "total": 5
+  },
+  "live_model_regression": "not_run; assigned to project author",
+  "files": {
+    "cross_tenant.json": "ed41762a5edfd7f5fd22adb0f6ac41493a1a9b920df2579e9724a90d48f30ede",
+    "denied.json": "a4356613ecb7adbdd1754f31c3a9720832f7e5a1447269780cdb9e202246cc5f",
+    "engineering-tests.txt": "eed9665e208c2ee95d027e0638e2ae7398401e384db7279f313d4f047dbe9760",
+    "normal.json": "9327974fe65f6fbb70f7e8e2352d46f9426e0631bdbd339d49e2d5e6233ca5f8",
+    "refund_timeout.json": "8c060e71e5f3133d42ef77c1c4e05109747b4688800e4335a653a0f698c09600",
+    "ticket_failure.json": "06d55c275a1f135f9d191e0ce45e14de530207abc93d49a84cbae55db26105be"
+  }
+}

@@ -8,6 +8,7 @@ from pathlib import Path
 from .domain import BusinessTools, Identity
 from .experiments import SCENARIOS, new_run, run_trial, scripted_model
 from .models import DeepSeekModel, Settings
+from .money import format_amount
 from .prompts import SYSTEM_PROMPT
 from .runtime import Agent, ToolError
 
@@ -37,7 +38,7 @@ def chat(args: argparse.Namespace) -> int:
                 if proposal is None:
                     print("当前会话没有这个提案。")
                     continue
-                print(f"支付：{proposal['payment_id']}；金额：{proposal['currency']} {proposal['amount_cents'] / 100:.2f}")
+                print(f"支付：{proposal['payment_id']}；金额：{format_amount(proposal['amount_cents'], proposal['currency'])}")
                 if input("输入 YES 确认这笔申请：").strip() != "YES":
                     print("未批准。")
                     continue
@@ -49,7 +50,7 @@ def chat(args: argparse.Namespace) -> int:
             print(f"Agent [{result.status}]> {result.answer}")
             for proposal in business.proposals.values():
                 if not proposal["approved"]:
-                    print(f"待确认：/approve {proposal['proposal_id']} | {proposal['payment_id']} | {proposal['currency']} {proposal['amount_cents'] / 100:.2f}")
+                    print(f"待确认：/approve {proposal['proposal_id']} | {proposal['payment_id']} | {format_amount(proposal['amount_cents'], proposal['currency'])}")
             (directory / "report.json").write_text(json.dumps({"model_mode": "deepseek", "model": model.settings.model,
                 "identity": asdict(business.identity), "turns": turns, "before": before, "after": store.snapshot(),
                 "events": agent.events}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
