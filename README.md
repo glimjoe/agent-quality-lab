@@ -98,6 +98,7 @@ flowchart LR
 4. [首轮验证报告](docs/verification-2026-09-05.md)：命令、结果、失败与未覆盖项。
 5. [项目计划](docs/project-plan.md)与[决策记录](docs/decisions.md)：后续路线。
 6. [Agent 行为缺陷模板](.github/ISSUE_TEMPLATE/agent-defect.md)：记录复现与归因。
+7. [TC-F-001 实际执行结论](docs/practice/TC-F-001-20260905-7da2d0df-conclusion.md)与[公开证据](evidence/2026-09-05/tc-f-001-7da2d0df/README.md)：正常 chat 中复现金额错误，批准后步骤未执行。
 
 源码在 `agent_quality_lab/`，工程测试在 `tests/`，公开证据在 `evidence/2026-09-05/`。新运行记录默认留在被忽略的 `.local/`，检查后再选入公开材料。
 

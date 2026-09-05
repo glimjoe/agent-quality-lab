@@ -1,0 +1,15 @@
+{
+  "tests\\refund-first-round-test-cases.md": "bb80a4b6a7384ddcd05bdb22e655eea350440b6cf4b210cab0a04b7bae032aab",
+  "docs\\first-exercise.md": "17925fe1a368c82afd83febfdb76128284219c6d7f1cbfc7f56cfcda35d2a687",
+  "docs\\first-slice.md": "c6485efefbc12a123a60efac17d17531c345a2fac832d521c721910a1591b797",
+  "docs\\decisions.md": "6c4fa717e0bb9e67c9aaa33dd92d7388af930aceb1fbab503a59248c6b3d2167",
+  "agent_quality_lab\\__init__.py": "30b6955ff9818635dddc00d8fdfd260d790058683b8cadfdf1b4092b6e33bf63",
+  "agent_quality_lab\\__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+  "agent_quality_lab\\cli.py": "bfd9ef7f4db7b1eefd8ca782a4491223b78a2b8813e53e66559e40bb9bb9043c",
+  "agent_quality_lab\\domain.py": "0bb3f75130fcc86a21808b5359917be2d15ba27c654ec789a8667e48d6e9890d",
+  "agent_quality_lab\\experiments.py": "b0c44a91e3ff575aebaaeeb3a72cb5731d1a2864e3c2bcb10b021133a13bfe48",
+  "agent_quality_lab\\models.py": "cd6dc80e994a385e562eae56e1e4c1f87db93192a437061f6d1cb67490d5920f",
+  "agent_quality_lab\\prompts.py": "57c8a32140808c9b62a8ad3c4cc5c88e928a75b040356aec0d867f8441826de8",
+  "agent_quality_lab\\runtime.py": "9816b8f08301f2ae1dc3f1746072f07f81ada912709f4b9781942be7718b68aa",
+  "agent_quality_lab\\demo_data.json": "0ec2f2b53af77d4fd60074a72ae940138ed85392bc23614fc8d48d44f0fbd258"
+}
