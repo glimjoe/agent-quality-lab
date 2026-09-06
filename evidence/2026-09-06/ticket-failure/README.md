@@ -1,6 +1,6 @@
 # AC6 工单持续失败：真实交互证据
 
-[冻结用例 TC-ERR-002](../../../tests/ticket-failure-test-cases.md)依据已确认的 Q12/AC6。Codex 执行全部 3 个真实 CLI 样本、6 轮，程序状态/轨迹核对通过，回答初核符合所列部分完成预期；**待作者判读**，入口及步骤见[判读单](../../../docs/practice/ticket-failure-review-20260906.md)。未补跑、替换或追加恢复提示。
+[冻结用例 TC-ERR-002](../../../tests/ticket-failure-test-cases.md)依据已确认的 Q12/AC6。Codex 执行全部 3 个真实 CLI 样本、6 轮，程序状态/轨迹核对通过，回答初核符合所列部分完成预期；**TF-1 已获作者确认：AC6 处理通过，原始任务部分完成，工单尝试一次、未实际重试。TF-2、TF-3 待判读。** 确认范围及证据对应关系见[作者判读记录](../../../docs/practice/ticket-failure-review-20260906.md#作者判读记录)。未补跑、替换或追加恢复提示。
 
 | 样本 | 完整报告 | CLI 原始输入输出 | 初始快照 | 工单失败快照 | 最终直接快照 | 独立核对 |
 |---|---|---|---|---|---|---|
@@ -18,4 +18,4 @@
 
 manifest 列出 57 份证据的源文件与公开 SHA256，不含 manifest 自身和本 README。公开转换仅为凭据按需脱敏、本机路径/账号/主机/SID 占位、UTF-8/LF、物理行尾空格规范化及末尾单个换行。本批次未检出凭据，原始字节和 SQLite 留存本地，嵌入的原始哈希不改写；原有 366 份本地证据未变。`<REPO>` 为路径占位，不是可执行路径。
 
-[collect.py](tooling/collect.py)、[verify.py](tooling/verify.py)为当次取证和独立核对脚本存档，原位置 `<REPO>/.local/ticket-failure-work/`，依赖原始目录、case-index、冻结计划与历史哈希文件，不能直接在公开目录运行。它们不调用模型、不批准、不写业务数据，输出拒绝覆盖。语义备注是 Codex 阅读初核，不是自动语义判定；作者尚未确认本批次，后续应独立追加确认，保留取证时的 pending 字段及哈希。
+[collect.py](tooling/collect.py)、[verify.py](tooling/verify.py)为当次取证和独立核对脚本存档，原位置 `<REPO>/.local/ticket-failure-work/`，依赖原始目录、case-index、冻结计划与历史哈希文件，不能直接在公开目录运行。它们不调用模型、不批准、不写业务数据，输出拒绝覆盖。语义备注是 Codex 阅读初核，不是自动语义判定。TF-1 的作者确认已独立归档，未扩大到 TF-2、TF-3；原始证据、manifest 及 JSON 中取证时的 pending 字段不改写，当前确认以作者判读记录为准。
