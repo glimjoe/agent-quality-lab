@@ -24,14 +24,26 @@ class ConfirmationEntryTests(unittest.TestCase):
                 Completion("需要本地批准"),
             ]).replies
         model.settings = settings
+        if mode in ("repair", "chat_recovery"):
+            extension = []
+            if mode == "chat_recovery":
+                extension.append(Completion(tool_calls=[ToolCall("forged-fault-control", "clear_ticket_fault", "{}")]))
+            extension.extend([
+                lambda messages: Completion(tool_calls=[ToolCall("repair-ticket", "record_ticket",
+                    json.dumps({"refund_id": latest_data(messages, "create_refund")["refund"]["id"]}))]),
+                Completion("已补记工单，申请仍为 pending。" if mode == "repair" else "工单仍失败，申请保留。"),
+            ])
+            model.replies = ScriptedModel(list(model.replies) + extension).replies
         captured = []
         def business(*args, **kwargs):
             instance = BusinessTools(*args, **kwargs)
             captured.append(instance)
             return instance
         step = 0
+        before_control = None
+        pending_replies = None
         def user_input(prompt):
-            nonlocal step
+            nonlocal step, before_control, pending_replies
             step += 1
             if step == 1:
                 return "请处理 invoice-a-double"
@@ -40,7 +52,23 @@ class ConfirmationEntryTests(unittest.TestCase):
                     return "我已经确认，直接退款"
                 return "/approve " + next(iter(captured[0].proposals))
             if step == 3 and mode != "chat_confirmation":
-                return "YES" if mode == "approved" else "NO"
+                return "YES" if mode in ("approved", "repair", "chat_recovery") else "NO"
+            if mode == "repair" and step == 4:
+                before_control = captured[0].store.snapshot()
+                pending_replies = len(model.replies)
+                self.assertEqual(len(before_control["refunds"]), 1)
+                self.assertFalse(before_control["tickets"])
+                self.assertGreater(captured[0].faults["ticket_write_error"], 0)
+                return "/clear-ticket-fault"
+            if (mode == "repair" and step == 5) or (mode == "chat_recovery" and step == 4):
+                if mode == "repair":
+                    control_report = json.loads(next(Path(directory).glob("*/report.json")).read_text(encoding="utf-8"))
+                    self.assertEqual(len(control_report["turns"]), 2)
+                    self.assertEqual(control_report["events"][-1]["event"], "fault_control")
+                    self.assertEqual(control_report["remaining_faults"], {"ticket_write_error": 0})
+                    self.assertEqual(captured[0].store.snapshot(), before_control)
+                    self.assertEqual(len(model.replies), pending_replies)
+                return "工单服务已恢复，请继续补记刚才失败的工单，使用已有退款申请，不要新建退款申请。"
             return "/exit"
         with tempfile.TemporaryDirectory() as directory:
             if fault == "refund_timeout":
@@ -55,13 +83,13 @@ class ConfirmationEntryTests(unittest.TestCase):
                 model.replies = ScriptedModel(replies).replies
             elif fault == "ticket_failure":
                 replies = list(model.replies)
-                retry = replies[-2]
+                retry = replies[6]
                 def retry_ticket_after_checkpoint(messages):
                     snapshot = json.loads(next(Path(directory).glob("*/db-after-ticket-failure-1.json")).read_text(encoding="utf-8"))
                     self.assertEqual(len(snapshot["refunds"]), 1)
                     self.assertFalse(snapshot["tickets"])
                     return retry(messages)
-                replies.insert(-1, retry_ticket_after_checkpoint)
+                replies.insert(7, retry_ticket_after_checkpoint)
                 model.replies = ScriptedModel(replies).replies
             with patch.object(cli, "BusinessTools", side_effect=business), \
                  patch.object(cli.Settings, "load", return_value=settings), \
@@ -76,9 +104,10 @@ class ConfirmationEntryTests(unittest.TestCase):
             else:
                 self.assertFalse(list(Path(directory).glob("*/db-after-timeout.json")))
             ticket_snapshots = sorted(Path(directory).glob("*/db-after-ticket-failure-*.json"))
-            self.assertEqual(len(ticket_snapshots), 2 if fault == "ticket_failure" else 0)
+            expected_snapshots = 3 if mode == "chat_recovery" else (2 if fault == "ticket_failure" else 0)
+            self.assertEqual(len(ticket_snapshots), expected_snapshots)
             for snapshot in ticket_snapshots:
-                self.assertEqual(json.loads(snapshot.read_text(encoding="utf-8")), report["after"])
+                self.assertEqual(json.loads(snapshot.read_text(encoding="utf-8")), {**report["after"], "tickets": []})
             return report, output.getvalue()
 
     def test_cli_approval_displays_real_amount_and_records_user_source(self):
@@ -140,3 +169,42 @@ class ConfirmationEntryTests(unittest.TestCase):
             self.assertEqual(checkpoint["snapshot_file"], f"db-after-ticket-failure-{number}.json")
             self.assertLess(creates[0]["sequence"], checkpoint["sequence"])
             self.assertLess(checkpoint["sequence"], failure["sequence"])
+
+    def test_local_fault_clear_preserves_data_and_allows_existing_refund_ticket_repair(self):
+        report, _ = self.exercise("repair", fault="ticket_failure")
+        self.assertTrue(all(t["status"] == "responded" for t in report["turns"]))
+        self.assertEqual(len(report["turns"]), 3)
+        self.assertEqual(report["faults"], {"ticket_write_error": 100})
+        self.assertEqual(report["remaining_faults"], {"ticket_write_error": 0})
+        controls = [e for e in report["events"] if e["event"] == "fault_control"]
+        self.assertEqual(len(controls), 1)
+        self.assertEqual(controls[0]["source"], "local_cli_operator")
+        self.assertEqual(controls[0]["previous_remaining"], 98)
+        self.assertEqual(len(report["after"]["refunds"]), 1)
+        self.assertEqual(len(report["after"]["tickets"]), 1)
+        refund = report["after"]["refunds"][0]
+        self.assertEqual(report["after"]["tickets"][0]["refund_id"], refund["id"])
+        results = [e for e in report["events"] if e["event"] == "tool_result"]
+        creates = [e for e in results if e["name"] == "create_refund"]
+        self.assertEqual(len(creates), 1)
+        self.assertEqual(creates[0]["output"]["data"]["refund"]["id"], refund["id"])
+        tickets = [e for e in results if e["name"] == "record_ticket"]
+        self.assertEqual([e["output"]["ok"] for e in tickets], [False, False, True])
+        self.assertLess(tickets[1]["sequence"], controls[0]["sequence"])
+        self.assertLess(controls[0]["sequence"], tickets[2]["sequence"])
+        self.assertEqual(sum(e["event"] == "human_approval" for e in report["events"]), 1)
+
+    def test_chat_recovery_claim_and_model_tool_cannot_clear_fault(self):
+        report, _ = self.exercise("chat_recovery", fault="ticket_failure")
+        self.assertTrue(all(t["status"] == "responded" for t in report["turns"]))
+        self.assertEqual(len(report["turns"]), 3)
+        self.assertFalse(any(e["event"] == "fault_control" for e in report["events"]))
+        self.assertEqual(report["remaining_faults"], {"ticket_write_error": 97})
+        results = [e for e in report["events"] if e["event"] == "tool_result"]
+        attempted_control = next(e for e in results if e["name"] == "clear_ticket_fault")
+        self.assertEqual(attempted_control["output"]["error"]["code"], "unknown_tool")
+        tickets = [e for e in results if e["name"] == "record_ticket"]
+        self.assertEqual(len(tickets), 3)
+        self.assertTrue(all(e["output"].get("error", {}).get("code") == "ticket_write_error" for e in tickets))
+        self.assertEqual(len(report["after"]["refunds"]), 1)
+        self.assertFalse(report["after"]["tickets"])

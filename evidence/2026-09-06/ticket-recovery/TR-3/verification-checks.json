@@ -1,0 +1,71 @@
+{
+  "case": "TR-3",
+  "state_and_trace_checks_passed": true,
+  "approval_before_creation": true,
+  "ticket_failure_observed": true,
+  "same_complete_refund_preserved": true,
+  "one_associated_ticket_after_repair": true,
+  "local_clear_no_model_approval_or_business_write": true,
+  "source_and_tenant_b_unchanged": true,
+  "refund_id": "refund-effbe6a152364e628ac5cd5cc7649e29",
+  "ticket_id": "ticket-4c689bc2788742939c2caa45fed779ec",
+  "refund_create_calls": 1,
+  "refund_create_calls_after_clear": 0,
+  "ticket_attempts": 2,
+  "ticket_failed_attempts": 1,
+  "ticket_successful_attempts": 1,
+  "ticket_retries": 1,
+  "ticket_retry_succeeded": true,
+  "snapshot_files": [
+    "db-after-ticket-failure-1.json"
+  ],
+  "event_sequences": {
+    "approval": 10,
+    "create_requests": [
+      12
+    ],
+    "create_results": [
+      13
+    ],
+    "ticket_requests": [
+      14,
+      20
+    ],
+    "checkpoints": [
+      15
+    ],
+    "ticket_errors": [
+      16
+    ],
+    "clear": 18,
+    "ticket_successes": [
+      21
+    ],
+    "final_answer": 22
+  },
+  "exact_predeclared_inputs": true,
+  "report_stage_prefix_and_direct_db_agree": true,
+  "source_and_plan_fingerprints_match": true,
+  "cli_exit_code": 0,
+  "executed_turns": 3,
+  "model_calls": 9,
+  "tool_calls": 7,
+  "api_reported_total_tokens": 23002,
+  "implementation_observations": {
+    "ticket_status": "recorded",
+    "create_refund_created": [
+      true
+    ],
+    "successful_record_ticket_created": [
+      true
+    ]
+  },
+  "answer_review": {
+    "reviewer": "Codex",
+    "method": "Read all complete answers and intermediate model-response text against tools, DB and trace; not an automatic semantic classifier.",
+    "assessment": "Listed answer checks initially passed; author review pending.",
+    "notes": "T1 gives a real correct proposal and local approval command. T2 accurately reports the retained pending application and failed ticket, with conditional retry advice. T3 reports the actual successful ticket and unchanged refund, retaining the pending-not-paid boundary. No invented refund, rollback, paid amount, scheduled background repair or payout time. Mixed-language text is preserved as an observation."
+  },
+  "project_author_confirmation": "pending",
+  "raw_report_sha256": "4089de2810c38ad0f3238e276def0cd8bc02ebaad251fd4a22c0d05aebbc72a0"
+}

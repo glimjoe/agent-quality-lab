@@ -1,0 +1,482 @@
+{
+  "git_base_commit": "9da66d1f0274b7a0767d1b671bbfe398df32c27f",
+  "tested_version": "Base plus cli.py local fault clear/report persistence and tests/test_cli.py regression; source fingerprints identify the executed version.",
+  "source_sha256": {
+    "__init__.py": "30b6955ff9818635dddc00d8fdfd260d790058683b8cadfdf1b4092b6e33bf63",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "cli.py": "1a1222dd11eb85cb0da13a738c3a434438c99794c49fa8cf873804580ba3d844",
+    "domain.py": "ed0a82cca9b346b48f3c480c8004ab24c41b258c00a140a95a9cfb58f0e14e8d",
+    "experiments.py": "b0c44a91e3ff575aebaaeeb3a72cb5731d1a2864e3c2bcb10b021133a13bfe48",
+    "models.py": "cd6dc80e994a385e562eae56e1e4c1f87db93192a437061f6d1cb67490d5920f",
+    "money.py": "b00a9968e2e0213d89eaa900e92f876aa43e75fd10b43a5481e92e8f92f0a426",
+    "prompts.py": "217c5ac05458082c1fe62c7e0d52a243186f5357de3315456ad295a480b1d875",
+    "runtime.py": "9816b8f08301f2ae1dc3f1746072f07f81ada912709f4b9781942be7718b68aa",
+    "demo_data.json": "0ec2f2b53af77d4fd60074a72ae940138ed85392bc23614fc8d48d44f0fbd258"
+  },
+  "engineering_test_sha256": "6b78ab8a2afbfec1e07504fd536fbadcc8cea85537c57977831c395c7cc31f7f",
+  "plan_file": "tests/ticket-recovery-test-cases.md",
+  "plan_sha256": "b48c6306e39c231eea0c59c8b8d6b02232424fee33192d4e5b64944b8d60433d",
+  "confirmed_rules_file": "docs/first-slice.md",
+  "confirmed_rules_sha256": "c6485efefbc12a123a60efac17d17531c345a2fac832d521c721910a1591b797",
+  "project_author_confirmation": "pending",
+  "historical_raw_files_unchanged": 414,
+  "publication_transforms": [
+    "credential redaction if found",
+    "local path/account/host/SID placeholders",
+    "UTF-8 without BOM; LF newlines; physical trailing whitespace trimmed; single final newline"
+  ],
+  "credential_categories_detected": [],
+  "hash_semantics": "source_sha256 identifies original local bytes; published_sha256 identifies sanitized UTF-8 LF bytes. Embedded raw hashes are preserved.",
+  "files": [
+    {
+      "file": "TR-1/checks-1.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/checks-1.json",
+      "source_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd",
+      "published_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd"
+    },
+    {
+      "file": "TR-1/checks-2.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/checks-2.json",
+      "source_sha256": "badda89420722e638f4771399be348955b7ad7712f68ef55019251757a9cf425",
+      "published_sha256": "badda89420722e638f4771399be348955b7ad7712f68ef55019251757a9cf425"
+    },
+    {
+      "file": "TR-1/checks-3.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/checks-3.json",
+      "source_sha256": "a37d43e1134d68bf644ff07251f8c436877b2d18b39d6c9d44af3cfbc4d5aafa",
+      "published_sha256": "a37d43e1134d68bf644ff07251f8c436877b2d18b39d6c9d44af3cfbc4d5aafa"
+    },
+    {
+      "file": "TR-1/checks-cleared.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/checks-cleared.json",
+      "source_sha256": "430e7503af4227be857389e389301919dafdefe2cfcde633aa2d87c6e71c1cab",
+      "published_sha256": "430e7503af4227be857389e389301919dafdefe2cfcde633aa2d87c6e71c1cab"
+    },
+    {
+      "file": "TR-1/checks-stopped.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/checks-stopped.json",
+      "source_sha256": "a37d43e1134d68bf644ff07251f8c436877b2d18b39d6c9d44af3cfbc4d5aafa",
+      "published_sha256": "a37d43e1134d68bf644ff07251f8c436877b2d18b39d6c9d44af3cfbc4d5aafa"
+    },
+    {
+      "file": "TR-1/command-log.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/command-log.json",
+      "source_sha256": "5af88dde8c2998c177a84f3700a2c0b792ceba16908cf26f08404eb1adffa1ff",
+      "published_sha256": "98aa0426559e95602f8fec3a4a7c62791b170ed8a84bdfbf9606bd8e3912de95"
+    },
+    {
+      "file": "TR-1/db-1.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "TR-1/db-2.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/db-2.json",
+      "source_sha256": "d4a0d430e4e7578610efdd8a24c4d4bc2ec052e5a6064cd8c9c8aa415e3e28a1",
+      "published_sha256": "d4a0d430e4e7578610efdd8a24c4d4bc2ec052e5a6064cd8c9c8aa415e3e28a1"
+    },
+    {
+      "file": "TR-1/db-3.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/db-3.json",
+      "source_sha256": "5f31983449e89f9dc545529e2d16847ccc19bf10bb713072736982afccdd276f",
+      "published_sha256": "5f31983449e89f9dc545529e2d16847ccc19bf10bb713072736982afccdd276f"
+    },
+    {
+      "file": "TR-1/db-after-ticket-failure-1.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/db-after-ticket-failure-1.json",
+      "source_sha256": "d4a0d430e4e7578610efdd8a24c4d4bc2ec052e5a6064cd8c9c8aa415e3e28a1",
+      "published_sha256": "d4a0d430e4e7578610efdd8a24c4d4bc2ec052e5a6064cd8c9c8aa415e3e28a1"
+    },
+    {
+      "file": "TR-1/db-cleared.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/db-cleared.json",
+      "source_sha256": "d4a0d430e4e7578610efdd8a24c4d4bc2ec052e5a6064cd8c9c8aa415e3e28a1",
+      "published_sha256": "d4a0d430e4e7578610efdd8a24c4d4bc2ec052e5a6064cd8c9c8aa415e3e28a1"
+    },
+    {
+      "file": "TR-1/db-initial.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "TR-1/db-stopped.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/db-stopped.json",
+      "source_sha256": "5f31983449e89f9dc545529e2d16847ccc19bf10bb713072736982afccdd276f",
+      "published_sha256": "5f31983449e89f9dc545529e2d16847ccc19bf10bb713072736982afccdd276f"
+    },
+    {
+      "file": "TR-1/execution-version.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/execution-version.json",
+      "source_sha256": "e6edd154414650d6dfa3e5b1edfed643a3ce9059145faae2e9f5830fbaa53e3c",
+      "published_sha256": "e6edd154414650d6dfa3e5b1edfed643a3ce9059145faae2e9f5830fbaa53e3c"
+    },
+    {
+      "file": "TR-1/report-1.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/report-1.json",
+      "source_sha256": "54ff9d2a17086ff1e56d553b96cec7c08bba08fa93a4eeb5969f5925dd693388",
+      "published_sha256": "d79c4d05407f396d3b782ece1d24b7ce6a0e753428ab726b58cb4896983033fe"
+    },
+    {
+      "file": "TR-1/report-2.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/report-2.json",
+      "source_sha256": "91f6bcdfb86a4438b109f67ff584a987855cd9b337bfc22aa3881ea6abb8bff5",
+      "published_sha256": "047fc01b453928a64995f4f3e5ee4ce9786a2dfb5a812bded9968436981fcdde"
+    },
+    {
+      "file": "TR-1/report-3.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/report-3.json",
+      "source_sha256": "c244a5c80a39f7296d52a246bee8019c8f0bc227f5cfe16282d3e93b570c5348",
+      "published_sha256": "0b2bf553f0b3a991e25a190259c5698b723a919c9792983c3780a7d7ff4fba88"
+    },
+    {
+      "file": "TR-1/report-cleared.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/report-cleared.json",
+      "source_sha256": "9eb37276c292ab463aefcd0bffa7a19d796b17569b33692fd381d4934c044789",
+      "published_sha256": "bd6be5581b92568dbbdb39d761aedfdf82aa45d06d76512ed0804e0a6490bd99"
+    },
+    {
+      "file": "TR-1/report-stopped.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/report-stopped.json",
+      "source_sha256": "c244a5c80a39f7296d52a246bee8019c8f0bc227f5cfe16282d3e93b570c5348",
+      "published_sha256": "0b2bf553f0b3a991e25a190259c5698b723a919c9792983c3780a7d7ff4fba88"
+    },
+    {
+      "file": "TR-1/report.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/report.json",
+      "source_sha256": "c244a5c80a39f7296d52a246bee8019c8f0bc227f5cfe16282d3e93b570c5348",
+      "published_sha256": "0b2bf553f0b3a991e25a190259c5698b723a919c9792983c3780a7d7ff4fba88"
+    },
+    {
+      "file": "TR-1/verification-checks.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084606-06977037/verification-checks.json",
+      "source_sha256": "c0721800156585740ffaf77f1f5bccebcafa20fba6cfad77e54acab6a2deafe6",
+      "published_sha256": "c0721800156585740ffaf77f1f5bccebcafa20fba6cfad77e54acab6a2deafe6"
+    },
+    {
+      "file": "TR-2/checks-1.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/checks-1.json",
+      "source_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd",
+      "published_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd"
+    },
+    {
+      "file": "TR-2/checks-2.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/checks-2.json",
+      "source_sha256": "badda89420722e638f4771399be348955b7ad7712f68ef55019251757a9cf425",
+      "published_sha256": "badda89420722e638f4771399be348955b7ad7712f68ef55019251757a9cf425"
+    },
+    {
+      "file": "TR-2/checks-3.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/checks-3.json",
+      "source_sha256": "a37d43e1134d68bf644ff07251f8c436877b2d18b39d6c9d44af3cfbc4d5aafa",
+      "published_sha256": "a37d43e1134d68bf644ff07251f8c436877b2d18b39d6c9d44af3cfbc4d5aafa"
+    },
+    {
+      "file": "TR-2/checks-cleared.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/checks-cleared.json",
+      "source_sha256": "430e7503af4227be857389e389301919dafdefe2cfcde633aa2d87c6e71c1cab",
+      "published_sha256": "430e7503af4227be857389e389301919dafdefe2cfcde633aa2d87c6e71c1cab"
+    },
+    {
+      "file": "TR-2/checks-stopped.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/checks-stopped.json",
+      "source_sha256": "a37d43e1134d68bf644ff07251f8c436877b2d18b39d6c9d44af3cfbc4d5aafa",
+      "published_sha256": "a37d43e1134d68bf644ff07251f8c436877b2d18b39d6c9d44af3cfbc4d5aafa"
+    },
+    {
+      "file": "TR-2/command-log.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/command-log.json",
+      "source_sha256": "fab42f778aaf7f746470a56c3bd029b0bb65cbc086330e6dbf4f5a8eaa229a2b",
+      "published_sha256": "d6ba28150689321165b36dd406f8d8b3b608edfd0b01848c2aa239ed375acfda"
+    },
+    {
+      "file": "TR-2/db-1.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "TR-2/db-2.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/db-2.json",
+      "source_sha256": "dcae9e8a79b80eb60fd74fa6bec1f278af6fe482bb204c4a3fd984187e02a284",
+      "published_sha256": "dcae9e8a79b80eb60fd74fa6bec1f278af6fe482bb204c4a3fd984187e02a284"
+    },
+    {
+      "file": "TR-2/db-3.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/db-3.json",
+      "source_sha256": "30a2627174d09895536219e684110191a077aa29752de7b40d99fad3d2989222",
+      "published_sha256": "30a2627174d09895536219e684110191a077aa29752de7b40d99fad3d2989222"
+    },
+    {
+      "file": "TR-2/db-after-ticket-failure-1.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/db-after-ticket-failure-1.json",
+      "source_sha256": "dcae9e8a79b80eb60fd74fa6bec1f278af6fe482bb204c4a3fd984187e02a284",
+      "published_sha256": "dcae9e8a79b80eb60fd74fa6bec1f278af6fe482bb204c4a3fd984187e02a284"
+    },
+    {
+      "file": "TR-2/db-cleared.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/db-cleared.json",
+      "source_sha256": "dcae9e8a79b80eb60fd74fa6bec1f278af6fe482bb204c4a3fd984187e02a284",
+      "published_sha256": "dcae9e8a79b80eb60fd74fa6bec1f278af6fe482bb204c4a3fd984187e02a284"
+    },
+    {
+      "file": "TR-2/db-initial.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "TR-2/db-stopped.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/db-stopped.json",
+      "source_sha256": "30a2627174d09895536219e684110191a077aa29752de7b40d99fad3d2989222",
+      "published_sha256": "30a2627174d09895536219e684110191a077aa29752de7b40d99fad3d2989222"
+    },
+    {
+      "file": "TR-2/execution-version.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/execution-version.json",
+      "source_sha256": "130c9ad79540736f2c5e088c2dc73fc8ce52474b998085e76f64e6a0c1787cf3",
+      "published_sha256": "130c9ad79540736f2c5e088c2dc73fc8ce52474b998085e76f64e6a0c1787cf3"
+    },
+    {
+      "file": "TR-2/report-1.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/report-1.json",
+      "source_sha256": "ec08504445aa9479831e6c41557e01f2f267bd76d57d6bd19a11874e78c5cd51",
+      "published_sha256": "453af9bdf64dba865a77d693c746616fe5749782393c1ae02c6be371da03c8e7"
+    },
+    {
+      "file": "TR-2/report-2.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/report-2.json",
+      "source_sha256": "df19ed72ce58ecfac115e55303fd93b8a681ac8365f92535991fc644013feb68",
+      "published_sha256": "a4ec08b8dbe7cf0bbd2e9b91052d5a88241d2f6d0edb9306b056992a9c7a27aa"
+    },
+    {
+      "file": "TR-2/report-3.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/report-3.json",
+      "source_sha256": "6a0feae17305ee844c3bed9efdedffe2edeabf0e34849582a7e4c4293eb8840d",
+      "published_sha256": "597212b912b46cb7f6341fed05149cd7b0f1d128c3c1c2d77edd9fd0c7ce8a36"
+    },
+    {
+      "file": "TR-2/report-cleared.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/report-cleared.json",
+      "source_sha256": "67d3bfd881b8df844ab7ddba9d4d02a7da688ebdbc892c11892c93f5a3b2d010",
+      "published_sha256": "0560cd622d4169b28029462cd6be0cf0aa72b471497e6160497106ac8bbf95e6"
+    },
+    {
+      "file": "TR-2/report-stopped.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/report-stopped.json",
+      "source_sha256": "6a0feae17305ee844c3bed9efdedffe2edeabf0e34849582a7e4c4293eb8840d",
+      "published_sha256": "597212b912b46cb7f6341fed05149cd7b0f1d128c3c1c2d77edd9fd0c7ce8a36"
+    },
+    {
+      "file": "TR-2/report.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/report.json",
+      "source_sha256": "6a0feae17305ee844c3bed9efdedffe2edeabf0e34849582a7e4c4293eb8840d",
+      "published_sha256": "597212b912b46cb7f6341fed05149cd7b0f1d128c3c1c2d77edd9fd0c7ce8a36"
+    },
+    {
+      "file": "TR-2/verification-checks.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084624-82f9f226/verification-checks.json",
+      "source_sha256": "f82f31e452166b5d8973e9bb4b663998efb4aa285feb897e8e84a9a4a4f2bc30",
+      "published_sha256": "f82f31e452166b5d8973e9bb4b663998efb4aa285feb897e8e84a9a4a4f2bc30"
+    },
+    {
+      "file": "TR-3/checks-1.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/checks-1.json",
+      "source_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd",
+      "published_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd"
+    },
+    {
+      "file": "TR-3/checks-2.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/checks-2.json",
+      "source_sha256": "badda89420722e638f4771399be348955b7ad7712f68ef55019251757a9cf425",
+      "published_sha256": "badda89420722e638f4771399be348955b7ad7712f68ef55019251757a9cf425"
+    },
+    {
+      "file": "TR-3/checks-3.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/checks-3.json",
+      "source_sha256": "a37d43e1134d68bf644ff07251f8c436877b2d18b39d6c9d44af3cfbc4d5aafa",
+      "published_sha256": "a37d43e1134d68bf644ff07251f8c436877b2d18b39d6c9d44af3cfbc4d5aafa"
+    },
+    {
+      "file": "TR-3/checks-cleared.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/checks-cleared.json",
+      "source_sha256": "430e7503af4227be857389e389301919dafdefe2cfcde633aa2d87c6e71c1cab",
+      "published_sha256": "430e7503af4227be857389e389301919dafdefe2cfcde633aa2d87c6e71c1cab"
+    },
+    {
+      "file": "TR-3/checks-stopped.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/checks-stopped.json",
+      "source_sha256": "a37d43e1134d68bf644ff07251f8c436877b2d18b39d6c9d44af3cfbc4d5aafa",
+      "published_sha256": "a37d43e1134d68bf644ff07251f8c436877b2d18b39d6c9d44af3cfbc4d5aafa"
+    },
+    {
+      "file": "TR-3/command-log.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/command-log.json",
+      "source_sha256": "75365da63713af5b12a9a8cd9f48fb513044e497e5b32cb29e95564365850cff",
+      "published_sha256": "203b84793b2bbba28602fd9d7f6fac3b4bc847834ebf93a7398f96d4c635648a"
+    },
+    {
+      "file": "TR-3/db-1.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "TR-3/db-2.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/db-2.json",
+      "source_sha256": "23f7ec1138808cca723b806a4ea185bf47d21499947702b410b8493a2ea68ebd",
+      "published_sha256": "23f7ec1138808cca723b806a4ea185bf47d21499947702b410b8493a2ea68ebd"
+    },
+    {
+      "file": "TR-3/db-3.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/db-3.json",
+      "source_sha256": "82334447360fa580746d88bfc02da69ba74d4c390b3fbd0a9ce67e46c8fdcea9",
+      "published_sha256": "82334447360fa580746d88bfc02da69ba74d4c390b3fbd0a9ce67e46c8fdcea9"
+    },
+    {
+      "file": "TR-3/db-after-ticket-failure-1.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/db-after-ticket-failure-1.json",
+      "source_sha256": "23f7ec1138808cca723b806a4ea185bf47d21499947702b410b8493a2ea68ebd",
+      "published_sha256": "23f7ec1138808cca723b806a4ea185bf47d21499947702b410b8493a2ea68ebd"
+    },
+    {
+      "file": "TR-3/db-cleared.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/db-cleared.json",
+      "source_sha256": "23f7ec1138808cca723b806a4ea185bf47d21499947702b410b8493a2ea68ebd",
+      "published_sha256": "23f7ec1138808cca723b806a4ea185bf47d21499947702b410b8493a2ea68ebd"
+    },
+    {
+      "file": "TR-3/db-initial.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "TR-3/db-stopped.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/db-stopped.json",
+      "source_sha256": "82334447360fa580746d88bfc02da69ba74d4c390b3fbd0a9ce67e46c8fdcea9",
+      "published_sha256": "82334447360fa580746d88bfc02da69ba74d4c390b3fbd0a9ce67e46c8fdcea9"
+    },
+    {
+      "file": "TR-3/execution-version.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/execution-version.json",
+      "source_sha256": "f491af0c4fb525ac0670886b6011189bc7b7e2c45a33502186783c394a28a329",
+      "published_sha256": "f491af0c4fb525ac0670886b6011189bc7b7e2c45a33502186783c394a28a329"
+    },
+    {
+      "file": "TR-3/report-1.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/report-1.json",
+      "source_sha256": "f804e854d5b7cad9ca90e4e05d8d1d43e891a87d4e867b20d473bcfe603aea74",
+      "published_sha256": "dec6cfe469ff95232184a7afde7cb8a1a01afdbd8ba967c50297c0388ead1e61"
+    },
+    {
+      "file": "TR-3/report-2.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/report-2.json",
+      "source_sha256": "d5241886a7027fe0d4c34506a1de51850aa5b7d692a575655fcc0ef987fb7a31",
+      "published_sha256": "b42fad63e4d9b20b767d86e4fbfbdbc0d7166b8e5dd0e148b416211d052b4977"
+    },
+    {
+      "file": "TR-3/report-3.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/report-3.json",
+      "source_sha256": "4089de2810c38ad0f3238e276def0cd8bc02ebaad251fd4a22c0d05aebbc72a0",
+      "published_sha256": "02df1af6a9fdc4bc021c9f41f7ef40fde857707a3dee065755f7d79c0a9b3612"
+    },
+    {
+      "file": "TR-3/report-cleared.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/report-cleared.json",
+      "source_sha256": "abe1ead01a644b01e05beca6bc6a02fcdb23713feb3f8d3a25f7176b9214eff4",
+      "published_sha256": "b043b96290de6bac2210055d042d5be02996899f0944b3b9ef155b11252eec11"
+    },
+    {
+      "file": "TR-3/report-stopped.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/report-stopped.json",
+      "source_sha256": "4089de2810c38ad0f3238e276def0cd8bc02ebaad251fd4a22c0d05aebbc72a0",
+      "published_sha256": "02df1af6a9fdc4bc021c9f41f7ef40fde857707a3dee065755f7d79c0a9b3612"
+    },
+    {
+      "file": "TR-3/report.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/report.json",
+      "source_sha256": "4089de2810c38ad0f3238e276def0cd8bc02ebaad251fd4a22c0d05aebbc72a0",
+      "published_sha256": "02df1af6a9fdc4bc021c9f41f7ef40fde857707a3dee065755f7d79c0a9b3612"
+    },
+    {
+      "file": "TR-3/verification-checks.json",
+      "source_file": ".local/practice/ticket-recovery/20260906T084641-55436580/verification-checks.json",
+      "source_sha256": "2a47de2d5df64fa48ea06eb6d9d85c4178cedc1d19b2b42ca1e130b5ff4152a2",
+      "published_sha256": "2a47de2d5df64fa48ea06eb6d9d85c4178cedc1d19b2b42ca1e130b5ff4152a2"
+    },
+    {
+      "file": "case-index.json",
+      "source_file": ".local/ticket-recovery-work/case-index.json",
+      "source_sha256": "51d02feaa256599a47172a990a93ce7f2cf99e9436c5f178feab350cefa1c6fb",
+      "published_sha256": "51d02feaa256599a47172a990a93ce7f2cf99e9436c5f178feab350cefa1c6fb"
+    },
+    {
+      "file": "batch-verification.json",
+      "source_file": ".local/ticket-recovery-work/batch-verification.json",
+      "source_sha256": "cbc7c8ef199c0b0fd33634a92aaca404ed72f8e1ccf70483a167ac6dbe32db77",
+      "published_sha256": "cbc7c8ef199c0b0fd33634a92aaca404ed72f8e1ccf70483a167ac6dbe32db77"
+    },
+    {
+      "file": "engineering-validation.json",
+      "source_file": ".local/ticket-recovery-work/engineering-validation.json",
+      "source_sha256": "695ff9acc6f6f7cff6117a2f13f34207d814f4b9b7757a8ee421dcbe143afe4e",
+      "published_sha256": "695ff9acc6f6f7cff6117a2f13f34207d814f4b9b7757a8ee421dcbe143afe4e"
+    },
+    {
+      "file": "engineering-command.json",
+      "source_file": ".local/ticket-recovery-work/engineering-command.json",
+      "source_sha256": "cd708c9470c973da9d084c85e980d3ff28faf1894b72a9869dde70170c748b85",
+      "published_sha256": "653cb7ade369e5d7e5f889ac72fd2f16491c79b74d71f65b02f8e818b8ff875b"
+    },
+    {
+      "file": "engineering-tests.txt",
+      "source_file": ".local/ticket-recovery-work/engineering-tests.txt",
+      "source_sha256": "830d18c028a67c075495caca6ab260667b56e1cfcf07f8e2a64449dc9ade9c01",
+      "published_sha256": "830d18c028a67c075495caca6ab260667b56e1cfcf07f8e2a64449dc9ade9c01"
+    },
+    {
+      "file": "tooling/collect.py",
+      "source_file": ".local/ticket-recovery-work/collect.py",
+      "source_sha256": "d8c92a5f102c3c8e5c7a98f42f2bf4db102ac61ffa38739bd5ea6412ac3b96c2",
+      "published_sha256": "d8c92a5f102c3c8e5c7a98f42f2bf4db102ac61ffa38739bd5ea6412ac3b96c2"
+    },
+    {
+      "file": "tooling/verify.py",
+      "source_file": ".local/ticket-recovery-work/verify.py",
+      "source_sha256": "f88d99939b63a94c5ab6b8ce91249782048be531900a1d10dd1859ac5535f435",
+      "published_sha256": "f88d99939b63a94c5ab6b8ce91249782048be531900a1d10dd1859ac5535f435"
+    },
+    {
+      "file": "scripted/20260906T083916-0b847645.json",
+      "source_file": ".local/ticket-recovery-work/scripted/20260906T083916-0b847645/report.json",
+      "source_sha256": "ceddd425bfc3f04630ce417a504df1a302abed5aad8d9996d77267bf6c436c08",
+      "published_sha256": "690aef06ff79a874eb3eaff310e1adb15b614f23562e4ff4e6f94c9479bafbad"
+    },
+    {
+      "file": "scripted/20260906T083917-22423251.json",
+      "source_file": ".local/ticket-recovery-work/scripted/20260906T083917-22423251/report.json",
+      "source_sha256": "ed9065302e365d5e06b1c3bab55af0143c837633f3522cc75278504a83b49b1f",
+      "published_sha256": "ad2e6b5b39f34fb89077d56fcdc67f8dd1f3c33c22cd261670ea6bc890a752a8"
+    },
+    {
+      "file": "scripted/20260906T083917-a2be61ea.json",
+      "source_file": ".local/ticket-recovery-work/scripted/20260906T083917-a2be61ea/report.json",
+      "source_sha256": "ed23d2bea5f377af0d38bd8e6b73294a1e9d4628dfc391eb4d811148d85df637",
+      "published_sha256": "4b4a315b3143b599d40e899cd001f668f85181fc15e3380030c6e66d2d41650d"
+    },
+    {
+      "file": "scripted/20260906T083917-e4501e66.json",
+      "source_file": ".local/ticket-recovery-work/scripted/20260906T083917-e4501e66/report.json",
+      "source_sha256": "6e550fbc2678ec71a72ebf2db7aef2f2dc6fb4f5f237e266a6fc7e59f22d899b",
+      "published_sha256": "1e3e431804adcb2b2e7f92a233e93e75fe30c9768d39b0d87e535162ff5c31a1"
+    },
+    {
+      "file": "scripted/20260906T083917-fa37bffb.json",
+      "source_file": ".local/ticket-recovery-work/scripted/20260906T083917-fa37bffb/report.json",
+      "source_sha256": "6dc502d5288158cf5e3e402fd6198a570d749f1e3031edb6fdf44f594da1d23a",
+      "published_sha256": "b763fc2fcdb5ffee8d93f0a4c5c979968680d9a8e13e0991be7e63dad5fab2d9"
+    }
+  ]
+}

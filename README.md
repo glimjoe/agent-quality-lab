@@ -11,13 +11,14 @@
 - 一个交互式 Agent、7 个工具、两个模拟租户、每次独立初始化的实验数据库。
 - 支付对象和金额的本地确认入口；只有 `finance` 可创建 `pending` 申请。
 - 写入后响应超时、工单写入失败两种故障注入。
-- **40 项工程测试通过**；真实模型首轮基线 **13/15 次状态检查通过**。
+- **42 项工程测试通过**；真实模型首轮基线 **13/15 次状态检查通过**。
 - 金额展示及提案确认提示已修复；[修复后的真实 CLI 回归](docs/practice/AQL-002-regression-20260905.md)中，100.00 / 1.05 CNY 各 3 次完整流程通过，作者已复核确认本轮限定结论。
 - 提案提示修复批次的两个边界样本均无写入：viewer 实际触发权限拒绝，单笔支付被正确判为不符合条件；viewer 回答仍有[权限重试引导问题](docs/defects/AQL-003-role-guidance.md)，不能记为 8/8 综合通过。
 - [修复前多轮权限调查](docs/practice/AQL-003-investigation-20260905.md)：4 个真实会话、11 轮均无业务写入；2 个 viewer 样本首轮复现错误引导，聊天自称 finance 后实际仍被后端拒绝。作者已确认该历史批次业务保护符合预期，当时 AQL-003 仍未修复。
 - [AQL-003 修复与对照回归](docs/practice/AQL-003-regression-20260905.md)：说明聊天不能改变会话权限后，三个 viewer 样本未再复现原始重试引导；聊天批准仍无写入，独立 finance 正常流程成功。5 个真实会话共 13 轮，38 项工程测试及 5 个固定响应场景通过；**作者已确认原始引导问题在本次回归范围内修复有效，回归通过**，措辞观察及未覆盖项保留。
 - [退款响应超时练习](docs/practice/refund-timeout-review-20260906.md)：依据作者预期卡，增加交互故障开关和恢复前只读快照；3 个真实会话通过查询找回原申请并记录工单，未实际重试创建。作者已分别确认 3/3 样本的 AC5 业务恢复通过、符合先查询要求，实际创建重试未覆盖。
 - [AC6 工单持续失败练习](docs/practice/ticket-failure-review-20260906.md)：3 个真实会话均保留一份正确申请、零工单，并说明待补记。作者已分别确认 3/3 样本的 AC6 处理通过，原始任务均为部分完成；每个只尝试一次工单，实际重试未覆盖。
+- [故障解除后补记练习](docs/practice/ticket-recovery-review-20260906.md)：3 个新真实会话均对原申请重试补记成功，从 1 份申请/0 份工单恢复到同一份申请/1 份工单；每个创建一次申请、工单尝试两次。状态/轨迹检查及 Codex 初核通过，作者尚待判读；仍为 pending，未实际退款。
 - 保留全部真实结果，包括未完成样本，以及状态检查未识别出的金额表述错误，详见[首轮验证报告](docs/verification-2026-09-05.md)。**13/15 不是综合任务成功率。**
 
 这是第一条流程的练习环境。Web/API 服务、RAG、MCP、移动端、多 Agent、负载测试和大规模稳定性评测尚未实现。
@@ -73,6 +74,8 @@ python -X utf8 -m agent_quality_lab chat --fault refund_timeout
 python -X utf8 -m agent_quality_lab chat --fault ticket_failure
 ```
 
+在工单失败且申请保留后，可在同一会话输入 `/clear-ticket-fault` 解除本地注入，再请求使用已有退款申请补记工单。控制命令立即记录事件和剩余故障次数，不调用模型、不批准或写入业务数据；补记由随后一轮业务对话触发。完整取证步骤见[恢复用例](tests/ticket-recovery-test-cases.md)。
+
 API Key 保存在被忽略的 `.env` 或 `DEEPSEEK_API_KEY` 环境变量中，勿提交。环境变量优先于文件。默认关闭思考模式，温度为 0；这不能保证多次输出一致。每轮最多 8 次模型调用、12 次工具调用，单次 HTTP 超时 45 秒。达到上限明确失败，已发生的副作用仍需核查。
 
 ## 测试时看什么
@@ -117,6 +120,7 @@ flowchart LR
 11. [AQL-003 修复后回归报告](docs/practice/AQL-003-regression-20260905.md)、[冻结计划](tests/role-guidance-regression-test-cases.md)与[公开证据](evidence/2026-09-05/aql-003-fix/README.md)：相同输入对照，单列正常流程兼容与剩余文字观察，作者已确认本轮有限结论。
 12. [作者超时预期卡](docs/practice/refund-timeout-expectations-20260906.md)、[正式用例](tests/refund-timeout-test-cases.md)及[证据判读单](docs/practice/refund-timeout-review-20260906.md)：区分事务提交、工具失败和模型恢复，练习自行给出带证据的结论。
 13. [AC6 用例](tests/ticket-failure-test-cases.md)、[执行与判读单](docs/practice/ticket-failure-review-20260906.md)及[证据](evidence/2026-09-06/ticket-failure/README.md)：验证部分失败时的申请保留与准确回答，单列实际工单尝试和未覆盖的重试。
+14. [恢复用例 TC-ST-002](tests/ticket-recovery-test-cases.md)、[作者判读单](docs/practice/ticket-recovery-review-20260906.md)及[证据](evidence/2026-09-06/ticket-recovery/README.md)：核对失败、解除、补记三阶段，区分实际重试、同一申请保留和最终任务完成度。
 
 源码在 `agent_quality_lab/`，工程测试在 `tests/`，公开证据按日期保存在 `evidence/`。新运行记录默认留在被忽略的 `.local/`，检查后再选入公开材料。
 

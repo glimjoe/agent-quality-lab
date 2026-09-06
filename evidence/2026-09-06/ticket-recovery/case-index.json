@@ -1,0 +1,17 @@
+[
+  {
+    "id": "TR-1",
+    "run": ".local/practice/ticket-recovery/20260906T084606-06977037",
+    "session": 36073
+  },
+  {
+    "id": "TR-2",
+    "run": ".local/practice/ticket-recovery/20260906T084624-82f9f226",
+    "session": 36610
+  },
+  {
+    "id": "TR-3",
+    "run": ".local/practice/ticket-recovery/20260906T084641-55436580",
+    "session": 98830
+  }
+]

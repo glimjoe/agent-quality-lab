@@ -56,11 +56,17 @@ def chat(args: argparse.Namespace) -> int:
     agent = Agent(model, tools, SYSTEM_PROMPT)
     before = store.snapshot()
     turns = []
+    def save_report():
+        (directory / "report.json").write_text(json.dumps({"model_mode": "deepseek", "model": model.settings.model,
+            "identity": asdict(business.identity), "faults": faults, "remaining_faults": dict(business.faults),
+            "turns": turns, "before": before, "after": store.snapshot(), "events": agent.events},
+            ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"实验目录：{directory}\n身份：{args.tenant} / {args.role}（本地模拟身份）")
     if args.fault == "refund_timeout":
         print("故障注入：退款申请提交后首次响应超时；自动保存恢复前数据库快照。")
     elif args.fault == "ticket_failure":
         print("故障注入：前 100 次工单写入失败；自动保存每次失败时的数据库快照。")
+        print("本地实验控制：/clear-ticket-fault 解除工单故障；补记需另行输入请求。")
     print("输入任务；/approve 提案ID 确认退款对象和金额；/exit 退出。")
     try:
         while True:
@@ -71,6 +77,17 @@ def chat(args: argparse.Namespace) -> int:
             if text == "/exit":
                 break
             if not text:
+                continue
+            if text == "/clear-ticket-fault":
+                if args.fault != "ticket_failure":
+                    print("当前会话未启用工单故障注入。")
+                    continue
+                remaining = business.faults.get("ticket_write_error", 0)
+                business.faults["ticket_write_error"] = 0
+                agent.record("fault_control", source="local_cli_operator", action="clear",
+                             fault="ticket_write_error", previous_remaining=remaining, remaining=0)
+                save_report()
+                print("工单故障注入已解除；尚未执行补记。请输入补记请求。")
                 continue
             if text.startswith("/approve "):
                 proposal_id = text.split(maxsplit=1)[1]
@@ -91,9 +108,7 @@ def chat(args: argparse.Namespace) -> int:
             for proposal in business.proposals.values():
                 if not proposal["approved"]:
                     print(f"待确认：/approve {proposal['proposal_id']} | {proposal['payment_id']} | {format_amount(proposal['amount_cents'], proposal['currency'])}")
-            (directory / "report.json").write_text(json.dumps({"model_mode": "deepseek", "model": model.settings.model,
-                "identity": asdict(business.identity), "faults": faults, "turns": turns, "before": before, "after": store.snapshot(),
-                "events": agent.events}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            save_report()
         return 0
     finally:
         store.close()

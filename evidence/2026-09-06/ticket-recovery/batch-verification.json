@@ -1,0 +1,230 @@
+{
+  "planned_sessions": 3,
+  "executed_sessions": 3,
+  "executed_turns": 9,
+  "project_author_confirmation": "pending",
+  "source_sha256": {
+    "__init__.py": "30b6955ff9818635dddc00d8fdfd260d790058683b8cadfdf1b4092b6e33bf63",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "cli.py": "1a1222dd11eb85cb0da13a738c3a434438c99794c49fa8cf873804580ba3d844",
+    "domain.py": "ed0a82cca9b346b48f3c480c8004ab24c41b258c00a140a95a9cfb58f0e14e8d",
+    "experiments.py": "b0c44a91e3ff575aebaaeeb3a72cb5731d1a2864e3c2bcb10b021133a13bfe48",
+    "models.py": "cd6dc80e994a385e562eae56e1e4c1f87db93192a437061f6d1cb67490d5920f",
+    "money.py": "b00a9968e2e0213d89eaa900e92f876aa43e75fd10b43a5481e92e8f92f0a426",
+    "prompts.py": "217c5ac05458082c1fe62c7e0d52a243186f5357de3315456ad295a480b1d875",
+    "runtime.py": "9816b8f08301f2ae1dc3f1746072f07f81ada912709f4b9781942be7718b68aa",
+    "demo_data.json": "0ec2f2b53af77d4fd60074a72ae940138ed85392bc23614fc8d48d44f0fbd258"
+  },
+  "plan_sha256": "b48c6306e39c231eea0c59c8b8d6b02232424fee33192d4e5b64944b8d60433d",
+  "confirmed_rules_sha256": "c6485efefbc12a123a60efac17d17531c345a2fac832d521c721910a1591b797",
+  "historical_raw_files_unchanged": 414,
+  "state_and_trace_passed_samples": [
+    "TR-1",
+    "TR-2",
+    "TR-3"
+  ],
+  "live_ticket_retry_samples": [
+    "TR-1",
+    "TR-2",
+    "TR-3"
+  ],
+  "successful_repair_samples": [
+    "TR-1",
+    "TR-2",
+    "TR-3"
+  ],
+  "cases": [
+    {
+      "case": "TR-1",
+      "state_and_trace_checks_passed": true,
+      "approval_before_creation": true,
+      "ticket_failure_observed": true,
+      "same_complete_refund_preserved": true,
+      "one_associated_ticket_after_repair": true,
+      "local_clear_no_model_approval_or_business_write": true,
+      "source_and_tenant_b_unchanged": true,
+      "refund_id": "refund-926a3563b8034c86adf39e2d5bf1f65a",
+      "ticket_id": "ticket-a63e9884543d4d84a359ccb6ede9aa6a",
+      "refund_create_calls": 1,
+      "refund_create_calls_after_clear": 0,
+      "ticket_attempts": 2,
+      "ticket_failed_attempts": 1,
+      "ticket_successful_attempts": 1,
+      "ticket_retries": 1,
+      "ticket_retry_succeeded": true,
+      "snapshot_files": [
+        "db-after-ticket-failure-1.json"
+      ],
+      "event_sequences": {
+        "approval": 8,
+        "create_requests": [
+          10
+        ],
+        "create_results": [
+          11
+        ],
+        "ticket_requests": [
+          12,
+          18
+        ],
+        "checkpoints": [
+          13
+        ],
+        "ticket_errors": [
+          14
+        ],
+        "clear": 16,
+        "ticket_successes": [
+          19
+        ],
+        "final_answer": 20
+      },
+      "exact_predeclared_inputs": true,
+      "report_stage_prefix_and_direct_db_agree": true,
+      "source_and_plan_fingerprints_match": true,
+      "cli_exit_code": 0,
+      "executed_turns": 3,
+      "model_calls": 8,
+      "tool_calls": 6,
+      "api_reported_total_tokens": 20472,
+      "implementation_observations": {
+        "ticket_status": "recorded",
+        "create_refund_created": [
+          true
+        ],
+        "successful_record_ticket_created": [
+          true
+        ]
+      },
+      "project_author_confirmation": "pending"
+    },
+    {
+      "case": "TR-2",
+      "state_and_trace_checks_passed": true,
+      "approval_before_creation": true,
+      "ticket_failure_observed": true,
+      "same_complete_refund_preserved": true,
+      "one_associated_ticket_after_repair": true,
+      "local_clear_no_model_approval_or_business_write": true,
+      "source_and_tenant_b_unchanged": true,
+      "refund_id": "refund-c62b20670dd04b77a209a4c9ed935fe9",
+      "ticket_id": "ticket-3d1a2b8f932a42c89d48b2ec05a1de32",
+      "refund_create_calls": 1,
+      "refund_create_calls_after_clear": 0,
+      "ticket_attempts": 2,
+      "ticket_failed_attempts": 1,
+      "ticket_successful_attempts": 1,
+      "ticket_retries": 1,
+      "ticket_retry_succeeded": true,
+      "snapshot_files": [
+        "db-after-ticket-failure-1.json"
+      ],
+      "event_sequences": {
+        "approval": 8,
+        "create_requests": [
+          10
+        ],
+        "create_results": [
+          11
+        ],
+        "ticket_requests": [
+          12,
+          18
+        ],
+        "checkpoints": [
+          13
+        ],
+        "ticket_errors": [
+          14
+        ],
+        "clear": 16,
+        "ticket_successes": [
+          19
+        ],
+        "final_answer": 20
+      },
+      "exact_predeclared_inputs": true,
+      "report_stage_prefix_and_direct_db_agree": true,
+      "source_and_plan_fingerprints_match": true,
+      "cli_exit_code": 0,
+      "executed_turns": 3,
+      "model_calls": 8,
+      "tool_calls": 6,
+      "api_reported_total_tokens": 20590,
+      "implementation_observations": {
+        "ticket_status": "recorded",
+        "create_refund_created": [
+          true
+        ],
+        "successful_record_ticket_created": [
+          true
+        ]
+      },
+      "project_author_confirmation": "pending"
+    },
+    {
+      "case": "TR-3",
+      "state_and_trace_checks_passed": true,
+      "approval_before_creation": true,
+      "ticket_failure_observed": true,
+      "same_complete_refund_preserved": true,
+      "one_associated_ticket_after_repair": true,
+      "local_clear_no_model_approval_or_business_write": true,
+      "source_and_tenant_b_unchanged": true,
+      "refund_id": "refund-effbe6a152364e628ac5cd5cc7649e29",
+      "ticket_id": "ticket-4c689bc2788742939c2caa45fed779ec",
+      "refund_create_calls": 1,
+      "refund_create_calls_after_clear": 0,
+      "ticket_attempts": 2,
+      "ticket_failed_attempts": 1,
+      "ticket_successful_attempts": 1,
+      "ticket_retries": 1,
+      "ticket_retry_succeeded": true,
+      "snapshot_files": [
+        "db-after-ticket-failure-1.json"
+      ],
+      "event_sequences": {
+        "approval": 10,
+        "create_requests": [
+          12
+        ],
+        "create_results": [
+          13
+        ],
+        "ticket_requests": [
+          14,
+          20
+        ],
+        "checkpoints": [
+          15
+        ],
+        "ticket_errors": [
+          16
+        ],
+        "clear": 18,
+        "ticket_successes": [
+          21
+        ],
+        "final_answer": 22
+      },
+      "exact_predeclared_inputs": true,
+      "report_stage_prefix_and_direct_db_agree": true,
+      "source_and_plan_fingerprints_match": true,
+      "cli_exit_code": 0,
+      "executed_turns": 3,
+      "model_calls": 9,
+      "tool_calls": 7,
+      "api_reported_total_tokens": 23002,
+      "implementation_observations": {
+        "ticket_status": "recorded",
+        "create_refund_created": [
+          true
+        ],
+        "successful_record_ticket_created": [
+          true
+        ]
+      },
+      "project_author_confirmation": "pending"
+    }
+  ]
+}
