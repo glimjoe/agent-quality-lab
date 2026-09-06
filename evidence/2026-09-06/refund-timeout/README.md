@@ -1,6 +1,6 @@
 # 退款响应超时：真实交互证据
 
-来源：[作者预期卡与评审](../../../docs/practice/refund-timeout-expectations-20260906.md)、[冻结的 TC-ERR-001](../../../tests/refund-timeout-test-cases.md)。Codex 受委托执行 3 个真实 CLI 会话、6 轮；全部保留，无补跑或追加恢复提示。程序状态及轨迹核对通过，Codex 初核未见所列回答矛盾；**作者判读仍待完成**，见[判读单](../../../docs/practice/refund-timeout-review-20260906.md)。
+来源：[作者预期卡与评审](../../../docs/practice/refund-timeout-expectations-20260906.md)、[冻结的 TC-ERR-001](../../../tests/refund-timeout-test-cases.md)。Codex 受委托执行 3 个真实 CLI 会话、6 轮；全部保留，无补跑或追加恢复提示。程序状态及轨迹核对通过，Codex 初核未见所列回答矛盾；**RT-1 已获作者确认：AC5 通过，符合先查询要求，创建重试未覆盖；RT-2、RT-3 待判读。** 结论及证据对应关系见[作者判读记录](../../../docs/practice/refund-timeout-review-20260906.md#作者判读记录)。
 
 | 样本 | 完整报告 | 原始 CLI 输入输出 | 任务前 | 故障后、恢复前 | 最终直接快照 | 独立核对 |
 |---|---|---|---|---|---|---|
@@ -18,4 +18,4 @@
 
 manifest 列出 55 份证据的源文件及公开文件 SHA256，不含 manifest 自身与本 README。公开转换为凭据按需脱敏、本机路径/账号/主机/SID 占位、UTF-8/LF、物理行尾空格处理及末尾单个换行。本批次未检出凭据，原始字节和 SQLite 留存本地，嵌入哈希不重写；原有 318 个本地证据文件保持不变。公开路径中的 `<REPO>` 是占位符，不能直接执行。
 
-[collect.py](tooling/collect.py)、[verify.py](tooling/verify.py)为当次取证脚本存档，原位置 `<REPO>/.local/refund-timeout-work/`，依赖冻结计划、原始目录、case-index 与历史哈希文件，不能直接在归档目录执行。它们不调用模型、不批准、不写业务数据，输出拒绝覆盖。语义备注来自 Codex 阅读评审，不冒充自动语义判定器。作者本轮的通过确认尚未发生，后续应独立追加，不改写取证时 pending 状态。
+[collect.py](tooling/collect.py)、[verify.py](tooling/verify.py)为当次取证脚本存档，原位置 `<REPO>/.local/refund-timeout-work/`，依赖冻结计划、原始目录、case-index 与历史哈希文件，不能直接在归档目录执行。它们不调用模型、不批准、不写业务数据，输出拒绝覆盖。语义备注来自 Codex 阅读评审，不冒充自动语义判定器。RT-1 的作者确认已独立归档，未扩大到 RT-2、RT-3。原始证据及 manifest 不改写，JSON 中 project_author_confirmation=pending 保留为取证时状态，当前确认以作者判读记录为准。

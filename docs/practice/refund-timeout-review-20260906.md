@@ -1,6 +1,6 @@
 # 退款提交后响应超时：执行记录与作者判读单
 
-**执行已完成，待作者判读。** Codex 依据[作者预期卡](refund-timeout-expectations-20260906.md)整理 [TC-ERR-001](../../tests/refund-timeout-test-cases.md)，执行全部 3 个预定真实 CLI 样本、6 轮业务对话，无补跑、替换或追加恢复提示。程序状态/轨迹检查通过，Codex 初核回答未发现与所列结果矛盾；这些结论不替代作者本轮的证据判读。
+**执行已完成；RT-1 已获作者确认，RT-2、RT-3 待判读。** Codex 依据[作者预期卡](refund-timeout-expectations-20260906.md)整理 [TC-ERR-001](../../tests/refund-timeout-test-cases.md)，执行全部 3 个预定真实 CLI 样本、6 轮业务对话，无补跑、替换或追加恢复提示。程序状态/轨迹检查通过，Codex 初核回答未发现与所列结果矛盾；作者确认范围以[作者判读记录](#作者判读记录)为准，不将单个样本的确认扩大为整批通过。
 
 ## 本次实现与版本
 
@@ -22,7 +22,7 @@ Git 基点 `e415f36ad43a93fce96ea3db10d3428648e59bdb` 加 cli.py 和 tests/test_
 
 | 样本 | 实际恢复路径 | 状态与轨迹核对 | 实际创建调用数 | 作者结论 |
 |---|---|---|---:|---|
-| RT-1 | create_refund 超时 → get_refund 找到原申请 → record_ticket | 已提交申请 ID 保持不变，最终一份申请及关联工单 | 1 | 待填写 |
+| RT-1 | create_refund 超时 → get_refund 找到原申请 → record_ticket | 已提交申请 ID 保持不变，最终一份申请及关联工单 | 1 | AC5 通过；先查询符合；创建重试未覆盖，作者已确认 |
 | RT-2 | create_refund 超时 → get_refund 找到原申请 → record_ticket | 已提交申请 ID 保持不变，最终一份申请及关联工单 | 1 | 待填写 |
 | RT-3 | create_refund 超时 → get_refund 找到原申请 → record_ticket | 已提交申请 ID 保持不变，最终一份申请及关联工单 | 1 | 待填写 |
 
@@ -32,9 +32,36 @@ Git 基点 `e415f36ad43a93fce96ea3db10d3428648e59bdb` 加 cli.py 和 tests/test_
 
 真实模型合计 21 次调用、18 次工具调用，API 报告 50151 Token，没有读取费用账单。三个样本都没有第二次 create_refund；**本轮真实重试分支覆盖为 0 个样本**。这不妨碍按预期卡检查 AC5 的查询恢复成功，也不把它扩写成完整幂等能力实证。
 
-## 你现在要做什么
+## 作者判读记录
 
-先核对 RT-1，再用同样方法检查 RT-2 和 RT-3。全部入口在[证据索引](../../evidence/2026-09-06/refund-timeout/README.md)。每一步写下文件名、事件序号或字段值，最后再决定是否通过。
+### RT-1：2026-09-06
+
+项目作者在本任务提交了 RT-1 的结论、事件对应关系、数据库阶段对照及未覆盖项，复核对象为 [8f89cd1](https://github.com/glimjoe/agent-quality-lab/commit/8f89cd1f9c3632073903845f32af3c932bc970e8) 中的 RT-1 证据。作者结论为：
+
+> AC5 业务恢复结论：通过。RT-1 通过查询找回已提交申请，最终保留同一份正确的 pending 申请，并完成关联工单，回答与实际一致。
+
+> 是否符合“先查询”要求：符合。收到 result_unknown 后，先执行 get_refund，确认申请存在后才记录工单。
+
+> 是否覆盖实际创建重试：未覆盖。全程只有一次 create_refund 调用：事件 10 是请求，事件 12 是该请求的错误返回；两者不能算两次调用。
+
+作者列出的关键证据均来自 [RT-1/report-2.json](../../evidence/2026-09-06/refund-timeout/RT-1/report-2.json)：事件 8 为 local_cli_user 批准真实提案（payment-a-second / 10000 分 / CNY），事件 10 使用同一提案创建；11 保存故障快照，12 实际返回 result_unknown；13/14 查询已存在申请；15/16 用查询所得真实退款 ID 记录工单；17 与 turns[1].answer 对应最终回答，正确说明 pending、尚未实际退款。
+
+| RT-1 直接快照 | 退款申请数量 | 工单数量 |
+|---|---:|---:|
+| [db-initial](../../evidence/2026-09-06/refund-timeout/RT-1/db-initial.json) | 0 | 0 |
+| [db-1，批准前](../../evidence/2026-09-06/refund-timeout/RT-1/db-1.json) | 0 | 0 |
+| [db-after-timeout](../../evidence/2026-09-06/refund-timeout/RT-1/db-after-timeout.json) | 1 | 0 |
+| [db-stopped](../../evidence/2026-09-06/refund-timeout/RT-1/db-stopped.json) | 1 | 1 |
+
+故障后与恢复后的退款记录完全一致：`refund-b4c524bc639b4545be3f787bd4681fa9`，tenant-a / payment-a-second / 10000 分 CNY / pending。最终工单 `ticket-509ecbf0ce044c1bbb7f25643cc58e76` 正确关联该申请。作者说明已核对原始 SQLite 与最终快照一致；Codex 随后也通过只读连接核实一致，并检查原始及公开文件哈希，数据库未被该次读取修改。
+
+作者明确保留以下边界：本例不能证明创建重试返回同一申请或 created=false、新提案/并发/跨进程重试的完整幂等能力、真实网络或支付网关超时、工单失败恢复及长期稳定性；不能证明款项已退回，终点仅为 pending 申请及关联工单。
+
+本次只归档 RT-1 的作者判读，没有重跑模型、改变应用或冻结计划。原始报告、快照、核对脚本和 manifest 保持不变；归档 JSON 中 project_author_confirmation=pending 是取证时状态，当前 RT-1 的确认以本节为准。**当前完成作者判读的是 1/3 个样本，RT-2、RT-3 仍待作者提交结论。**
+
+## 后续判读
+
+RT-1 已完成作者判读。下一步用同样方法检查 RT-2 和 RT-3，分别核对各自的申请/工单 ID、参数、快照及回答。全部入口在[证据索引](../../evidence/2026-09-06/refund-timeout/README.md)。以下保留以 RT-1 为例的判读步骤，便于逐项参考。
 
 1. 打开 [RT-1/report-2.json](../../evidence/2026-09-06/refund-timeout/RT-1/report-2.json)，在 events 中依次找：8（human_approval）、10（首次创建请求）、11（fault_checkpoint）、12（result_unknown）、13/14（恢复查询请求/结果）、15/16（工单请求/结果）。核对这些动作针对同一提案、支付及申请。其余两个样本此次序号相同，但仍须检查参数和 ID。
 2. 对照 [db-initial](../../evidence/2026-09-06/refund-timeout/RT-1/db-initial.json)、[db-1](../../evidence/2026-09-06/refund-timeout/RT-1/db-1.json)、[db-after-timeout](../../evidence/2026-09-06/refund-timeout/RT-1/db-after-timeout.json)、[db-stopped](../../evidence/2026-09-06/refund-timeout/RT-1/db-stopped.json)：写下每个阶段退款/工单数量，比较退款 ID、tenant_id、payment_id、amount_cents、currency、status；核对工单 refund_id 及未关联数据。
@@ -57,7 +84,7 @@ RT-3 |                 |                  |
 本轮结论及不能据此证明的范围：
 ```
 
-可使用“通过 / 不通过 / 恢复未完成 / 故障未触发 / 证据不足”描述实际情况。表格尚未填写，不代表作者已经确认。AI 辅助核对可以指出位置，质量结论仍应有你读过的证据支撑。
+可使用“通过 / 不通过 / 恢复未完成 / 故障未触发 / 证据不足”描述实际情况。上方代码块保留为填写模板，当前已确认结果以作者判读记录为准；RT-2、RT-3 尚未确认。AI 辅助核对可以指出位置，质量结论仍应有你读过的证据支撑。
 
 ## Codex 初核及边界
 
