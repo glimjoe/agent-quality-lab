@@ -1,0 +1,17 @@
+[
+  {
+    "id": "FR-1",
+    "run": ".local/practice/refund-retry/20260906T133621-fe97994c",
+    "session": 26215
+  },
+  {
+    "id": "FR-2",
+    "run": ".local/practice/refund-retry/20260906T133639-4b95c7ab",
+    "session": 53231
+  },
+  {
+    "id": "FR-3",
+    "run": ".local/practice/refund-retry/20260906T133657-ea5a00f8",
+    "session": 9111
+  }
+]

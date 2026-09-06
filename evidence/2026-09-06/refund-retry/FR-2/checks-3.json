@@ -1,0 +1,26 @@
+{
+  "state_checks": {
+    "source_fingerprints_unchanged": true,
+    "test_fingerprints_unchanged": true,
+    "plan_unchanged": true,
+    "identity_unchanged": true,
+    "no_injected_faults": true,
+    "no_fault_control_or_checkpoint": true,
+    "report_matches_direct_db": true,
+    "initial_matches_report": true,
+    "all_turns_responded": true,
+    "source_records_unchanged": true,
+    "one_correct_proposal": true,
+    "one_approval": true,
+    "one_correct_refund": true,
+    "one_associated_ticket": true,
+    "all_business_records_unchanged_after_repeat": true
+  },
+  "call_coverage_observations": {
+    "create_retry_observed": false,
+    "create_retry_calls": 0,
+    "retry_used_original_proposal": false,
+    "all_retry_results_same_refund": false,
+    "create_retry_result_sequences": []
+  }
+}

@@ -1,0 +1,376 @@
+{
+  "git_base_commit": "f8c87e9023c89e95c32889d289590278f6d69559",
+  "tested_version": "Unchanged application and engineering tests at the declared commit; new live same-proposal refund retry evidence only.",
+  "source_sha256": {
+    "__init__.py": "30b6955ff9818635dddc00d8fdfd260d790058683b8cadfdf1b4092b6e33bf63",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "cli.py": "1a1222dd11eb85cb0da13a738c3a434438c99794c49fa8cf873804580ba3d844",
+    "domain.py": "ed0a82cca9b346b48f3c480c8004ab24c41b258c00a140a95a9cfb58f0e14e8d",
+    "experiments.py": "b0c44a91e3ff575aebaaeeb3a72cb5731d1a2864e3c2bcb10b021133a13bfe48",
+    "models.py": "cd6dc80e994a385e562eae56e1e4c1f87db93192a437061f6d1cb67490d5920f",
+    "money.py": "b00a9968e2e0213d89eaa900e92f876aa43e75fd10b43a5481e92e8f92f0a426",
+    "prompts.py": "217c5ac05458082c1fe62c7e0d52a243186f5357de3315456ad295a480b1d875",
+    "runtime.py": "9816b8f08301f2ae1dc3f1746072f07f81ada912709f4b9781942be7718b68aa",
+    "demo_data.json": "0ec2f2b53af77d4fd60074a72ae940138ed85392bc23614fc8d48d44f0fbd258"
+  },
+  "test_sha256": {
+    "tests/test_cli.py": "6b78ab8a2afbfec1e07504fd536fbadcc8cea85537c57977831c395c7cc31f7f",
+    "tests/test_domain.py": "12b491c39b6753bd1a26565a1db4db14553f2dc0929d0251a8d9e0aceb76638f",
+    "tests/test_experiments.py": "7ef1c05eebe669aa159f8d4c104a4a0cc9df977fce39aed0d27cbb6186996d38",
+    "tests/test_models.py": "08c42c843d1a48300c7c11aa52f82780b251f0d240928e07ee6a1cedb1910ac7",
+    "tests/test_money.py": "f6d9216897614ae7ca2cc6774595044c4ff8445b6de8348b87c527e8020840e5",
+    "tests/test_runtime.py": "5987966a9261c22920a017bb4928b0302b9866821ed452ad7f66cc4d3385515d"
+  },
+  "engineering_test_sha256": "6b78ab8a2afbfec1e07504fd536fbadcc8cea85537c57977831c395c7cc31f7f",
+  "plan_file": "tests/refund-retry-test-cases.md",
+  "plan_sha256": "7a6b26d96e76f811fc5b4bb513ca0a44858d02601764d6e0fb3d3304fdd362a9",
+  "confirmed_rules_file": "docs/first-slice.md",
+  "confirmed_rules_sha256": "c6485efefbc12a123a60efac17d17531c345a2fac832d521c721910a1591b797",
+  "project_author_confirmation": "pending",
+  "historical_raw_files_unchanged": 480,
+  "publication_transforms": [
+    "credential redaction if found",
+    "local path/account/host/SID placeholders",
+    "UTF-8 without BOM; LF newlines; physical trailing whitespace trimmed; single final newline"
+  ],
+  "credential_categories_detected": [],
+  "hash_semantics": "source_sha256 identifies original local bytes; published_sha256 identifies sanitized UTF-8 LF bytes. Embedded raw hashes are preserved.",
+  "files": [
+    {
+      "file": "FR-1/checks-1.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/checks-1.json",
+      "source_sha256": "53de75804897b1e22678f59b57a0c576eb69c4b5a852a0f01c3b775fce166e90",
+      "published_sha256": "53de75804897b1e22678f59b57a0c576eb69c4b5a852a0f01c3b775fce166e90"
+    },
+    {
+      "file": "FR-1/checks-2.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/checks-2.json",
+      "source_sha256": "b8cf35ae7d9db1695ee4b019dcbbb737c0c7466f7aeb0f86bf79970492f4dc64",
+      "published_sha256": "b8cf35ae7d9db1695ee4b019dcbbb737c0c7466f7aeb0f86bf79970492f4dc64"
+    },
+    {
+      "file": "FR-1/checks-3.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/checks-3.json",
+      "source_sha256": "85b9979d04494db5e774dfb767a64d63c6eb29daec26d4084c18ced835ebe6cd",
+      "published_sha256": "85b9979d04494db5e774dfb767a64d63c6eb29daec26d4084c18ced835ebe6cd"
+    },
+    {
+      "file": "FR-1/checks-stopped.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/checks-stopped.json",
+      "source_sha256": "85b9979d04494db5e774dfb767a64d63c6eb29daec26d4084c18ced835ebe6cd",
+      "published_sha256": "85b9979d04494db5e774dfb767a64d63c6eb29daec26d4084c18ced835ebe6cd"
+    },
+    {
+      "file": "FR-1/command-log.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/command-log.json",
+      "source_sha256": "76290b6ca1eda0b4b49ef7a7d3df05457bf3bd2079ea7de504348068ae3ccf6d",
+      "published_sha256": "9803de884425f738d297337d1d3fb5de1d186fa7e9d55fe26ef111b3d00a26e0"
+    },
+    {
+      "file": "FR-1/db-1.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "FR-1/db-2.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/db-2.json",
+      "source_sha256": "bb8f40256a710c68867cb5dcf30791810377c8b4c465e545b2c5985addd24929",
+      "published_sha256": "bb8f40256a710c68867cb5dcf30791810377c8b4c465e545b2c5985addd24929"
+    },
+    {
+      "file": "FR-1/db-3.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/db-3.json",
+      "source_sha256": "bb8f40256a710c68867cb5dcf30791810377c8b4c465e545b2c5985addd24929",
+      "published_sha256": "bb8f40256a710c68867cb5dcf30791810377c8b4c465e545b2c5985addd24929"
+    },
+    {
+      "file": "FR-1/db-initial.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "FR-1/db-stopped.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/db-stopped.json",
+      "source_sha256": "bb8f40256a710c68867cb5dcf30791810377c8b4c465e545b2c5985addd24929",
+      "published_sha256": "bb8f40256a710c68867cb5dcf30791810377c8b4c465e545b2c5985addd24929"
+    },
+    {
+      "file": "FR-1/execution-version.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/execution-version.json",
+      "source_sha256": "8cdd493712b38106a622d41147cb1e3b7e3ed64c4131f6b3bf23294d70436ed4",
+      "published_sha256": "8cdd493712b38106a622d41147cb1e3b7e3ed64c4131f6b3bf23294d70436ed4"
+    },
+    {
+      "file": "FR-1/report-1.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/report-1.json",
+      "source_sha256": "5c11527c74c84fc7e59cf4f5fa73add5284c3d77b760bfad23d77d2bb64cbdca",
+      "published_sha256": "7d4aa7406023a34cbdd45024e93c061e9dd7be589c283eca19dd626285f0a143"
+    },
+    {
+      "file": "FR-1/report-2.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/report-2.json",
+      "source_sha256": "a748e4497d9a3fbfa56d02c56d4f4922a61ce0a234cbca51f3c23e4156376324",
+      "published_sha256": "025ac1b900d880e352df65201bfdf794d521b1e5e6f8a9bbe3c81468dbb871db"
+    },
+    {
+      "file": "FR-1/report-3.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/report-3.json",
+      "source_sha256": "f6ebb03e6cb4e618d87ef4c7a86e6b7ef48426585c893495148512ebb953914c",
+      "published_sha256": "de3aeb43464bc2b12655a6d9b2e33fa37c393b370f1e899815d375826ec6ca16"
+    },
+    {
+      "file": "FR-1/report-stopped.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/report-stopped.json",
+      "source_sha256": "f6ebb03e6cb4e618d87ef4c7a86e6b7ef48426585c893495148512ebb953914c",
+      "published_sha256": "de3aeb43464bc2b12655a6d9b2e33fa37c393b370f1e899815d375826ec6ca16"
+    },
+    {
+      "file": "FR-1/report.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/report.json",
+      "source_sha256": "f6ebb03e6cb4e618d87ef4c7a86e6b7ef48426585c893495148512ebb953914c",
+      "published_sha256": "de3aeb43464bc2b12655a6d9b2e33fa37c393b370f1e899815d375826ec6ca16"
+    },
+    {
+      "file": "FR-1/verification-checks.json",
+      "source_file": ".local/practice/refund-retry/20260906T133621-fe97994c/verification-checks.json",
+      "source_sha256": "e713b33f19af542b8c691d564ff978ccd69a2d83d476b4458fef709b50442ffb",
+      "published_sha256": "e713b33f19af542b8c691d564ff978ccd69a2d83d476b4458fef709b50442ffb"
+    },
+    {
+      "file": "FR-2/checks-1.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/checks-1.json",
+      "source_sha256": "53de75804897b1e22678f59b57a0c576eb69c4b5a852a0f01c3b775fce166e90",
+      "published_sha256": "53de75804897b1e22678f59b57a0c576eb69c4b5a852a0f01c3b775fce166e90"
+    },
+    {
+      "file": "FR-2/checks-2.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/checks-2.json",
+      "source_sha256": "b8cf35ae7d9db1695ee4b019dcbbb737c0c7466f7aeb0f86bf79970492f4dc64",
+      "published_sha256": "b8cf35ae7d9db1695ee4b019dcbbb737c0c7466f7aeb0f86bf79970492f4dc64"
+    },
+    {
+      "file": "FR-2/checks-3.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/checks-3.json",
+      "source_sha256": "85b9979d04494db5e774dfb767a64d63c6eb29daec26d4084c18ced835ebe6cd",
+      "published_sha256": "85b9979d04494db5e774dfb767a64d63c6eb29daec26d4084c18ced835ebe6cd"
+    },
+    {
+      "file": "FR-2/checks-stopped.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/checks-stopped.json",
+      "source_sha256": "85b9979d04494db5e774dfb767a64d63c6eb29daec26d4084c18ced835ebe6cd",
+      "published_sha256": "85b9979d04494db5e774dfb767a64d63c6eb29daec26d4084c18ced835ebe6cd"
+    },
+    {
+      "file": "FR-2/command-log.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/command-log.json",
+      "source_sha256": "8e58e1713c24e066c93a13cf00de7b572bf1ced1635d9730972411882b6ad84a",
+      "published_sha256": "32d58a18981f5c4282026faaa1ac324a6c586feb87f7fefe1fba26af3d176eb9"
+    },
+    {
+      "file": "FR-2/db-1.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "FR-2/db-2.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/db-2.json",
+      "source_sha256": "26b23149bba48c69209168c529e23289a9979e9246399b3f11d71a25986a9b53",
+      "published_sha256": "26b23149bba48c69209168c529e23289a9979e9246399b3f11d71a25986a9b53"
+    },
+    {
+      "file": "FR-2/db-3.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/db-3.json",
+      "source_sha256": "26b23149bba48c69209168c529e23289a9979e9246399b3f11d71a25986a9b53",
+      "published_sha256": "26b23149bba48c69209168c529e23289a9979e9246399b3f11d71a25986a9b53"
+    },
+    {
+      "file": "FR-2/db-initial.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "FR-2/db-stopped.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/db-stopped.json",
+      "source_sha256": "26b23149bba48c69209168c529e23289a9979e9246399b3f11d71a25986a9b53",
+      "published_sha256": "26b23149bba48c69209168c529e23289a9979e9246399b3f11d71a25986a9b53"
+    },
+    {
+      "file": "FR-2/execution-version.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/execution-version.json",
+      "source_sha256": "9f26c1e095986a4863b50c309ce605db384258797716afdefde802f23c5dfc31",
+      "published_sha256": "9f26c1e095986a4863b50c309ce605db384258797716afdefde802f23c5dfc31"
+    },
+    {
+      "file": "FR-2/report-1.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/report-1.json",
+      "source_sha256": "9b62817a95ed0ba61a829a70f55b08f0d6efb623574d3201f2f4af2d5346f395",
+      "published_sha256": "fe1508ccd9043aa3ac37354c2cd0459babb29b3ee07a540ab8dacb1f9115826e"
+    },
+    {
+      "file": "FR-2/report-2.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/report-2.json",
+      "source_sha256": "79f6e85d1e988dc7e4e1bb3839a242e2018876fef5c5f864bd8ebcbc58542892",
+      "published_sha256": "88d199899d0c2c1dba189862b50cef9ea6b0d217141bef446a3495f659b031af"
+    },
+    {
+      "file": "FR-2/report-3.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/report-3.json",
+      "source_sha256": "d189137ec78c26f49975529a5d6cd3a3fb3c9ce090c351c07cdd46248c033e2b",
+      "published_sha256": "f10c2f1d2869f4b2976f646db65d305c2f668bf18f335f1ff80f0607e3e20e2d"
+    },
+    {
+      "file": "FR-2/report-stopped.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/report-stopped.json",
+      "source_sha256": "d189137ec78c26f49975529a5d6cd3a3fb3c9ce090c351c07cdd46248c033e2b",
+      "published_sha256": "f10c2f1d2869f4b2976f646db65d305c2f668bf18f335f1ff80f0607e3e20e2d"
+    },
+    {
+      "file": "FR-2/report.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/report.json",
+      "source_sha256": "d189137ec78c26f49975529a5d6cd3a3fb3c9ce090c351c07cdd46248c033e2b",
+      "published_sha256": "f10c2f1d2869f4b2976f646db65d305c2f668bf18f335f1ff80f0607e3e20e2d"
+    },
+    {
+      "file": "FR-2/verification-checks.json",
+      "source_file": ".local/practice/refund-retry/20260906T133639-4b95c7ab/verification-checks.json",
+      "source_sha256": "006218e7bebcba705a38d7211c7aeb795259532f65bc5bf231946254a0c2b54f",
+      "published_sha256": "006218e7bebcba705a38d7211c7aeb795259532f65bc5bf231946254a0c2b54f"
+    },
+    {
+      "file": "FR-3/checks-1.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/checks-1.json",
+      "source_sha256": "53de75804897b1e22678f59b57a0c576eb69c4b5a852a0f01c3b775fce166e90",
+      "published_sha256": "53de75804897b1e22678f59b57a0c576eb69c4b5a852a0f01c3b775fce166e90"
+    },
+    {
+      "file": "FR-3/checks-2.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/checks-2.json",
+      "source_sha256": "b8cf35ae7d9db1695ee4b019dcbbb737c0c7466f7aeb0f86bf79970492f4dc64",
+      "published_sha256": "b8cf35ae7d9db1695ee4b019dcbbb737c0c7466f7aeb0f86bf79970492f4dc64"
+    },
+    {
+      "file": "FR-3/checks-3.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/checks-3.json",
+      "source_sha256": "85b9979d04494db5e774dfb767a64d63c6eb29daec26d4084c18ced835ebe6cd",
+      "published_sha256": "85b9979d04494db5e774dfb767a64d63c6eb29daec26d4084c18ced835ebe6cd"
+    },
+    {
+      "file": "FR-3/checks-stopped.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/checks-stopped.json",
+      "source_sha256": "85b9979d04494db5e774dfb767a64d63c6eb29daec26d4084c18ced835ebe6cd",
+      "published_sha256": "85b9979d04494db5e774dfb767a64d63c6eb29daec26d4084c18ced835ebe6cd"
+    },
+    {
+      "file": "FR-3/command-log.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/command-log.json",
+      "source_sha256": "8767666e4fc782e480e15dc00a67b01f6b913fcea23531de7505619f17bdc468",
+      "published_sha256": "73ff7da3ed0bff5bed7b8a897d8878af0dd1e50813e36a017b707d3b78043ab4"
+    },
+    {
+      "file": "FR-3/db-1.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "FR-3/db-2.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/db-2.json",
+      "source_sha256": "a3a61e37d3a521cc13e16f5092e708d231de101c5991da6f884599564912ab18",
+      "published_sha256": "a3a61e37d3a521cc13e16f5092e708d231de101c5991da6f884599564912ab18"
+    },
+    {
+      "file": "FR-3/db-3.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/db-3.json",
+      "source_sha256": "a3a61e37d3a521cc13e16f5092e708d231de101c5991da6f884599564912ab18",
+      "published_sha256": "a3a61e37d3a521cc13e16f5092e708d231de101c5991da6f884599564912ab18"
+    },
+    {
+      "file": "FR-3/db-initial.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "FR-3/db-stopped.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/db-stopped.json",
+      "source_sha256": "a3a61e37d3a521cc13e16f5092e708d231de101c5991da6f884599564912ab18",
+      "published_sha256": "a3a61e37d3a521cc13e16f5092e708d231de101c5991da6f884599564912ab18"
+    },
+    {
+      "file": "FR-3/execution-version.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/execution-version.json",
+      "source_sha256": "0c96df2a236e19b7eb705c89e51bc251585bc9403160a8ac5549fb19a7a5318a",
+      "published_sha256": "0c96df2a236e19b7eb705c89e51bc251585bc9403160a8ac5549fb19a7a5318a"
+    },
+    {
+      "file": "FR-3/report-1.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/report-1.json",
+      "source_sha256": "2ae6ac79ac82aa1417c75c0d0f407ab6127b38885ed0e86acb49cf0cc7207410",
+      "published_sha256": "9ed88f20456c5c0279c7446dd135a57eb21a98bb08d74ad8836bf2f7ef4beb16"
+    },
+    {
+      "file": "FR-3/report-2.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/report-2.json",
+      "source_sha256": "427243dcf95334ee7a8255f8f2728a6fca1337ca51d3d8bf3e45b533880b0edb",
+      "published_sha256": "5a266973a5a85ce3fce318c4f049fe45d23d9b80cf0f7b8ea2d45cb6cd565116"
+    },
+    {
+      "file": "FR-3/report-3.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/report-3.json",
+      "source_sha256": "0e835b7f7d5dcb831c463a0b445cab81d5909dbee435470411c05c776445295e",
+      "published_sha256": "7d8dc0eabe1a758016dc36df02f0b64ebe6af39e00712c3e54f70cef3d84565a"
+    },
+    {
+      "file": "FR-3/report-stopped.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/report-stopped.json",
+      "source_sha256": "0e835b7f7d5dcb831c463a0b445cab81d5909dbee435470411c05c776445295e",
+      "published_sha256": "7d8dc0eabe1a758016dc36df02f0b64ebe6af39e00712c3e54f70cef3d84565a"
+    },
+    {
+      "file": "FR-3/report.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/report.json",
+      "source_sha256": "0e835b7f7d5dcb831c463a0b445cab81d5909dbee435470411c05c776445295e",
+      "published_sha256": "7d8dc0eabe1a758016dc36df02f0b64ebe6af39e00712c3e54f70cef3d84565a"
+    },
+    {
+      "file": "FR-3/verification-checks.json",
+      "source_file": ".local/practice/refund-retry/20260906T133657-ea5a00f8/verification-checks.json",
+      "source_sha256": "d9a98ae0069695dc03e9e3b348876166d7f9560d87ac6f8dcb3ba3538c3efcf9",
+      "published_sha256": "d9a98ae0069695dc03e9e3b348876166d7f9560d87ac6f8dcb3ba3538c3efcf9"
+    },
+    {
+      "file": "case-index.json",
+      "source_file": ".local/refund-retry-work/case-index.json",
+      "source_sha256": "2bd947633d364d8f19251eb346f6c5b514a8e268c5587c41ec3095be17fab397",
+      "published_sha256": "2bd947633d364d8f19251eb346f6c5b514a8e268c5587c41ec3095be17fab397"
+    },
+    {
+      "file": "batch-verification.json",
+      "source_file": ".local/refund-retry-work/batch-verification.json",
+      "source_sha256": "b86ce86c97e2efc8860d9dbce099d17a5ec47904edcabb7aa8c921d63a4f4f0f",
+      "published_sha256": "b86ce86c97e2efc8860d9dbce099d17a5ec47904edcabb7aa8c921d63a4f4f0f"
+    },
+    {
+      "file": "engineering-baseline.json",
+      "source_file": ".local/refund-retry-work/engineering-baseline.json",
+      "source_sha256": "f20d69c4ffafeadd187ab0639e88a7ac0c0e9a291272358535ecf04b5b9a675a",
+      "published_sha256": "f20d69c4ffafeadd187ab0639e88a7ac0c0e9a291272358535ecf04b5b9a675a"
+    },
+    {
+      "file": "tooling/collect.py",
+      "source_file": ".local/refund-retry-work/collect.py",
+      "source_sha256": "63f76acfa99218ce91c7d211975e32e102a02fb31819a7a322689679482beebf",
+      "published_sha256": "63f76acfa99218ce91c7d211975e32e102a02fb31819a7a322689679482beebf"
+    },
+    {
+      "file": "tooling/verify.py",
+      "source_file": ".local/refund-retry-work/verify.py",
+      "source_sha256": "8b92e9f5176531ebdfeb772d35d32ad92ee45b1081c8999764d6393999bae6e6",
+      "published_sha256": "8b92e9f5176531ebdfeb772d35d32ad92ee45b1081c8999764d6393999bae6e6"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "case": "FR-2",
+  "evidence_consistency_checks_passed": true,
+  "state_safety_checks_passed": true,
+  "normal_task_completed_before_repeat": true,
+  "same_complete_refund_and_ticket_preserved": true,
+  "refund_id": "refund-7686267caeff47b1ad638694d59edf63",
+  "ticket_id": "ticket-024d64d2e0ab44a1b2396ee9bcf80fe7",
+  "proposal_id": "proposal-e092ba52e7a14d8b9bb25a1a66580ba0",
+  "refund_create_calls": 1,
+  "refund_create_retry_calls": 0,
+  "ticket_calls": 1,
+  "t3_tool_names": [
+    "get_refund"
+  ],
+  "actual_create_retry_observed": false,
+  "retry_returns_original_refund": null,
+  "retry_coverage_result": "not_exercised",
+  "retry_acceptance_passed": false,
+  "event_sequences": {
+    "approval": 8,
+    "create_requests": [
+      10
+    ],
+    "create_results": [
+      11
+    ],
+    "ticket_requests": [
+      12
+    ],
+    "ticket_results": [
+      13
+    ],
+    "repeat_user_message": 15,
+    "repeat_query_requests": [
+      16
+    ],
+    "repeat_query_results": [
+      17
+    ],
+    "final_answer": 18
+  },
+  "cli_exit_code": 0,
+  "executed_turns": 3,
+  "model_calls": 8,
+  "tool_calls": 6,
+  "api_reported_total_tokens": 20491,
+  "answer_review": {
+    "reviewer": "Codex",
+    "method": "Read all complete answers and intermediate model-response text against rules, tool results and DB.",
+    "state_claims_match_evidence": true,
+    "candidate_rule_explanation_issue": null,
+    "notes": "Queries the existing refund, correctly describes the Q11 same-record retry rule, and declines another operation. That rule explanation is not evidence of an executed retry.",
+    "boundary": "T2 explicitly says pending is not actual payment; T3 retains pending and does not claim payout. Mixed-language content retained."
+  },
+  "project_author_confirmation": "pending",
+  "raw_report_sha256": "d189137ec78c26f49975529a5d6cd3a3fb3c9ce090c351c07cdd46248c033e2b"
+}

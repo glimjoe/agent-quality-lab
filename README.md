@@ -19,6 +19,7 @@
 - [退款响应超时练习](docs/practice/refund-timeout-review-20260906.md)：依据作者预期卡，增加交互故障开关和恢复前只读快照；3 个真实会话通过查询找回原申请并记录工单，未实际重试创建。作者已分别确认 3/3 样本的 AC5 业务恢复通过、符合先查询要求，实际创建重试未覆盖。
 - [AC6 工单持续失败练习](docs/practice/ticket-failure-review-20260906.md)：3 个真实会话均保留一份正确申请、零工单，并说明待补记。作者已分别确认 3/3 样本的 AC6 处理通过，原始任务均为部分完成；每个只尝试一次工单，实际重试未覆盖。
 - [故障解除后补记练习](docs/practice/ticket-recovery-review-20260906.md)：作者已分别确认 3/3 样本的补记恢复通过；每个创建一次申请、工单首次失败后实际重试一次成功，从 1 份申请/0 份工单恢复到同一份申请/1 份工单。T2 部分完成，T3 在模拟范围内的申请和工单步骤均完成；退款仍为 pending，未实际退款。
+- [同一提案再次提交练习](docs/practice/refund-retry-review-20260906.md)：3 个新真实会话在正常完成后均只查询已有申请，数据保持 1/1；实际退款创建重试覆盖 **0/3**，不能判本条重试验收通过。FR-3 出现[候选规则解释问题 AQL-004](docs/defects/AQL-004-refund-retry-guidance.md)，作者尚待判读，本批未修复。
 - 保留全部真实结果，包括未完成样本，以及状态检查未识别出的金额表述错误，详见[首轮验证报告](docs/verification-2026-09-05.md)。**13/15 不是综合任务成功率。**
 
 这是第一条流程的练习环境。Web/API 服务、RAG、MCP、移动端、多 Agent、负载测试和大规模稳定性评测尚未实现。
@@ -121,6 +122,7 @@ flowchart LR
 12. [作者超时预期卡](docs/practice/refund-timeout-expectations-20260906.md)、[正式用例](tests/refund-timeout-test-cases.md)及[证据判读单](docs/practice/refund-timeout-review-20260906.md)：区分事务提交、工具失败和模型恢复，练习自行给出带证据的结论。
 13. [AC6 用例](tests/ticket-failure-test-cases.md)、[执行与判读单](docs/practice/ticket-failure-review-20260906.md)及[证据](evidence/2026-09-06/ticket-failure/README.md)：验证部分失败时的申请保留与准确回答，单列实际工单尝试和未覆盖的重试。
 14. [恢复用例 TC-ST-002](tests/ticket-recovery-test-cases.md)、[作者判读单](docs/practice/ticket-recovery-review-20260906.md)及[证据](evidence/2026-09-06/ticket-recovery/README.md)：核对失败、解除、补记三阶段，区分实际重试、同一申请保留和最终任务完成度。
+15. [退款创建重试用例 TC-ST-003](tests/refund-retry-test-cases.md)、[执行与判读单](docs/practice/refund-retry-review-20260906.md)及[证据](evidence/2026-09-06/refund-retry/README.md)：区分数据安全、实际重试覆盖与规则解释，保留未触发分支及候选回答问题。
 
 源码在 `agent_quality_lab/`，工程测试在 `tests/`，公开证据按日期保存在 `evidence/`。新运行记录默认留在被忽略的 `.local/`，检查后再选入公开材料。
 
