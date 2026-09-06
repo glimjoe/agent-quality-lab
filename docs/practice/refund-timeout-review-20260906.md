@@ -1,6 +1,6 @@
 # 退款提交后响应超时：执行记录与作者判读单
 
-**执行已完成；RT-1 已获作者确认，RT-2、RT-3 待判读。** Codex 依据[作者预期卡](refund-timeout-expectations-20260906.md)整理 [TC-ERR-001](../../tests/refund-timeout-test-cases.md)，执行全部 3 个预定真实 CLI 样本、6 轮业务对话，无补跑、替换或追加恢复提示。程序状态/轨迹检查通过，Codex 初核回答未发现与所列结果矛盾；作者确认范围以[作者判读记录](#作者判读记录)为准，不将单个样本的确认扩大为整批通过。
+**作者已分别完成 RT-1、RT-2、RT-3 判读：本轮 3/3 样本的 AC5 业务恢复通过，均符合先查询要求；实际创建重试分支未覆盖。** Codex 依据[作者预期卡](refund-timeout-expectations-20260906.md)整理 [TC-ERR-001](../../tests/refund-timeout-test-cases.md)，执行全部 3 个预定真实 CLI 样本、6 轮业务对话，无补跑、替换或追加恢复提示。程序状态/轨迹核对、Codex 初核及作者判读相互对应，确认范围见[作者判读记录](#作者判读记录)。3/3 是本批次结果，不代表生产成功率或完整幂等能力。
 
 ## 本次实现与版本
 
@@ -23,8 +23,8 @@ Git 基点 `e415f36ad43a93fce96ea3db10d3428648e59bdb` 加 cli.py 和 tests/test_
 | 样本 | 实际恢复路径 | 状态与轨迹核对 | 实际创建调用数 | 作者结论 |
 |---|---|---|---:|---|
 | RT-1 | create_refund 超时 → get_refund 找到原申请 → record_ticket | 已提交申请 ID 保持不变，最终一份申请及关联工单 | 1 | AC5 通过；先查询符合；创建重试未覆盖，作者已确认 |
-| RT-2 | create_refund 超时 → get_refund 找到原申请 → record_ticket | 已提交申请 ID 保持不变，最终一份申请及关联工单 | 1 | 待填写 |
-| RT-3 | create_refund 超时 → get_refund 找到原申请 → record_ticket | 已提交申请 ID 保持不变，最终一份申请及关联工单 | 1 | 待填写 |
+| RT-2 | create_refund 超时 → get_refund 找到原申请 → record_ticket | 已提交申请 ID 保持不变，最终一份申请及关联工单 | 1 | AC5 通过；先查询符合；创建重试未覆盖，作者已确认 |
+| RT-3 | create_refund 超时 → get_refund 找到原申请 → record_ticket | 已提交申请 ID 保持不变，最终一份申请及关联工单 | 1 | AC5 通过；先查询符合；创建重试未覆盖，作者已确认 |
 
 三个样本均保持 tenant-a / payment-a-second / 10000 分 CNY / pending；源账单、支付及 tenant-b 不变。确认前四表与初始一致；故障快照里有一份申请、零工单；恢复后仍为同一份申请，新增一份正确关联工单。工具工单状态 recorded 已保存为实现观察，未作为独立业务验收门槛。
 
@@ -57,11 +57,44 @@ Git 基点 `e415f36ad43a93fce96ea3db10d3428648e59bdb` 加 cli.py 和 tests/test_
 
 作者明确保留以下边界：本例不能证明创建重试返回同一申请或 created=false、新提案/并发/跨进程重试的完整幂等能力、真实网络或支付网关超时、工单失败恢复及长期稳定性；不能证明款项已退回，终点仅为 pending 申请及关联工单。
 
-本次只归档 RT-1 的作者判读，没有重跑模型、改变应用或冻结计划。原始报告、快照、核对脚本和 manifest 保持不变；归档 JSON 中 project_author_confirmation=pending 是取证时状态，当前 RT-1 的确认以本节为准。**当前完成作者判读的是 1/3 个样本，RT-2、RT-3 仍待作者提交结论。**
+该次仅归档 RT-1 的作者判读，没有重跑模型、改变应用或冻结计划。原始报告、快照、核对脚本和 manifest 保持不变；归档 JSON 中 project_author_confirmation=pending 是取证时状态。**当时完成作者判读的是 1/3 个样本，RT-2、RT-3 尚待作者提交结论；后续确认见下节。**
 
-## 后续判读
+### RT-2、RT-3：2026-09-06
 
-RT-1 已完成作者判读。下一步用同样方法检查 RT-2 和 RT-3，分别核对各自的申请/工单 ID、参数、快照及回答。全部入口在[证据索引](../../evidence/2026-09-06/refund-timeout/README.md)。以下保留以 RT-1 为例的判读步骤，便于逐项参考。
+项目作者随后在本任务分别提交 RT-2、RT-3 的证据判读，核对材料为 [a3a1f6d](https://github.com/glimjoe/agent-quality-lab/commit/a3a1f6daf269273f3efba5692aeee46750b225ae) 中的两份报告及快照。作者明确结论：
+
+| 样本 | AC5 业务恢复 | 先查询要求 | 实际创建重试 |
+|---|---|---|---|
+| RT-2 | 通过 | 符合 | 未覆盖，仅一次 create_refund |
+| RT-3 | 通过 | 符合 | 未覆盖，仅一次 create_refund |
+
+> 两者都通过查询找回已提交申请，保持同一份正确的 pending 申请，完成关联工单，最终回答与实际一致。
+
+作者分别核对了 [RT-2/report-2.json](../../evidence/2026-09-06/refund-timeout/RT-2/report-2.json) 和 [RT-3/report-2.json](../../evidence/2026-09-06/refund-timeout/RT-3/report-2.json)：各自的事件 8 是 local_cli_user 批准，10 使用各自同一已批准提案；11 保存故障快照，12 实际返回 result_unknown；13/14 查询原申请后，15 才请求记录工单，16 的真实工单关联事件 14 的申请 ID。每份轨迹仅有一次创建请求 10 及对应返回 12，二者通过调用 ID 配对；事件 11 是取证记录，不是另一次创建。
+
+| 样本 | 退款申请 ID | 工单 ID |
+|---|---|---|
+| RT-2 | `refund-997e283cdc4047b585d741e874131a25` | `ticket-9651fb3a965c4aa9b86170904f2950e4` |
+| RT-3 | `refund-00209d1ef04541e1a86c1d620eb27cd3` | `ticket-f9f378387f4e4886a9056fd067c00b03` |
+
+两份申请均为 tenant-a / payment-a-second / 10000 分 / CNY / pending，每份工单关联各自的申请。事件 17 与 turns[1].answer 中的 ID、金额和状态均与工具结果一致：RT-2 明确“尚未实际退款”，RT-3 明确“不代表款项已退回”。工单 recorded 保留为实现观察项。
+
+| 数据库阶段 | RT-2 退款申请/工单 | RT-3 退款申请/工单 |
+|---|---|---|
+| 初始 | [db-initial](../../evidence/2026-09-06/refund-timeout/RT-2/db-initial.json)：0/0 | [db-initial](../../evidence/2026-09-06/refund-timeout/RT-3/db-initial.json)：0/0 |
+| 批准前 | [db-1](../../evidence/2026-09-06/refund-timeout/RT-2/db-1.json)：0/0 | [db-1](../../evidence/2026-09-06/refund-timeout/RT-3/db-1.json)：0/0 |
+| 故障后、恢复前 | [db-after-timeout](../../evidence/2026-09-06/refund-timeout/RT-2/db-after-timeout.json)：1/0 | [db-after-timeout](../../evidence/2026-09-06/refund-timeout/RT-3/db-after-timeout.json)：1/0 |
+| 恢复完成 | [db-stopped](../../evidence/2026-09-06/refund-timeout/RT-2/db-stopped.json)：1/1 | [db-stopped](../../evidence/2026-09-06/refund-timeout/RT-3/db-stopped.json)：1/1 |
+
+作者确认每个样本故障后与恢复后的退款记录完全一致，两份原始 SQLite 均与最终快照一致，源账单、支付及 tenant-b 数据未变。Codex 随后也分别只读核对了原库、全部阶段快照、事件顺序和调用配对，并验证原始/公开文件哈希一致；读取没有改变数据库。
+
+作者保留的未覆盖项与 RT-1 一致：没有第二次创建调用，不能证明真实重试返回同一申请或 created=false；没有验证新提案、并发、跨进程重试的完整幂等能力、真实网络/支付网关超时、工单失败恢复或长期稳定性；终点为 pending 申请及关联工单，不证明款项退回。
+
+至此 **3/3 个样本已完成作者判读，本轮限定的查询恢复及先查询行为回归通过，真实创建重试覆盖仍为 0 个样本**。执行人仍为 Codex，作者负责预期和证据判读。本次只归档新增确认，没有修改应用、补跑测试或更改冻结计划；原始 JSON、manifest 及其 pending 字段保留取证时状态，当前复核状态以本节及 RT-1 记录为准。
+
+## 判读方法留存
+
+三个样本的作者判读已完成。以下保留当时以 RT-1 为例的步骤和填写模板，供后续读者参考；各样本的当前结论见作者判读记录。全部入口在[证据索引](../../evidence/2026-09-06/refund-timeout/README.md)。
 
 1. 打开 [RT-1/report-2.json](../../evidence/2026-09-06/refund-timeout/RT-1/report-2.json)，在 events 中依次找：8（human_approval）、10（首次创建请求）、11（fault_checkpoint）、12（result_unknown）、13/14（恢复查询请求/结果）、15/16（工单请求/结果）。核对这些动作针对同一提案、支付及申请。其余两个样本此次序号相同，但仍须检查参数和 ID。
 2. 对照 [db-initial](../../evidence/2026-09-06/refund-timeout/RT-1/db-initial.json)、[db-1](../../evidence/2026-09-06/refund-timeout/RT-1/db-1.json)、[db-after-timeout](../../evidence/2026-09-06/refund-timeout/RT-1/db-after-timeout.json)、[db-stopped](../../evidence/2026-09-06/refund-timeout/RT-1/db-stopped.json)：写下每个阶段退款/工单数量，比较退款 ID、tenant_id、payment_id、amount_cents、currency、status；核对工单 refund_id 及未关联数据。
@@ -84,7 +117,7 @@ RT-3 |                 |                  |
 本轮结论及不能据此证明的范围：
 ```
 
-可使用“通过 / 不通过 / 恢复未完成 / 故障未触发 / 证据不足”描述实际情况。上方代码块保留为填写模板，当前已确认结果以作者判读记录为准；RT-2、RT-3 尚未确认。AI 辅助核对可以指出位置，质量结论仍应有你读过的证据支撑。
+可使用“通过 / 不通过 / 恢复未完成 / 故障未触发 / 证据不足”描述实际情况。上方代码块是方法示例，当前三个样本均已确认，结果以作者判读记录为准。AI 辅助核对可以指出位置，质量结论仍应有你读过的证据支撑。
 
 ## Codex 初核及边界
 
