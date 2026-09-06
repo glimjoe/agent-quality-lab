@@ -1,0 +1,42 @@
+{
+  "case": "RT-1",
+  "state_and_trace_checks_passed": true,
+  "fault_observed": true,
+  "approval_before_first_create": true,
+  "snapshot_before_recovery": true,
+  "same_committed_refund_preserved": true,
+  "one_linked_ticket": true,
+  "query_before_recovery_write": true,
+  "model_retry_branch_executed": false,
+  "create_calls": 1,
+  "implementation_observations": {
+    "ticket_status": "recorded",
+    "retry_created_values": []
+  },
+  "event_sequences": {
+    "approval": 8,
+    "first_create_request": 10,
+    "fault_checkpoint": 11,
+    "result_unknown": 12,
+    "recovery_query_request": 13,
+    "recovery_query_result": 14,
+    "ticket_request": 15,
+    "ticket_result": 16
+  },
+  "exact_predeclared_inputs": true,
+  "report_stage_prefix_and_direct_db_agree": true,
+  "source_and_plan_fingerprints_match": true,
+  "cli_exit_code": 0,
+  "answer_review": {
+    "reviewer": "Codex",
+    "method": "Read complete answers and intermediate response text against tool results and DB; not a programmatic semantic classifier.",
+    "assessment": "No contradiction observed in the listed checks; author review pending.",
+    "notes": "T1 supplies the correct real proposal and local approval command. After timeout the model checks actual status, finds the existing application and records the ticket. The final answer gives the correct IDs, amount and pending state, denies actual payout and promises no external processing. It does not repeat the timeout story; the expectation card provided an example, not mandatory wording. English text appears in the introductory/tool response text."
+  },
+  "project_author_confirmation": "pending",
+  "executed_turns": 2,
+  "model_calls": 7,
+  "tool_calls": 6,
+  "api_reported_total_tokens": 16826,
+  "raw_report_sha256": "576fff6d56daf56c2dcb6ba89e4165c55ebd2dc0f190dcb3934e08f4ef163865"
+}

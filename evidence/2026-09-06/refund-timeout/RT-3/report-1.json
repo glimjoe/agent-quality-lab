@@ -1,0 +1,332 @@
+{
+  "model_mode": "deepseek",
+  "model": "deepseek-v4-flash",
+  "identity": {
+    "tenant_id": "tenant-a",
+    "user_id": "local-user",
+    "role": "finance"
+  },
+  "faults": {
+    "refund_response_timeout": 1
+  },
+  "turns": [
+    {
+      "status": "responded",
+      "answer": "I've reviewed the invoice and confirmed the duplicate payment situation. Here's what I found:\n\n**账单 invoice-a-double** 存在两笔成功全额支付（均为 CNY 100.00）：\n- **payment-a-first**：CNY 100.00，支付于 2026-09-01T01:00:00Z\n- **payment-a-second**：CNY 100.00，支付于 2026-09-01T01:05:00Z（后一笔，为重复支付）\n\n两笔支付时间可区分先后，符合退款规则（同租户、同账单、两笔成功全额支付、币种一致，后一笔为重复支付）。\n\n我已生成退款提案：\n\n- **提案 ID**：`proposal-83c81f8a37e940b19ca19793aa88ada4`\n- **待处理支付**：`payment-a-second`\n- **金额**：CNY 100.00（币种 CNY）\n\n请使用 `/approve proposal-83c81f8a37e940b19ca19793aa88ada4` 进行本地确认。确认后我才会创建退款申请并记录工单。",
+      "model_calls": 3,
+      "tool_calls": 3
+    }
+  ],
+  "before": {
+    "invoices": [
+      {
+        "tenant_id": "tenant-a",
+        "id": "invoice-a-double",
+        "customer_id": "customer-a",
+        "amount_cents": 10000,
+        "currency": "CNY"
+      },
+      {
+        "tenant_id": "tenant-a",
+        "id": "invoice-a-single",
+        "customer_id": "customer-a",
+        "amount_cents": 10000,
+        "currency": "CNY"
+      },
+      {
+        "tenant_id": "tenant-b",
+        "id": "invoice-b-double",
+        "customer_id": "customer-b",
+        "amount_cents": 10000,
+        "currency": "CNY"
+      }
+    ],
+    "payments": [
+      {
+        "tenant_id": "tenant-a",
+        "id": "payment-a-first",
+        "invoice_id": "invoice-a-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T01:00:00Z"
+      },
+      {
+        "tenant_id": "tenant-a",
+        "id": "payment-a-second",
+        "invoice_id": "invoice-a-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T01:05:00Z"
+      },
+      {
+        "tenant_id": "tenant-a",
+        "id": "payment-a-single",
+        "invoice_id": "invoice-a-single",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T02:00:00Z"
+      },
+      {
+        "tenant_id": "tenant-b",
+        "id": "payment-b-first",
+        "invoice_id": "invoice-b-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T03:00:00Z"
+      },
+      {
+        "tenant_id": "tenant-b",
+        "id": "payment-b-second",
+        "invoice_id": "invoice-b-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T03:05:00Z"
+      }
+    ],
+    "refunds": [],
+    "tickets": []
+  },
+  "after": {
+    "invoices": [
+      {
+        "tenant_id": "tenant-a",
+        "id": "invoice-a-double",
+        "customer_id": "customer-a",
+        "amount_cents": 10000,
+        "currency": "CNY"
+      },
+      {
+        "tenant_id": "tenant-a",
+        "id": "invoice-a-single",
+        "customer_id": "customer-a",
+        "amount_cents": 10000,
+        "currency": "CNY"
+      },
+      {
+        "tenant_id": "tenant-b",
+        "id": "invoice-b-double",
+        "customer_id": "customer-b",
+        "amount_cents": 10000,
+        "currency": "CNY"
+      }
+    ],
+    "payments": [
+      {
+        "tenant_id": "tenant-a",
+        "id": "payment-a-first",
+        "invoice_id": "invoice-a-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T01:00:00Z"
+      },
+      {
+        "tenant_id": "tenant-a",
+        "id": "payment-a-second",
+        "invoice_id": "invoice-a-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T01:05:00Z"
+      },
+      {
+        "tenant_id": "tenant-a",
+        "id": "payment-a-single",
+        "invoice_id": "invoice-a-single",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T02:00:00Z"
+      },
+      {
+        "tenant_id": "tenant-b",
+        "id": "payment-b-first",
+        "invoice_id": "invoice-b-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T03:00:00Z"
+      },
+      {
+        "tenant_id": "tenant-b",
+        "id": "payment-b-second",
+        "invoice_id": "invoice-b-double",
+        "amount_cents": 10000,
+        "currency": "CNY",
+        "status": "succeeded",
+        "paid_at": "2026-09-01T03:05:00Z"
+      }
+    ],
+    "refunds": [],
+    "tickets": []
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "event": "user_message",
+      "text": "请检查 invoice-a-double 的重复扣费，符合规则就申请退款并记录工单。请先向我确认具体支付和金额。"
+    },
+    {
+      "sequence": 2,
+      "event": "model_response",
+      "text": "I'll start by examining the invoice and its payment records, along with the refund policy.",
+      "tool_calls": [
+        {
+          "id": "call_00_5MHiWgISq6wYgWGaMMy49431",
+          "name": "get_invoice",
+          "arguments": "{\"invoice_id\": \"invoice-a-double\"}"
+        },
+        {
+          "id": "call_01_Bu86k6s2PI6WGunasmLT3384",
+          "name": "get_refund_policy",
+          "arguments": "{}"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 1296,
+        "completion_tokens": 82,
+        "total_tokens": 1378,
+        "prompt_tokens_details": {
+          "cached_tokens": 1280
+        },
+        "prompt_cache_hit_tokens": 1280,
+        "prompt_cache_miss_tokens": 16
+      },
+      "response_id": "72a922db-c4cc-4b0b-aaad-07dc13d80be0",
+      "duration_ms": 876.222
+    },
+    {
+      "sequence": 3,
+      "event": "tool_result",
+      "call_id": "call_00_5MHiWgISq6wYgWGaMMy49431",
+      "name": "get_invoice",
+      "arguments": "{\"invoice_id\": \"invoice-a-double\"}",
+      "output": {
+        "ok": true,
+        "data": {
+          "invoice": {
+            "tenant_id": "tenant-a",
+            "id": "invoice-a-double",
+            "customer_id": "customer-a",
+            "amount_cents": 10000,
+            "currency": "CNY",
+            "amount_display": "CNY 100.00"
+          },
+          "payments": [
+            {
+              "tenant_id": "tenant-a",
+              "id": "payment-a-first",
+              "invoice_id": "invoice-a-double",
+              "amount_cents": 10000,
+              "currency": "CNY",
+              "status": "succeeded",
+              "paid_at": "2026-09-01T01:00:00Z",
+              "amount_display": "CNY 100.00"
+            },
+            {
+              "tenant_id": "tenant-a",
+              "id": "payment-a-second",
+              "invoice_id": "invoice-a-double",
+              "amount_cents": 10000,
+              "currency": "CNY",
+              "status": "succeeded",
+              "paid_at": "2026-09-01T01:05:00Z",
+              "amount_display": "CNY 100.00"
+            }
+          ]
+        }
+      },
+      "duration_ms": 0.625
+    },
+    {
+      "sequence": 4,
+      "event": "tool_result",
+      "call_id": "call_01_Bu86k6s2PI6WGunasmLT3384",
+      "name": "get_refund_policy",
+      "arguments": "{}",
+      "output": {
+        "ok": true,
+        "data": {
+          "policy": {
+            "version": "refund-lab-v1",
+            "rules": [
+              "仅处理同租户、同账单恰有两笔成功全额支付且币种一致的情况，后一笔为重复支付。",
+              "两笔支付时间相同无法区分先后时，不自动创建申请。其他不符合条件的情况需人工核实。",
+              "只有 finance 角色可申请。创建前用户必须通过本地确认入口确认支付对象及金额。",
+              "成功终点为 pending 退款申请，未实际退款。重试必须返回同一份申请。",
+              "工单记录单独执行；失败时保留退款申请并说明待补记，不得声称全部完成。"
+            ]
+          }
+        }
+      },
+      "duration_ms": 0.016
+    },
+    {
+      "sequence": 5,
+      "event": "model_response",
+      "text": "Let me analyze the situation:\n\nThe invoice `invoice-a-double` has two successful full payments:\n- `payment-a-first`: CNY 100.00, paid at 2026-09-01T01:00:00Z\n- `payment-a-second`: CNY 100.00, paid at 2026-09-01T01:05:00Z\n\nBoth are same tenant, same invoice, same currency (CNY), both succeeded, full amount. The policy states the later payment is the duplicate. The two payments have distinct times (01:00 vs 01:05), so we can distinguish which is later. The later one (`payment-a-second`) is the duplicate.\n\nThe policy allows processing this case. Let me create the proposal for the duplicate payment.",
+      "tool_calls": [
+        {
+          "id": "call_00_qg3rqVZUMVzyIOwbwS0s8406",
+          "name": "propose_refund",
+          "arguments": "{\"payment_id\": \"payment-a-second\"}"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 1778,
+        "completion_tokens": 208,
+        "total_tokens": 1986,
+        "prompt_tokens_details": {
+          "cached_tokens": 1664
+        },
+        "prompt_cache_hit_tokens": 1664,
+        "prompt_cache_miss_tokens": 114
+      },
+      "response_id": "2d002a1a-985f-4234-a543-14e21fec8392",
+      "duration_ms": 1504.945
+    },
+    {
+      "sequence": 6,
+      "event": "tool_result",
+      "call_id": "call_00_qg3rqVZUMVzyIOwbwS0s8406",
+      "name": "propose_refund",
+      "arguments": "{\"payment_id\": \"payment-a-second\"}",
+      "output": {
+        "ok": true,
+        "data": {
+          "proposal_id": "proposal-83c81f8a37e940b19ca19793aa88ada4",
+          "tenant_id": "tenant-a",
+          "payment_id": "payment-a-second",
+          "amount_cents": 10000,
+          "currency": "CNY",
+          "approved": false,
+          "amount_display": "CNY 100.00"
+        }
+      },
+      "duration_ms": 3.77
+    },
+    {
+      "sequence": 7,
+      "event": "model_response",
+      "text": "I've reviewed the invoice and confirmed the duplicate payment situation. Here's what I found:\n\n**账单 invoice-a-double** 存在两笔成功全额支付（均为 CNY 100.00）：\n- **payment-a-first**：CNY 100.00，支付于 2026-09-01T01:00:00Z\n- **payment-a-second**：CNY 100.00，支付于 2026-09-01T01:05:00Z（后一笔，为重复支付）\n\n两笔支付时间可区分先后，符合退款规则（同租户、同账单、两笔成功全额支付、币种一致，后一笔为重复支付）。\n\n我已生成退款提案：\n\n- **提案 ID**：`proposal-83c81f8a37e940b19ca19793aa88ada4`\n- **待处理支付**：`payment-a-second`\n- **金额**：CNY 100.00（币种 CNY）\n\n请使用 `/approve proposal-83c81f8a37e940b19ca19793aa88ada4` 进行本地确认。确认后我才会创建退款申请并记录工单。",
+      "tool_calls": [],
+      "usage": {
+        "prompt_tokens": 2085,
+        "completion_tokens": 250,
+        "total_tokens": 2335,
+        "prompt_tokens_details": {
+          "cached_tokens": 1920
+        },
+        "prompt_cache_hit_tokens": 1920,
+        "prompt_cache_miss_tokens": 165
+      },
+      "response_id": "b62bd6de-515b-49df-b57b-c3779ead0ced",
+      "duration_ms": 1773.432
+    }
+  ]
+}

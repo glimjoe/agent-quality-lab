@@ -1,0 +1,362 @@
+{
+  "git_base_commit": "e415f36ad43a93fce96ea3db10d3428648e59bdb",
+  "tested_version": "Base plus cli.py fault option/checkpoint and tests/test_cli.py regression; source fingerprints identify the executed version.",
+  "source_sha256": {
+    "__init__.py": "30b6955ff9818635dddc00d8fdfd260d790058683b8cadfdf1b4092b6e33bf63",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "cli.py": "d5f660398271eda695d165b5ac33118c7bd622dd47afd6b8a64dc561cb3ca047",
+    "domain.py": "ed0a82cca9b346b48f3c480c8004ab24c41b258c00a140a95a9cfb58f0e14e8d",
+    "experiments.py": "b0c44a91e3ff575aebaaeeb3a72cb5731d1a2864e3c2bcb10b021133a13bfe48",
+    "models.py": "cd6dc80e994a385e562eae56e1e4c1f87db93192a437061f6d1cb67490d5920f",
+    "money.py": "b00a9968e2e0213d89eaa900e92f876aa43e75fd10b43a5481e92e8f92f0a426",
+    "prompts.py": "217c5ac05458082c1fe62c7e0d52a243186f5357de3315456ad295a480b1d875",
+    "runtime.py": "9816b8f08301f2ae1dc3f1746072f07f81ada912709f4b9781942be7718b68aa",
+    "demo_data.json": "0ec2f2b53af77d4fd60074a72ae940138ed85392bc23614fc8d48d44f0fbd258"
+  },
+  "engineering_test_sha256": "e918ee78ad04806b4368548165b7442a93a84ae5579bc9c67848ef2a7362678d",
+  "plan_file": "tests/refund-timeout-test-cases.md",
+  "plan_sha256": "6e581e85000afe80c3ef6ec599faee51041850aeb95399e252a2d6cc2e3e75b1",
+  "author_expectations_file": "docs/practice/refund-timeout-expectations-20260906.md",
+  "author_expectations_sha256": "ee12f2b4ae101ff647d8255570c6e17fa9cfaf319bb874c7dc1adf186158453f",
+  "project_author_confirmation": "pending",
+  "historical_raw_files_unchanged": 318,
+  "publication_transforms": [
+    "credential redaction if found",
+    "local path/account/host/SID placeholders",
+    "UTF-8 without BOM; LF newlines; physical trailing whitespace trimmed; single final newline"
+  ],
+  "credential_categories_detected": [],
+  "hash_semantics": "source_sha256 identifies original local bytes; published_sha256 identifies sanitized UTF-8 LF bytes. Embedded raw hashes are preserved.",
+  "files": [
+    {
+      "file": "RT-1/checks-1.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013501-69d85d70/checks-1.json",
+      "source_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd",
+      "published_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd"
+    },
+    {
+      "file": "RT-1/checks-2.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013501-69d85d70/checks-2.json",
+      "source_sha256": "df42b34d81304c1f09b2446d20a7967d82bd30468ce72668aa790554f969e8c0",
+      "published_sha256": "df42b34d81304c1f09b2446d20a7967d82bd30468ce72668aa790554f969e8c0"
+    },
+    {
+      "file": "RT-1/checks-stopped.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013501-69d85d70/checks-stopped.json",
+      "source_sha256": "df42b34d81304c1f09b2446d20a7967d82bd30468ce72668aa790554f969e8c0",
+      "published_sha256": "df42b34d81304c1f09b2446d20a7967d82bd30468ce72668aa790554f969e8c0"
+    },
+    {
+      "file": "RT-1/command-log.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013501-69d85d70/command-log.json",
+      "source_sha256": "ef00685cf5c15b4074e8a4d17fa2fb38a296ae214cfaf2bc6601ab9a8f7ef13e",
+      "published_sha256": "1956b18a72319b4a354d88222e612f5c9c6488785e189d437a4b3188f053332c"
+    },
+    {
+      "file": "RT-1/db-1.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013501-69d85d70/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "RT-1/db-2.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013501-69d85d70/db-2.json",
+      "source_sha256": "a407bc723b89afddc1e62af7afb67f2b65803b92f4dc527b5cc7fbab60b9c809",
+      "published_sha256": "a407bc723b89afddc1e62af7afb67f2b65803b92f4dc527b5cc7fbab60b9c809"
+    },
+    {
+      "file": "RT-1/db-after-timeout.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013501-69d85d70/db-after-timeout.json",
+      "source_sha256": "c1f00ff1357b85f76a00545211962375dc508e74196338c259f3b767a6a10e87",
+      "published_sha256": "c1f00ff1357b85f76a00545211962375dc508e74196338c259f3b767a6a10e87"
+    },
+    {
+      "file": "RT-1/db-initial.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013501-69d85d70/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "RT-1/db-stopped.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013501-69d85d70/db-stopped.json",
+      "source_sha256": "a407bc723b89afddc1e62af7afb67f2b65803b92f4dc527b5cc7fbab60b9c809",
+      "published_sha256": "a407bc723b89afddc1e62af7afb67f2b65803b92f4dc527b5cc7fbab60b9c809"
+    },
+    {
+      "file": "RT-1/execution-version.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013501-69d85d70/execution-version.json",
+      "source_sha256": "fff53d32722bab429f9367c543ccb82e298f1c015bb21c34cce951bee9a9b65c",
+      "published_sha256": "fff53d32722bab429f9367c543ccb82e298f1c015bb21c34cce951bee9a9b65c"
+    },
+    {
+      "file": "RT-1/report-1.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013501-69d85d70/report-1.json",
+      "source_sha256": "5162ce209694de82f69cab40d8e0aa723a51700ae55a037b2e88c66a575ea756",
+      "published_sha256": "c6bf6fac2fc4c1fac17b825006844b3eec59954f58a4fb77d5d8aec28d49e608"
+    },
+    {
+      "file": "RT-1/report-2.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013501-69d85d70/report-2.json",
+      "source_sha256": "576fff6d56daf56c2dcb6ba89e4165c55ebd2dc0f190dcb3934e08f4ef163865",
+      "published_sha256": "3a5082b1715778d7a1e64ca292a8710e4777d983caba8503f55fac22c1e9a2db"
+    },
+    {
+      "file": "RT-1/report-stopped.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013501-69d85d70/report-stopped.json",
+      "source_sha256": "576fff6d56daf56c2dcb6ba89e4165c55ebd2dc0f190dcb3934e08f4ef163865",
+      "published_sha256": "3a5082b1715778d7a1e64ca292a8710e4777d983caba8503f55fac22c1e9a2db"
+    },
+    {
+      "file": "RT-1/report.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013501-69d85d70/report.json",
+      "source_sha256": "576fff6d56daf56c2dcb6ba89e4165c55ebd2dc0f190dcb3934e08f4ef163865",
+      "published_sha256": "3a5082b1715778d7a1e64ca292a8710e4777d983caba8503f55fac22c1e9a2db"
+    },
+    {
+      "file": "RT-1/verification-checks.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013501-69d85d70/verification-checks.json",
+      "source_sha256": "072b8edb07120c23dfd7da9cf1c44686512a39ddfefa41cf570b78086373ac8e",
+      "published_sha256": "072b8edb07120c23dfd7da9cf1c44686512a39ddfefa41cf570b78086373ac8e"
+    },
+    {
+      "file": "RT-2/checks-1.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013519-6ef46256/checks-1.json",
+      "source_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd",
+      "published_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd"
+    },
+    {
+      "file": "RT-2/checks-2.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013519-6ef46256/checks-2.json",
+      "source_sha256": "df42b34d81304c1f09b2446d20a7967d82bd30468ce72668aa790554f969e8c0",
+      "published_sha256": "df42b34d81304c1f09b2446d20a7967d82bd30468ce72668aa790554f969e8c0"
+    },
+    {
+      "file": "RT-2/checks-stopped.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013519-6ef46256/checks-stopped.json",
+      "source_sha256": "df42b34d81304c1f09b2446d20a7967d82bd30468ce72668aa790554f969e8c0",
+      "published_sha256": "df42b34d81304c1f09b2446d20a7967d82bd30468ce72668aa790554f969e8c0"
+    },
+    {
+      "file": "RT-2/command-log.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013519-6ef46256/command-log.json",
+      "source_sha256": "c2b71775b474b238e2bc1b720b7b8d370cdd2d1c3dabe5570d90524ff4e44a7b",
+      "published_sha256": "ecdce6529feec5b7bbe0c8bd50f6bb68948098556518f551c7d4cb5162ec7e72"
+    },
+    {
+      "file": "RT-2/db-1.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013519-6ef46256/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "RT-2/db-2.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013519-6ef46256/db-2.json",
+      "source_sha256": "7adbcd5c89be0ee8b12998678ce17e674a21a0232fdbe5d02f5e575a0e07b639",
+      "published_sha256": "7adbcd5c89be0ee8b12998678ce17e674a21a0232fdbe5d02f5e575a0e07b639"
+    },
+    {
+      "file": "RT-2/db-after-timeout.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013519-6ef46256/db-after-timeout.json",
+      "source_sha256": "8018d13dc861a93e911a9191a43d4f5c2b6fccbdf9d94599d41997eddca962d0",
+      "published_sha256": "8018d13dc861a93e911a9191a43d4f5c2b6fccbdf9d94599d41997eddca962d0"
+    },
+    {
+      "file": "RT-2/db-initial.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013519-6ef46256/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "RT-2/db-stopped.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013519-6ef46256/db-stopped.json",
+      "source_sha256": "7adbcd5c89be0ee8b12998678ce17e674a21a0232fdbe5d02f5e575a0e07b639",
+      "published_sha256": "7adbcd5c89be0ee8b12998678ce17e674a21a0232fdbe5d02f5e575a0e07b639"
+    },
+    {
+      "file": "RT-2/execution-version.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013519-6ef46256/execution-version.json",
+      "source_sha256": "76699c1a118c859e647bfae92140821b0bb9df056e97e3cfa5360bde70e0c5d8",
+      "published_sha256": "76699c1a118c859e647bfae92140821b0bb9df056e97e3cfa5360bde70e0c5d8"
+    },
+    {
+      "file": "RT-2/report-1.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013519-6ef46256/report-1.json",
+      "source_sha256": "fd3d4c2fa3b26fa01206ff8ac67c3c38ece538110ee20d9c51c2ccf866b92b99",
+      "published_sha256": "212c750aec3168024576ae408231fa854f545552c159bd3fbc6c4e8ba127db5c"
+    },
+    {
+      "file": "RT-2/report-2.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013519-6ef46256/report-2.json",
+      "source_sha256": "0ec4945953d06fb44ebcd923337cc5df7315ba5ea56586bfb9d44772385e590e",
+      "published_sha256": "a1de7f312147ebfffc92b4fec15fe82d8272baadbb7d2a23438a743304c020a3"
+    },
+    {
+      "file": "RT-2/report-stopped.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013519-6ef46256/report-stopped.json",
+      "source_sha256": "0ec4945953d06fb44ebcd923337cc5df7315ba5ea56586bfb9d44772385e590e",
+      "published_sha256": "a1de7f312147ebfffc92b4fec15fe82d8272baadbb7d2a23438a743304c020a3"
+    },
+    {
+      "file": "RT-2/report.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013519-6ef46256/report.json",
+      "source_sha256": "0ec4945953d06fb44ebcd923337cc5df7315ba5ea56586bfb9d44772385e590e",
+      "published_sha256": "a1de7f312147ebfffc92b4fec15fe82d8272baadbb7d2a23438a743304c020a3"
+    },
+    {
+      "file": "RT-2/verification-checks.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013519-6ef46256/verification-checks.json",
+      "source_sha256": "6d65d0611a0be97567e73b775aa665b6d2eb7c56f79cf05a470b7e0ace0baf37",
+      "published_sha256": "6d65d0611a0be97567e73b775aa665b6d2eb7c56f79cf05a470b7e0ace0baf37"
+    },
+    {
+      "file": "RT-3/checks-1.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013536-e53afa2b/checks-1.json",
+      "source_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd",
+      "published_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd"
+    },
+    {
+      "file": "RT-3/checks-2.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013536-e53afa2b/checks-2.json",
+      "source_sha256": "df42b34d81304c1f09b2446d20a7967d82bd30468ce72668aa790554f969e8c0",
+      "published_sha256": "df42b34d81304c1f09b2446d20a7967d82bd30468ce72668aa790554f969e8c0"
+    },
+    {
+      "file": "RT-3/checks-stopped.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013536-e53afa2b/checks-stopped.json",
+      "source_sha256": "df42b34d81304c1f09b2446d20a7967d82bd30468ce72668aa790554f969e8c0",
+      "published_sha256": "df42b34d81304c1f09b2446d20a7967d82bd30468ce72668aa790554f969e8c0"
+    },
+    {
+      "file": "RT-3/command-log.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013536-e53afa2b/command-log.json",
+      "source_sha256": "1c9f6d7a76d438a9744d60895b9af31913d26f4d9cb7540a9ea2f865ea234581",
+      "published_sha256": "3b47e6e6172f62b4c2a931d4b239ba5ed8587767844e89cc2b48954841623f96"
+    },
+    {
+      "file": "RT-3/db-1.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013536-e53afa2b/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "RT-3/db-2.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013536-e53afa2b/db-2.json",
+      "source_sha256": "f738eb2747a90d9231876dd374b8b0245f5623b88230b2524166fc60be048dba",
+      "published_sha256": "f738eb2747a90d9231876dd374b8b0245f5623b88230b2524166fc60be048dba"
+    },
+    {
+      "file": "RT-3/db-after-timeout.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013536-e53afa2b/db-after-timeout.json",
+      "source_sha256": "a4802507c165b8b384f938c8c9d3734c06ec0874a3347000f43452f50caaa8fd",
+      "published_sha256": "a4802507c165b8b384f938c8c9d3734c06ec0874a3347000f43452f50caaa8fd"
+    },
+    {
+      "file": "RT-3/db-initial.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013536-e53afa2b/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "RT-3/db-stopped.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013536-e53afa2b/db-stopped.json",
+      "source_sha256": "f738eb2747a90d9231876dd374b8b0245f5623b88230b2524166fc60be048dba",
+      "published_sha256": "f738eb2747a90d9231876dd374b8b0245f5623b88230b2524166fc60be048dba"
+    },
+    {
+      "file": "RT-3/execution-version.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013536-e53afa2b/execution-version.json",
+      "source_sha256": "62b6d72528f09186482c0d907617db65f2dc3f7bd14c58f0cc739ec5ad47f9dd",
+      "published_sha256": "62b6d72528f09186482c0d907617db65f2dc3f7bd14c58f0cc739ec5ad47f9dd"
+    },
+    {
+      "file": "RT-3/report-1.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013536-e53afa2b/report-1.json",
+      "source_sha256": "93b4f771dc8f8833396d08d630616819fa6dbca70d55baa52eeab6d00d98cfe1",
+      "published_sha256": "ac5b3ed79c091d68be702a7261b9bca4db58b5e5b9760aa3f9012e7e1fc26c74"
+    },
+    {
+      "file": "RT-3/report-2.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013536-e53afa2b/report-2.json",
+      "source_sha256": "b5e9f6cb5e0154841d3c48cb4345f635cef00bd1d49b981592f9a5b5769382ea",
+      "published_sha256": "156985939b2640b57bd05171f2121a86faa7d090b562d34671193e7fea2984c1"
+    },
+    {
+      "file": "RT-3/report-stopped.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013536-e53afa2b/report-stopped.json",
+      "source_sha256": "b5e9f6cb5e0154841d3c48cb4345f635cef00bd1d49b981592f9a5b5769382ea",
+      "published_sha256": "156985939b2640b57bd05171f2121a86faa7d090b562d34671193e7fea2984c1"
+    },
+    {
+      "file": "RT-3/report.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013536-e53afa2b/report.json",
+      "source_sha256": "b5e9f6cb5e0154841d3c48cb4345f635cef00bd1d49b981592f9a5b5769382ea",
+      "published_sha256": "156985939b2640b57bd05171f2121a86faa7d090b562d34671193e7fea2984c1"
+    },
+    {
+      "file": "RT-3/verification-checks.json",
+      "source_file": ".local/practice/refund-timeout/20260906T013536-e53afa2b/verification-checks.json",
+      "source_sha256": "bac106422277a3ea7f6436aff6131265836da38d2eb386eaf432cd8798acd229",
+      "published_sha256": "bac106422277a3ea7f6436aff6131265836da38d2eb386eaf432cd8798acd229"
+    },
+    {
+      "file": "case-index.json",
+      "source_file": ".local/refund-timeout-work/case-index.json",
+      "source_sha256": "6599677ef6f5b2b9cfdf1f7514d1484a5982f40551fea9c96bc6e8501dc7b65c",
+      "published_sha256": "6599677ef6f5b2b9cfdf1f7514d1484a5982f40551fea9c96bc6e8501dc7b65c"
+    },
+    {
+      "file": "batch-verification.json",
+      "source_file": ".local/refund-timeout-work/batch-verification.json",
+      "source_sha256": "8ae79c10c4c4239ea0267403fa03017051b360275d8951fed79a37da506263a7",
+      "published_sha256": "8ae79c10c4c4239ea0267403fa03017051b360275d8951fed79a37da506263a7"
+    },
+    {
+      "file": "engineering-validation.json",
+      "source_file": ".local/refund-timeout-work/engineering-validation.json",
+      "source_sha256": "61e2f6dd8780251bce0f322995d0cf9a5b57785bbca0bc2cf07f9a378203451f",
+      "published_sha256": "61e2f6dd8780251bce0f322995d0cf9a5b57785bbca0bc2cf07f9a378203451f"
+    },
+    {
+      "file": "tooling/collect.py",
+      "source_file": ".local/refund-timeout-work/collect.py",
+      "source_sha256": "6edf757cf8eccb13e4fe816aee71b4ee1ca8c035f91f92d93600149b28621168",
+      "published_sha256": "6edf757cf8eccb13e4fe816aee71b4ee1ca8c035f91f92d93600149b28621168"
+    },
+    {
+      "file": "tooling/verify.py",
+      "source_file": ".local/refund-timeout-work/verify.py",
+      "source_sha256": "71521cdec34a09d6faee27e218a9c5987e3b69261a5dda4dc0b80b9e6d77a5c2",
+      "published_sha256": "71521cdec34a09d6faee27e218a9c5987e3b69261a5dda4dc0b80b9e6d77a5c2"
+    },
+    {
+      "file": "scripted/20260906T013100-193bf2db.json",
+      "source_file": ".local/refund-timeout-work/scripted/20260906T013100-193bf2db/report.json",
+      "source_sha256": "104a42ebd51f0379c0c9c0a37509d780688cd2a55bbf61b67545afd04680aaf8",
+      "published_sha256": "7a435b907f9b99f9eb23f7b34b8e21962753064d653b72f5b59de8f165e6e67e"
+    },
+    {
+      "file": "scripted/20260906T013100-27f1b9d8.json",
+      "source_file": ".local/refund-timeout-work/scripted/20260906T013100-27f1b9d8/report.json",
+      "source_sha256": "c645d131684fcf7a7fdb07070562d3956884b63ed2ece06cf91cde5a7002a71d",
+      "published_sha256": "8b450e78f0fc51633262a03cac0937e9ae495f75002bdffb92cb4b2a12f0365f"
+    },
+    {
+      "file": "scripted/20260906T013100-304ed051.json",
+      "source_file": ".local/refund-timeout-work/scripted/20260906T013100-304ed051/report.json",
+      "source_sha256": "46f850d149e9dc886e917e87359a4f684da441b91d81640bdf603de424c08b1e",
+      "published_sha256": "22d116576cd2a1d23082287f7a8cc8c460b4f0a1581e782dc8ff54f415a8a23e"
+    },
+    {
+      "file": "scripted/20260906T013100-7469079c.json",
+      "source_file": ".local/refund-timeout-work/scripted/20260906T013100-7469079c/report.json",
+      "source_sha256": "203df864a8e4fe700c7d51e5f4672fbcf77a7503f4957c1362a77d0bf04bae3d",
+      "published_sha256": "54578a28ef97d8117700745db2d3d747360a1d6222f39ecbe1d9e61f320a3d08"
+    },
+    {
+      "file": "scripted/20260906T013100-9410d103.json",
+      "source_file": ".local/refund-timeout-work/scripted/20260906T013100-9410d103/report.json",
+      "source_sha256": "0dca2732af073358cd484cda21cc9f7351b6d343608772651970b3cb17ee32a5",
+      "published_sha256": "624f3cad99337d5ddcae84911d8b23d48c18da19d762566219ed30b1266e0f28"
+    }
+  ]
+}

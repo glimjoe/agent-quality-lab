@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sqlite3
 from dataclasses import asdict
 from pathlib import Path
 
@@ -16,11 +17,39 @@ from .runtime import Agent, ToolError
 def chat(args: argparse.Namespace) -> int:
     model = DeepSeekModel(Settings.load())
     directory, store = new_run(args.output)
-    business = BusinessTools(store, Identity(args.tenant, "local-user", args.role))
-    agent = Agent(model, business.registry(), SYSTEM_PROMPT)
+    faults = {"refund_response_timeout": 1} if args.fault == "refund_timeout" else {}
+    business = BusinessTools(store, Identity(args.tenant, "local-user", args.role), faults=faults)
+    tools = business.registry()
+    if faults:
+        create_tool = next(tool for tool in tools if tool.name == "create_refund")
+        create_handler = create_tool.handler
+        def create_with_checkpoint(proposal_id):
+            try:
+                return create_handler(proposal_id=proposal_id)
+            except ToolError as error:
+                if error.code == "result_unknown":
+                    # A separate read-only connection proves the transaction committed.
+                    path = (directory / "business.sqlite3").resolve()
+                    db = sqlite3.connect(path.as_uri() + "?mode=ro", uri=True)
+                    db.row_factory = sqlite3.Row
+                    try:
+                        data = {table: [dict(row) for row in db.execute(f"SELECT * FROM {table} ORDER BY tenant_id,id")]
+                                for table in ("invoices", "payments", "refunds", "tickets")}
+                    finally:
+                        db.close()
+                    with (directory / "db-after-timeout.json").open("x", encoding="utf-8", newline="\n") as stream:
+                        json.dump(data, stream, ensure_ascii=False, indent=2)
+                        stream.write("\n")
+                    agent.record("fault_checkpoint", name="create_refund", proposal_id=proposal_id,
+                                 error_code=error.code, snapshot_file="db-after-timeout.json")
+                raise
+        create_tool.handler = create_with_checkpoint
+    agent = Agent(model, tools, SYSTEM_PROMPT)
     before = store.snapshot()
     turns = []
     print(f"实验目录：{directory}\n身份：{args.tenant} / {args.role}（本地模拟身份）")
+    if faults:
+        print("故障注入：退款申请提交后首次响应超时；自动保存恢复前数据库快照。")
     print("输入任务；/approve 提案ID 确认退款对象和金额；/exit 退出。")
     try:
         while True:
@@ -52,7 +81,7 @@ def chat(args: argparse.Namespace) -> int:
                 if not proposal["approved"]:
                     print(f"待确认：/approve {proposal['proposal_id']} | {proposal['payment_id']} | {format_amount(proposal['amount_cents'], proposal['currency'])}")
             (directory / "report.json").write_text(json.dumps({"model_mode": "deepseek", "model": model.settings.model,
-                "identity": asdict(business.identity), "turns": turns, "before": before, "after": store.snapshot(),
+                "identity": asdict(business.identity), "faults": faults, "turns": turns, "before": before, "after": store.snapshot(),
                 "events": agent.events}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         return 0
     finally:
@@ -70,6 +99,8 @@ def main() -> int:
     interactive = commands.add_parser("chat", help="与真实 DeepSeek Agent 交互")
     interactive.add_argument("--tenant", choices=("tenant-a", "tenant-b"), default="tenant-a")
     interactive.add_argument("--role", choices=("finance", "viewer"), default="finance")
+    interactive.add_argument("--fault", choices=("none", "refund_timeout"), default="none",
+                             help="模拟申请提交后首次响应超时，并保存恢复前快照（默认不注入）")
     interactive.add_argument("--output", type=Path, default=Path(".local/runs"))
     args = parser.parse_args()
     try:
