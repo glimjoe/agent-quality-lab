@@ -1,0 +1,374 @@
+{
+  "git_base_commit": "64016ec3c57918c45e9c507fe7604e37a8d939ec",
+  "tested_version": "Base plus cli.py ticket failure option/checkpoints and tests/test_cli.py regression; source fingerprints identify the executed version.",
+  "source_sha256": {
+    "__init__.py": "30b6955ff9818635dddc00d8fdfd260d790058683b8cadfdf1b4092b6e33bf63",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "cli.py": "2782b6292dadba76c209a66b1505398c3c20ddab772b3304e5082ef917f66a49",
+    "domain.py": "ed0a82cca9b346b48f3c480c8004ab24c41b258c00a140a95a9cfb58f0e14e8d",
+    "experiments.py": "b0c44a91e3ff575aebaaeeb3a72cb5731d1a2864e3c2bcb10b021133a13bfe48",
+    "models.py": "cd6dc80e994a385e562eae56e1e4c1f87db93192a437061f6d1cb67490d5920f",
+    "money.py": "b00a9968e2e0213d89eaa900e92f876aa43e75fd10b43a5481e92e8f92f0a426",
+    "prompts.py": "217c5ac05458082c1fe62c7e0d52a243186f5357de3315456ad295a480b1d875",
+    "runtime.py": "9816b8f08301f2ae1dc3f1746072f07f81ada912709f4b9781942be7718b68aa",
+    "demo_data.json": "0ec2f2b53af77d4fd60074a72ae940138ed85392bc23614fc8d48d44f0fbd258"
+  },
+  "engineering_test_sha256": "e10c34fbf13ba43e38b02c0937bff533fcffad3177768b7101b509e2c99a2cfe",
+  "plan_file": "tests/ticket-failure-test-cases.md",
+  "plan_sha256": "711d215f855720d0aa6787431dccdc22dc766aff8e6e119bf1ec97eac1970f48",
+  "confirmed_rules_file": "docs/first-slice.md",
+  "confirmed_rules_sha256": "c6485efefbc12a123a60efac17d17531c345a2fac832d521c721910a1591b797",
+  "project_author_confirmation": "pending",
+  "historical_raw_files_unchanged": 366,
+  "publication_transforms": [
+    "credential redaction if found",
+    "local path/account/host/SID placeholders",
+    "UTF-8 without BOM; LF newlines; physical trailing whitespace trimmed; single final newline"
+  ],
+  "credential_categories_detected": [],
+  "hash_semantics": "source_sha256 identifies original local bytes; published_sha256 identifies sanitized UTF-8 LF bytes. Embedded raw hashes are preserved.",
+  "files": [
+    {
+      "file": "TF-1/checks-1.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061548-81bbf730/checks-1.json",
+      "source_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd",
+      "published_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd"
+    },
+    {
+      "file": "TF-1/checks-2.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061548-81bbf730/checks-2.json",
+      "source_sha256": "6aa89c135c828f938cf670b3f98200b5d96b26825428b8391a1116d5de29c3c6",
+      "published_sha256": "6aa89c135c828f938cf670b3f98200b5d96b26825428b8391a1116d5de29c3c6"
+    },
+    {
+      "file": "TF-1/checks-stopped.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061548-81bbf730/checks-stopped.json",
+      "source_sha256": "6aa89c135c828f938cf670b3f98200b5d96b26825428b8391a1116d5de29c3c6",
+      "published_sha256": "6aa89c135c828f938cf670b3f98200b5d96b26825428b8391a1116d5de29c3c6"
+    },
+    {
+      "file": "TF-1/command-log.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061548-81bbf730/command-log.json",
+      "source_sha256": "15e27a2a7049e1151fd94c535cc55a54e5cbad973336465040755c82e4c678d7",
+      "published_sha256": "f7c75d5d7bfdde8a644e47c35f5717659a105d0347cd7ababc69a5fc2f718130"
+    },
+    {
+      "file": "TF-1/db-1.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061548-81bbf730/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "TF-1/db-2.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061548-81bbf730/db-2.json",
+      "source_sha256": "2d1fe23de29a52bb0993f3bd132f7a34f4a63e4f7907796f1aeb8c51dc272231",
+      "published_sha256": "2d1fe23de29a52bb0993f3bd132f7a34f4a63e4f7907796f1aeb8c51dc272231"
+    },
+    {
+      "file": "TF-1/db-after-ticket-failure-1.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061548-81bbf730/db-after-ticket-failure-1.json",
+      "source_sha256": "2d1fe23de29a52bb0993f3bd132f7a34f4a63e4f7907796f1aeb8c51dc272231",
+      "published_sha256": "2d1fe23de29a52bb0993f3bd132f7a34f4a63e4f7907796f1aeb8c51dc272231"
+    },
+    {
+      "file": "TF-1/db-initial.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061548-81bbf730/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "TF-1/db-stopped.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061548-81bbf730/db-stopped.json",
+      "source_sha256": "2d1fe23de29a52bb0993f3bd132f7a34f4a63e4f7907796f1aeb8c51dc272231",
+      "published_sha256": "2d1fe23de29a52bb0993f3bd132f7a34f4a63e4f7907796f1aeb8c51dc272231"
+    },
+    {
+      "file": "TF-1/execution-version.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061548-81bbf730/execution-version.json",
+      "source_sha256": "c1f986397808d84f69b015c939535e6a0e0f72ad584f38593ea05e09cca485b0",
+      "published_sha256": "c1f986397808d84f69b015c939535e6a0e0f72ad584f38593ea05e09cca485b0"
+    },
+    {
+      "file": "TF-1/report-1.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061548-81bbf730/report-1.json",
+      "source_sha256": "c573eeee8af7c35f80e02c2f9cde7258542381e2020128cfd7f29d5fa1850b6a",
+      "published_sha256": "43017679a3726ae3adf663786c9bbb86766866371498415c8e91c680d79aee06"
+    },
+    {
+      "file": "TF-1/report-2.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061548-81bbf730/report-2.json",
+      "source_sha256": "add3dd01e0c59db02494a3309cca43c551f741d66865176afd624b8865872860",
+      "published_sha256": "6dad3665ab5d19f45edf262efc3a44d6394cf067077ca4b5ac56e6a22564c874"
+    },
+    {
+      "file": "TF-1/report-stopped.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061548-81bbf730/report-stopped.json",
+      "source_sha256": "add3dd01e0c59db02494a3309cca43c551f741d66865176afd624b8865872860",
+      "published_sha256": "6dad3665ab5d19f45edf262efc3a44d6394cf067077ca4b5ac56e6a22564c874"
+    },
+    {
+      "file": "TF-1/report.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061548-81bbf730/report.json",
+      "source_sha256": "add3dd01e0c59db02494a3309cca43c551f741d66865176afd624b8865872860",
+      "published_sha256": "6dad3665ab5d19f45edf262efc3a44d6394cf067077ca4b5ac56e6a22564c874"
+    },
+    {
+      "file": "TF-1/verification-checks.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061548-81bbf730/verification-checks.json",
+      "source_sha256": "a149c3930d230f76c6f908bbe7d17dd13793a28210b84e342c7736842eb16209",
+      "published_sha256": "a149c3930d230f76c6f908bbe7d17dd13793a28210b84e342c7736842eb16209"
+    },
+    {
+      "file": "TF-2/checks-1.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061605-44213d13/checks-1.json",
+      "source_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd",
+      "published_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd"
+    },
+    {
+      "file": "TF-2/checks-2.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061605-44213d13/checks-2.json",
+      "source_sha256": "6aa89c135c828f938cf670b3f98200b5d96b26825428b8391a1116d5de29c3c6",
+      "published_sha256": "6aa89c135c828f938cf670b3f98200b5d96b26825428b8391a1116d5de29c3c6"
+    },
+    {
+      "file": "TF-2/checks-stopped.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061605-44213d13/checks-stopped.json",
+      "source_sha256": "6aa89c135c828f938cf670b3f98200b5d96b26825428b8391a1116d5de29c3c6",
+      "published_sha256": "6aa89c135c828f938cf670b3f98200b5d96b26825428b8391a1116d5de29c3c6"
+    },
+    {
+      "file": "TF-2/command-log.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061605-44213d13/command-log.json",
+      "source_sha256": "d72a436ef2987588c9ac383adb3a497d1bd56e2715ad6964c268dbb15476da94",
+      "published_sha256": "147bd06b0d60c7987d582b12044929d674a5d00463d400a9e443a276884fb43f"
+    },
+    {
+      "file": "TF-2/db-1.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061605-44213d13/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "TF-2/db-2.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061605-44213d13/db-2.json",
+      "source_sha256": "4407d259a1e2c1e0ee07fde8f54c8b8e1db9938c19e1e58a25c1ac89b6f1934d",
+      "published_sha256": "4407d259a1e2c1e0ee07fde8f54c8b8e1db9938c19e1e58a25c1ac89b6f1934d"
+    },
+    {
+      "file": "TF-2/db-after-ticket-failure-1.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061605-44213d13/db-after-ticket-failure-1.json",
+      "source_sha256": "4407d259a1e2c1e0ee07fde8f54c8b8e1db9938c19e1e58a25c1ac89b6f1934d",
+      "published_sha256": "4407d259a1e2c1e0ee07fde8f54c8b8e1db9938c19e1e58a25c1ac89b6f1934d"
+    },
+    {
+      "file": "TF-2/db-initial.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061605-44213d13/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "TF-2/db-stopped.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061605-44213d13/db-stopped.json",
+      "source_sha256": "4407d259a1e2c1e0ee07fde8f54c8b8e1db9938c19e1e58a25c1ac89b6f1934d",
+      "published_sha256": "4407d259a1e2c1e0ee07fde8f54c8b8e1db9938c19e1e58a25c1ac89b6f1934d"
+    },
+    {
+      "file": "TF-2/execution-version.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061605-44213d13/execution-version.json",
+      "source_sha256": "6529d0f9424cc901d5d34aebc8a6f6cae5299b86bf79452e0a0a590356e6ef99",
+      "published_sha256": "6529d0f9424cc901d5d34aebc8a6f6cae5299b86bf79452e0a0a590356e6ef99"
+    },
+    {
+      "file": "TF-2/report-1.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061605-44213d13/report-1.json",
+      "source_sha256": "7b54e2a4c979679ef19f56949b0fcbc7e9176fb7f7d2193516ebb013b7c6e883",
+      "published_sha256": "832dd33e254825b0599c9bc7fb5e5200953db75bca1027a61e48559103863054"
+    },
+    {
+      "file": "TF-2/report-2.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061605-44213d13/report-2.json",
+      "source_sha256": "b14a97cbab61c574c223a2fbad5ebb4f7f56eea5248cf690b752a5f6cdd248e3",
+      "published_sha256": "d85c6a9b2f2abc98b8f676f6056992ea0afbbaae805323e0815fbec3f916fd75"
+    },
+    {
+      "file": "TF-2/report-stopped.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061605-44213d13/report-stopped.json",
+      "source_sha256": "b14a97cbab61c574c223a2fbad5ebb4f7f56eea5248cf690b752a5f6cdd248e3",
+      "published_sha256": "d85c6a9b2f2abc98b8f676f6056992ea0afbbaae805323e0815fbec3f916fd75"
+    },
+    {
+      "file": "TF-2/report.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061605-44213d13/report.json",
+      "source_sha256": "b14a97cbab61c574c223a2fbad5ebb4f7f56eea5248cf690b752a5f6cdd248e3",
+      "published_sha256": "d85c6a9b2f2abc98b8f676f6056992ea0afbbaae805323e0815fbec3f916fd75"
+    },
+    {
+      "file": "TF-2/verification-checks.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061605-44213d13/verification-checks.json",
+      "source_sha256": "cfa3d79be7ff49ad462f9509b7e5eae8ff132aca25e8c785650c427c0c0295ae",
+      "published_sha256": "cfa3d79be7ff49ad462f9509b7e5eae8ff132aca25e8c785650c427c0c0295ae"
+    },
+    {
+      "file": "TF-3/checks-1.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061623-d2261796/checks-1.json",
+      "source_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd",
+      "published_sha256": "b60f6de1f57190e79a78fada52ae841ba64250baaa0b21111fe730f994113dcd"
+    },
+    {
+      "file": "TF-3/checks-2.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061623-d2261796/checks-2.json",
+      "source_sha256": "6aa89c135c828f938cf670b3f98200b5d96b26825428b8391a1116d5de29c3c6",
+      "published_sha256": "6aa89c135c828f938cf670b3f98200b5d96b26825428b8391a1116d5de29c3c6"
+    },
+    {
+      "file": "TF-3/checks-stopped.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061623-d2261796/checks-stopped.json",
+      "source_sha256": "6aa89c135c828f938cf670b3f98200b5d96b26825428b8391a1116d5de29c3c6",
+      "published_sha256": "6aa89c135c828f938cf670b3f98200b5d96b26825428b8391a1116d5de29c3c6"
+    },
+    {
+      "file": "TF-3/command-log.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061623-d2261796/command-log.json",
+      "source_sha256": "cf9d7d988f1b85612a6661871925ee3d82f8bd91f7d41dc479b8ce8eec3d6559",
+      "published_sha256": "bda1e8384aa26503177779c493614e34afc62690ae0aac275365c4873f42d954"
+    },
+    {
+      "file": "TF-3/db-1.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061623-d2261796/db-1.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "TF-3/db-2.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061623-d2261796/db-2.json",
+      "source_sha256": "b69583de308c6f10cd427d7f43b8088109a79789ba93351e3b46a2175665bdf6",
+      "published_sha256": "b69583de308c6f10cd427d7f43b8088109a79789ba93351e3b46a2175665bdf6"
+    },
+    {
+      "file": "TF-3/db-after-ticket-failure-1.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061623-d2261796/db-after-ticket-failure-1.json",
+      "source_sha256": "b69583de308c6f10cd427d7f43b8088109a79789ba93351e3b46a2175665bdf6",
+      "published_sha256": "b69583de308c6f10cd427d7f43b8088109a79789ba93351e3b46a2175665bdf6"
+    },
+    {
+      "file": "TF-3/db-initial.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061623-d2261796/db-initial.json",
+      "source_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633",
+      "published_sha256": "5c8b8e022946331d8ec1dab83cd986e737d06c7490a37745ed46b7df7c797633"
+    },
+    {
+      "file": "TF-3/db-stopped.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061623-d2261796/db-stopped.json",
+      "source_sha256": "b69583de308c6f10cd427d7f43b8088109a79789ba93351e3b46a2175665bdf6",
+      "published_sha256": "b69583de308c6f10cd427d7f43b8088109a79789ba93351e3b46a2175665bdf6"
+    },
+    {
+      "file": "TF-3/execution-version.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061623-d2261796/execution-version.json",
+      "source_sha256": "649e1026f4bfc3f13f7103665a4ec453a342a3b8b435cf8af87eabd02ce6f59b",
+      "published_sha256": "649e1026f4bfc3f13f7103665a4ec453a342a3b8b435cf8af87eabd02ce6f59b"
+    },
+    {
+      "file": "TF-3/report-1.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061623-d2261796/report-1.json",
+      "source_sha256": "92cf29fde8bb925301c1aa31476789d5c037edc101e03b9db8e4e19e7df984f7",
+      "published_sha256": "e41ac157440821874efba36ffd8c3448138fc038d4a8d2a84e6c360421d369fc"
+    },
+    {
+      "file": "TF-3/report-2.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061623-d2261796/report-2.json",
+      "source_sha256": "4ea63eb98455b31b8d6dfd8fd0273081d9256de98d2d5e483c5931c28442a24c",
+      "published_sha256": "783c84de0acd0c5fe3236132f6c97265f980a019541e3b797ab130f0fb1af385"
+    },
+    {
+      "file": "TF-3/report-stopped.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061623-d2261796/report-stopped.json",
+      "source_sha256": "4ea63eb98455b31b8d6dfd8fd0273081d9256de98d2d5e483c5931c28442a24c",
+      "published_sha256": "783c84de0acd0c5fe3236132f6c97265f980a019541e3b797ab130f0fb1af385"
+    },
+    {
+      "file": "TF-3/report.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061623-d2261796/report.json",
+      "source_sha256": "4ea63eb98455b31b8d6dfd8fd0273081d9256de98d2d5e483c5931c28442a24c",
+      "published_sha256": "783c84de0acd0c5fe3236132f6c97265f980a019541e3b797ab130f0fb1af385"
+    },
+    {
+      "file": "TF-3/verification-checks.json",
+      "source_file": ".local/practice/ticket-failure/20260906T061623-d2261796/verification-checks.json",
+      "source_sha256": "7ef89016deb45e754acca84728965ea6f1eff7320c32f2e1d851a1bca0153f01",
+      "published_sha256": "7ef89016deb45e754acca84728965ea6f1eff7320c32f2e1d851a1bca0153f01"
+    },
+    {
+      "file": "case-index.json",
+      "source_file": ".local/ticket-failure-work/case-index.json",
+      "source_sha256": "3b7ff5fd669479de22fbb1c1f1e6753eb2a8e56e2da1b7eb1c487fad2fd8ccb2",
+      "published_sha256": "3b7ff5fd669479de22fbb1c1f1e6753eb2a8e56e2da1b7eb1c487fad2fd8ccb2"
+    },
+    {
+      "file": "batch-verification.json",
+      "source_file": ".local/ticket-failure-work/batch-verification.json",
+      "source_sha256": "e797947794dd8a3c18ac8b6ab7a5f33076fe2072d504ca3a2754db64d524533e",
+      "published_sha256": "e797947794dd8a3c18ac8b6ab7a5f33076fe2072d504ca3a2754db64d524533e"
+    },
+    {
+      "file": "engineering-validation.json",
+      "source_file": ".local/ticket-failure-work/engineering-validation.json",
+      "source_sha256": "2c3b3d37b8a20b1c4b6afb0fdbdefc002baaf1a73bce0a373a429fd3b77c614f",
+      "published_sha256": "2c3b3d37b8a20b1c4b6afb0fdbdefc002baaf1a73bce0a373a429fd3b77c614f"
+    },
+    {
+      "file": "engineering-command.json",
+      "source_file": ".local/ticket-failure-work/engineering-command.json",
+      "source_sha256": "5677dc556024fb8b449c06bf80764f023421ce38936c8e8e6715b0233456b883",
+      "published_sha256": "2ec374dea87f1fc94e6be318cf3d8db2199bb8f2893b6f2968dab3b5efcf6e95"
+    },
+    {
+      "file": "engineering-tests.txt",
+      "source_file": ".local/ticket-failure-work/engineering-tests.txt",
+      "source_sha256": "cab01db77587e32238a91f576273fab80fb3c8ba87000f9af64cff48561aa61e",
+      "published_sha256": "cab01db77587e32238a91f576273fab80fb3c8ba87000f9af64cff48561aa61e"
+    },
+    {
+      "file": "tooling/collect.py",
+      "source_file": ".local/ticket-failure-work/collect.py",
+      "source_sha256": "5d095046dc2d5a94272c2aaa764d8ce726c5e1d4d6b1ad1ca75a7e052b8fdd44",
+      "published_sha256": "5d095046dc2d5a94272c2aaa764d8ce726c5e1d4d6b1ad1ca75a7e052b8fdd44"
+    },
+    {
+      "file": "tooling/verify.py",
+      "source_file": ".local/ticket-failure-work/verify.py",
+      "source_sha256": "9ad91cc9878c33044a904a060d87fdf584fbfcbf48508943c424969926eabef7",
+      "published_sha256": "9ad91cc9878c33044a904a060d87fdf584fbfcbf48508943c424969926eabef7"
+    },
+    {
+      "file": "scripted/20260906T061145-1cead0fd.json",
+      "source_file": ".local/ticket-failure-work/scripted/20260906T061145-1cead0fd/report.json",
+      "source_sha256": "0db4d2d1788b3223e5d4593b36dc68a34a4003a2486729ac4f6926ddb50b17ea",
+      "published_sha256": "4cf18feeadef7d922eb893d887088ecf8fc181729cea28e6b177406d0037a882"
+    },
+    {
+      "file": "scripted/20260906T061145-265f4b19.json",
+      "source_file": ".local/ticket-failure-work/scripted/20260906T061145-265f4b19/report.json",
+      "source_sha256": "2fea69eccf792f7e05ca4b8608dfb64b3b165cdcb3f9d8becdb73fc2139b785e",
+      "published_sha256": "b59237bd497d915959e6c587749fcf4293523ca0070589571b42dde49ecc02c3"
+    },
+    {
+      "file": "scripted/20260906T061145-405afd4f.json",
+      "source_file": ".local/ticket-failure-work/scripted/20260906T061145-405afd4f/report.json",
+      "source_sha256": "a4165331b55377eaac8259f72306abf3d975dbc12beb827562cb1d2858fa09de",
+      "published_sha256": "11b0f99ffb32bb3c7e51faac4951c8c1d9de8b9a6a10bfdd23ebceba8998acd1"
+    },
+    {
+      "file": "scripted/20260906T061145-54c11a46.json",
+      "source_file": ".local/ticket-failure-work/scripted/20260906T061145-54c11a46/report.json",
+      "source_sha256": "fb18b87a34acd69e7745512ea227e12c07d7c09d43559b8498ffa4490c3b3a2a",
+      "published_sha256": "cb4790704a7f2851b36a2fca8f6c3e4bc93c0f8ba03c7f21ae952c55584bcb51"
+    },
+    {
+      "file": "scripted/20260906T061145-f5ce80c2.json",
+      "source_file": ".local/ticket-failure-work/scripted/20260906T061145-f5ce80c2/report.json",
+      "source_sha256": "fa346b86fdabc58b9621438486a0e63c65ed1576957cb95569e52b6ceac4034c",
+      "published_sha256": "d76ebcd7e0e007d736025cd74f2dd24eaf08c67fc17381383d7e3b0adaa49506"
+    }
+  ]
+}

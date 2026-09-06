@@ -16,7 +16,7 @@ from agent_quality_lab.runtime import Completion, ToolCall
 class ConfirmationEntryTests(unittest.TestCase):
     def exercise(self, mode, fault="none"):
         settings = Settings("test-credential")
-        model = scripted_model("refund_timeout" if fault == "refund_timeout" else "normal")
+        model = scripted_model(fault if fault != "none" else "normal")
         if mode == "chat_confirmation":
             model.replies = ScriptedModel(list(model.replies)[:4] + [
                 lambda messages: Completion(tool_calls=[ToolCall("unauthorized-write", "create_refund",
@@ -53,6 +53,16 @@ class ConfirmationEntryTests(unittest.TestCase):
                     return retry(messages)
                 replies[5] = check_before_retry
                 model.replies = ScriptedModel(replies).replies
+            elif fault == "ticket_failure":
+                replies = list(model.replies)
+                retry = replies[-2]
+                def retry_ticket_after_checkpoint(messages):
+                    snapshot = json.loads(next(Path(directory).glob("*/db-after-ticket-failure-1.json")).read_text(encoding="utf-8"))
+                    self.assertEqual(len(snapshot["refunds"]), 1)
+                    self.assertFalse(snapshot["tickets"])
+                    return retry(messages)
+                replies.insert(-1, retry_ticket_after_checkpoint)
+                model.replies = ScriptedModel(replies).replies
             with patch.object(cli, "BusinessTools", side_effect=business), \
                  patch.object(cli.Settings, "load", return_value=settings), \
                  patch.object(cli, "DeepSeekModel", return_value=model), \
@@ -65,6 +75,10 @@ class ConfirmationEntryTests(unittest.TestCase):
                 self.assertEqual(snapshot["refunds"], report["after"]["refunds"])
             else:
                 self.assertFalse(list(Path(directory).glob("*/db-after-timeout.json")))
+            ticket_snapshots = sorted(Path(directory).glob("*/db-after-ticket-failure-*.json"))
+            self.assertEqual(len(ticket_snapshots), 2 if fault == "ticket_failure" else 0)
+            for snapshot in ticket_snapshots:
+                self.assertEqual(json.loads(snapshot.read_text(encoding="utf-8")), report["after"])
             return report, output.getvalue()
 
     def test_cli_approval_displays_real_amount_and_records_user_source(self):
@@ -102,3 +116,27 @@ class ConfirmationEntryTests(unittest.TestCase):
         self.assertLess(checkpoint["sequence"], creates[0]["sequence"])
         self.assertFalse(creates[1]["output"]["data"]["created"])
         self.assertEqual(creates[1]["output"]["data"]["refund"]["id"], refund["id"])
+
+    def test_persistent_ticket_failure_preserves_refund_and_captures_each_attempt(self):
+        report, _ = self.exercise("approved", fault="ticket_failure")
+        self.assertEqual(report["faults"], {"ticket_write_error": 100})
+        self.assertTrue(all(turn["status"] == "responded" for turn in report["turns"]))
+        self.assertEqual(len(report["after"]["refunds"]), 1)
+        self.assertFalse(report["after"]["tickets"])
+        self.assertEqual(report["before"]["invoices"], report["after"]["invoices"])
+        self.assertEqual(report["before"]["payments"], report["after"]["payments"])
+        refund = report["after"]["refunds"][0]
+        creates = [e for e in report["events"] if e["event"] == "tool_result" and e["name"] == "create_refund"]
+        failures = [e for e in report["events"] if e["event"] == "tool_result" and e["name"] == "record_ticket"]
+        checkpoints = [e for e in report["events"] if e["event"] == "fault_checkpoint"]
+        self.assertEqual(len(creates), 1)
+        self.assertTrue(creates[0]["output"]["ok"])
+        self.assertEqual(creates[0]["output"]["data"]["refund"]["id"], refund["id"])
+        self.assertEqual(len(failures), 2)
+        self.assertEqual(len(checkpoints), 2)
+        for number, (failure, checkpoint) in enumerate(zip(failures, checkpoints), 1):
+            self.assertEqual(failure["output"]["error"]["code"], "ticket_write_error")
+            self.assertEqual(checkpoint["refund_id"], refund["id"])
+            self.assertEqual(checkpoint["snapshot_file"], f"db-after-ticket-failure-{number}.json")
+            self.assertLess(creates[0]["sequence"], checkpoint["sequence"])
+            self.assertLess(checkpoint["sequence"], failure["sequence"])

@@ -1,0 +1,22 @@
+{
+  "command": "python -X utf8 -m unittest discover -s tests -v",
+  "exit_code": 0,
+  "passed": 40,
+  "skipped": 0,
+  "source_sha256": {
+    "__init__.py": "30b6955ff9818635dddc00d8fdfd260d790058683b8cadfdf1b4092b6e33bf63",
+    "__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "cli.py": "2782b6292dadba76c209a66b1505398c3c20ddab772b3304e5082ef917f66a49",
+    "domain.py": "ed0a82cca9b346b48f3c480c8004ab24c41b258c00a140a95a9cfb58f0e14e8d",
+    "experiments.py": "b0c44a91e3ff575aebaaeeb3a72cb5731d1a2864e3c2bcb10b021133a13bfe48",
+    "models.py": "cd6dc80e994a385e562eae56e1e4c1f87db93192a437061f6d1cb67490d5920f",
+    "money.py": "b00a9968e2e0213d89eaa900e92f876aa43e75fd10b43a5481e92e8f92f0a426",
+    "prompts.py": "217c5ac05458082c1fe62c7e0d52a243186f5357de3315456ad295a480b1d875",
+    "runtime.py": "9816b8f08301f2ae1dc3f1746072f07f81ada912709f4b9781942be7718b68aa",
+    "demo_data.json": "0ec2f2b53af77d4fd60074a72ae940138ed85392bc23614fc8d48d44f0fbd258"
+  },
+  "engineering_test_sha256": "e10c34fbf13ba43e38b02c0937bff533fcffad3177768b7101b509e2c99a2cfe",
+  "full_output": "engineering-tests.txt",
+  "captured_command": "engineering-command.json",
+  "scope": "Scripted CLI coverage includes two consecutive ticket failures with snapshots and the existing refund timeout regression. Real model coverage is recorded separately."
+}

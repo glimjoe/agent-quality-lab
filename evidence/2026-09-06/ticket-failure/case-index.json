@@ -1,0 +1,17 @@
+[
+  {
+    "id": "TF-1",
+    "session": 36581,
+    "run": ".local/practice/ticket-failure/20260906T061548-81bbf730"
+  },
+  {
+    "id": "TF-2",
+    "session": 79595,
+    "run": ".local/practice/ticket-failure/20260906T061605-44213d13"
+  },
+  {
+    "id": "TF-3",
+    "session": 24024,
+    "run": ".local/practice/ticket-failure/20260906T061623-d2261796"
+  }
+]

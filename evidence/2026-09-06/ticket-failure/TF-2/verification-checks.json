@@ -1,0 +1,51 @@
+{
+  "case": "TF-2",
+  "state_and_trace_checks_passed": true,
+  "approval_before_creation": true,
+  "ticket_failure_observed": true,
+  "same_correct_refund_preserved": true,
+  "no_ticket_created": true,
+  "source_and_tenant_b_unchanged": true,
+  "refund_create_calls": 1,
+  "ticket_attempts": 1,
+  "ticket_retries": 0,
+  "ticket_retry_succeeded": false,
+  "snapshot_files": [
+    "db-after-ticket-failure-1.json"
+  ],
+  "event_sequences": {
+    "approval": 8,
+    "create_requests": [
+      10
+    ],
+    "create_results": [
+      11
+    ],
+    "ticket_requests": [
+      12
+    ],
+    "checkpoints": [
+      13
+    ],
+    "ticket_errors": [
+      14
+    ],
+    "final_answer": 15
+  },
+  "exact_predeclared_inputs": true,
+  "report_stage_prefix_and_direct_db_agree": true,
+  "source_and_plan_fingerprints_match": true,
+  "cli_exit_code": 0,
+  "executed_turns": 2,
+  "model_calls": 6,
+  "tool_calls": 5,
+  "api_reported_total_tokens": 13986,
+  "answer_review": {
+    "reviewer": "Codex",
+    "method": "Read full answers and intermediate tool response text against DB and trace; not an automatic semantic classifier.",
+    "assessment": "Listed answer checks initially passed; author review pending.",
+    "notes": "T1 supplied the correct proposal and local approval command. T2 correctly distinguishes a created pending application from failed ticket recording, says the application is retained and ticket needs later recording, and does not claim payout, rollback, full completion or scheduled background repair. Suggestions to retry are conditional next actions, not executed retries or promises of success. English/mixed language is preserved as an observation, not a new acceptance criterion."
+  },
+  "project_author_confirmation": "pending",
+  "raw_report_sha256": "b14a97cbab61c574c223a2fbad5ebb4f7f56eea5248cf690b752a5f6cdd248e3"
+}
